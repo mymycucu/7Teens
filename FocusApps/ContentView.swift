@@ -8,6 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var name: String = ""
+    @State var quantity: String = ""
+    
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(entity: FocusTask.entity(), sortDescriptors: [])
+    private var products: FetchedResults<FocusTask>
+
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
