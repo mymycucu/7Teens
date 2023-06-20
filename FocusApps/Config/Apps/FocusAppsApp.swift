@@ -13,7 +13,7 @@ struct FocusAppsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(activityName: "")
                 .environment(\.managedObjectContext,
                              persistenceController.container.viewContext)
         }
