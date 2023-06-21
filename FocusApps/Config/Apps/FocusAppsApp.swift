@@ -13,9 +13,12 @@ struct FocusAppsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(activityName: "")
+//            ContentView(activityName: "")
+//                .environment(\.managedObjectContext,
+//                             persistenceController.container.viewContext)
+            TaskMOsView()
                 .environment(\.managedObjectContext,
-                             persistenceController.container.viewContext)
+                              persistenceController.container.viewContext)
         }
     }
 }
