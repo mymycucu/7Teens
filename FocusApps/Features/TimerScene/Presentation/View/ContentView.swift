@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             TabView(selection: $selectedTab) {
-                Text("Second Tab")
+                SummaryView()
                     .tabItem {
                         Image(systemName: "chart.xyaxis.line")
                         Text("Insight")

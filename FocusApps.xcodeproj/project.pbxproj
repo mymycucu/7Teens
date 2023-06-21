@@ -20,6 +20,9 @@
 		AD7285D42A4297A300D8D5AE /* TimerViewModelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285D32A4297A300D8D5AE /* TimerViewModelInput.swift */; };
 		AD7285D62A4297DD00D8D5AE /* TimerViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285D52A4297DD00D8D5AE /* TimerViewModelOutput.swift */; };
 		ADDA4C272A41B4C400A97160 /* CoreDataTestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */; };
+		056A1CE72A41ABD90029B5B9 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CE62A41ABD90029B5B9 /* SummaryView.swift */; };
+		056A1CED2A429AD70029B5B9 /* CircleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CEC2A429AD70029B5B9 /* CircleTest.swift */; };
+		056A1CEF2A42A4460029B5B9 /* MusicSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */; };
 		ADECB3062A3DB566005BA03F /* FocusAppsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3052A3DB566005BA03F /* FocusAppsApp.swift */; };
 		ADECB3082A3DB566005BA03F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3072A3DB566005BA03F /* ContentView.swift */; };
 		ADECB30A2A3DB567005BA03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADECB3092A3DB567005BA03F /* Assets.xcassets */; };
@@ -42,6 +45,9 @@
 		AD7285D32A4297A300D8D5AE /* TimerViewModelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModelInput.swift; sourceTree = "<group>"; };
 		AD7285D52A4297DD00D8D5AE /* TimerViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModelOutput.swift; sourceTree = "<group>"; };
 		ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestingView.swift; sourceTree = "<group>"; };
+		056A1CE62A41ABD90029B5B9 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		056A1CEC2A429AD70029B5B9 /* CircleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTest.swift; sourceTree = "<group>"; };
+		056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelection.swift; sourceTree = "<group>"; };
 		ADECB3022A3DB566005BA03F /* FocusApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADECB3052A3DB566005BA03F /* FocusAppsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusAppsApp.swift; sourceTree = "<group>"; };
 		ADECB3072A3DB566005BA03F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,8 +74,11 @@
 				056A1CDD2A41A43E0029B5B9 /* TaskView.swift */,
 				056A1CDA2A41A42E0029B5B9 /* FocusView.swift */,
 				056A1CD92A41A42E0029B5B9 /* TimerPickerView.swift */,
+				056A1CEC2A429AD70029B5B9 /* CircleTest.swift */,
 				ADECB3072A3DB566005BA03F /* ContentView.swift */,
 				ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */,
+				056A1CE62A41ABD90029B5B9 /* SummaryView.swift */,
+				056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -303,6 +312,8 @@
 				056A1CE02A41A4480029B5B9 /* TimeManager.swift in Sources */,
 				ADECB31B2A3DB8FB005BA03F /* FocusData.xcdatamodeld in Sources */,
 				AD7285D42A4297A300D8D5AE /* TimerViewModelInput.swift in Sources */,
+				056A1CED2A429AD70029B5B9 /* CircleTest.swift in Sources */,
+				056A1CE72A41ABD90029B5B9 /* SummaryView.swift in Sources */,
 				056A1CDC2A41A42E0029B5B9 /* FocusView.swift in Sources */,
 				056A1CDB2A41A42E0029B5B9 /* TimerPickerView.swift in Sources */,
 				056A1CDE2A41A43E0029B5B9 /* TaskView.swift in Sources */,
@@ -310,6 +321,7 @@
 				AD7285C72A41FC4900D8D5AE /* TaskMOsView.swift in Sources */,
 				ADECB3262A3DBAD2005BA03F /* Presistance.swift in Sources */,
 				ADECB3082A3DB566005BA03F /* ContentView.swift in Sources */,
+				056A1CEF2A42A4460029B5B9 /* MusicSelection.swift in Sources */,
 				ADECB3062A3DB566005BA03F /* FocusAppsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

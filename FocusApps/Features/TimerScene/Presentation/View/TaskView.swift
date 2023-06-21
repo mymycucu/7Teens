@@ -10,22 +10,38 @@ import SwiftUI
 struct TaskView: View {
     @State private var items = ["Item 1", "Item 2", "Item 3"]
     var body: some View {
-        VStack{
+        VStack {
             List {
                 ForEach(items, id: \.self) { item in
                     Text(item)
-                        .contextMenu {
+                        .swipeActions(edge: .trailing) {
+                            // Delete action
                             Button(action: {
-                                // Rename action
-                                // Implement your logic for renaming the item
+                                items.removeAll { $0 == item }
+                                print("Deleting \(item)...")
+                            }) {
+                                Label("Delete", systemImage: "trash")
+                            }
+                            .tint(.red)
+                        }
+                        .swipeActions(edge: .leading) {
+                            // Pin action
+                            Button(action: {
+                                print("Pinning \(item)...")
+                            }) {
+                                Label("Pin", systemImage: "pin")
+                            }
+                            .tint(.yellow)
+                        }
+                        .contextMenu {
+                            // Context menu actions (rename, delete, pin)
+                            Button(action: {
                                 print("Renaming \(item)...")
                             }) {
                                 Label("Rename", systemImage: "square.and.pencil")
                             }
                             
                             Button(action: {
-                                // Delete action
-                                // Implement your logic for deleting the item
                                 items.removeAll { $0 == item }
                                 print("Deleting \(item)...")
                             }) {
@@ -33,17 +49,21 @@ struct TaskView: View {
                             }
                             
                             Button(action: {
-                                // Pin action
-                                // Implement your logic for pinning the item
                                 print("Pinning \(item)...")
                             }) {
                                 Label("Pin", systemImage: "pin")
                             }
                         }
                 }
+                .onMove { indices, newOffset in
+                    items.move(fromOffsets: indices, toOffset: newOffset)
+                }
             }
-        }.navigationTitle("Uncompleted Task")
+        }
+        .navigationBarTitle("Uncompleted Task")
+
     }
+
 }
 
 
