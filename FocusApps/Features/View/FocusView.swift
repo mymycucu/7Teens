@@ -10,19 +10,49 @@ import SwiftUI
 struct FocusView: View {
     @Binding var activityName: String
     @ObservedObject var timerManager: TimerManager
+    @State private var isModalVisible = false
     
     var body: some View {
         VStack {
+            Text("3 Days Streak!")
+                .font(.system(size: 16,weight: .medium))
+                .padding()
+                .frame(width: 140, height: 41)
+                .foregroundColor(.white)
+                .background(.blue)
+                .cornerRadius(15)
+            
             TextField("Write your activity", text: $activityName)
                 .multilineTextAlignment(.center)
                 .padding()
             
-            Text(timerManager.formattedTime())
-                .font(.largeTitle)
-                .padding()
+//            Text(timerManager.formattedTime())
+//                .font(.largeTitle)
+//                .padding()
             
+            
+            //Timer
             if !timerManager.timerIsRunning {
                 TimePickerView(timerManager: timerManager)
+                
+                //Music Picker
+                Button(action: {
+                    isModalVisible = true
+                }) {
+                    HStack {
+                        Image(systemName: "music.note")
+                            .foregroundColor(.blue)
+                        Text("Music Name")
+                            .foregroundColor(.blue)
+                    }
+//                        .frame(width: 170, height: 52)
+                }
+                .padding()
+                .sheet(isPresented: $isModalVisible) {
+                        // Your modal content view here
+                        MusicSelection()
+                        .presentationDetents([.medium, .large])
+                    }
                 
                 Button(action: {
                     timerManager.startTimer()
@@ -37,6 +67,7 @@ struct FocusView: View {
                 }
                 .padding()
                 
+                //Uncompleted Task
                 Button(action: {
                     // Handle button action here if needed
                     // For example, perform some tasks before navigating
@@ -55,6 +86,11 @@ struct FocusView: View {
                 }
                 .padding()
             } else {
+                
+                Text(timerManager.formattedTime())
+                .font(.largeTitle)
+                .padding()
+                
                 Button(action: {
                     SoundController.instance.player?.stop()
                     timerManager.stopTimer()
