@@ -13,32 +13,33 @@ struct ContentView: View {
     @State var selectedTab = 1
     
     var body: some View {
-        NavigationView{
-            TabView(selection: $selectedTab) {
-                SummaryView()
-                    .tabItem {
-                        Image(systemName: "chart.xyaxis.line")
-                        Text("Insight")
-                    }
-                    .tag(0)
-                
-                //Focus Page
-                FocusView(activityName: $activityName, timerManager: timerManager)
-                    .tabItem {
-                        Image(systemName: "clock")
-                        Text("Focus")
-                    }
-                    .tag(1)
-                
-                //Uncompleted Task
-                Text("Second Tab")
-                    .tabItem {
-                        Image(systemName: "circle")
-                        Text("Tab 2")
-                    }
-                    .tag(2)
-            }
+        
+        TabView(selection: $selectedTab) {
+            
+            // Focus Page
+            FocusView(activityName: $activityName, timerManager: timerManager)
+                .tabItem {
+                    Label("Focus", systemImage: "clock")
+                }
+
+            
+            SummaryView()
+                .tabItem {
+                    Label("Insight", systemImage: "chart.xyaxis.line")
+                }
+            
+            // Uncompleted Task
+            ShopView()
+                .tabItem {
+                    Label("Shop", systemImage: "clock")
+                }
+
         }
+//        NavigationView{
+//
+//            // Apply tab bar appearance
+//
+//        }
     }
 }
 
