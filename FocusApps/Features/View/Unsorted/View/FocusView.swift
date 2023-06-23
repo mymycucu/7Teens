@@ -111,8 +111,8 @@ struct FocusView: View {
     }
 }
 
-//struct FocusView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FocusView(activityName: "j", timerManager: <#TimerManager#>)
-//    }
-//}
+struct FocusView_Previews: PreviewProvider {
+    static var previews: some View {
+        FocusView(activityName: .constant(""), timerManager: TimerManager())
+    }
+}
