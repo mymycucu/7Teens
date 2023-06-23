@@ -13,22 +13,26 @@
 		056A1CE02A41A4480029B5B9 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CDF2A41A4480029B5B9 /* TimeManager.swift */; };
 		056A1CE22A41A4590029B5B9 /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CE12A41A4590029B5B9 /* SoundController.swift */; };
 		056A1CE52A41A4750029B5B9 /* ambient.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 056A1CE42A41A4750029B5B9 /* ambient.mp3 */; };
-		AD7285C72A41FC4900D8D5AE /* TaskMOsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285C62A41FC4900D8D5AE /* TaskMOsView.swift */; };
-		AD7285C92A4209F600D8D5AE /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285C82A4209F600D8D5AE /* SessionView.swift */; };
-		AD7285CB2A420E5C00D8D5AE /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285CA2A420E5C00D8D5AE /* ActivityView.swift */; };
-		AD7285D22A4296F100D8D5AE /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285D12A4296F100D8D5AE /* TimerViewModel.swift */; };
-		AD7285D42A4297A300D8D5AE /* TimerViewModelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285D32A4297A300D8D5AE /* TimerViewModelInput.swift */; };
-		AD7285D62A4297DD00D8D5AE /* TimerViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285D52A4297DD00D8D5AE /* TimerViewModelOutput.swift */; };
-		ADDA4C272A41B4C400A97160 /* CoreDataTestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */; };
 		056A1CE72A41ABD90029B5B9 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CE62A41ABD90029B5B9 /* SummaryView.swift */; };
 		056A1CED2A429AD70029B5B9 /* CircleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CEC2A429AD70029B5B9 /* CircleTest.swift */; };
 		056A1CEF2A42A4460029B5B9 /* MusicSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */; };
+		AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACD7E2A443EA200E7691E /* CharacterMO+Extention.swift */; };
+		AD4ACD812A45171200E7691E /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACD802A45171200E7691E /* TimerViewModel.swift */; };
+		AD7285C72A41FC4900D8D5AE /* TaskMOsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285C62A41FC4900D8D5AE /* TaskMOsView.swift */; };
+		AD7285C92A4209F600D8D5AE /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285C82A4209F600D8D5AE /* SessionView.swift */; };
+		AD7285CB2A420E5C00D8D5AE /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285CA2A420E5C00D8D5AE /* ActivityView.swift */; };
+		ADD5E4EC2A42E9AE00624B0F /* TaskMO+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5E4EB2A42E9AE00624B0F /* TaskMO+Extention.swift */; };
+		ADD5E4EE2A42ECC500624B0F /* SessionMO+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5E4ED2A42ECC500624B0F /* SessionMO+Extention.swift */; };
+		ADD5E4F32A43E91500624B0F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5E4F22A43E91500624B0F /* AppState.swift */; };
+		ADD5E4F52A43EDA300624B0F /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5E4F42A43EDA300624B0F /* UserDefaultManager.swift */; };
+		ADD5E4F72A43EDF900624B0F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5E4F62A43EDF900624B0F /* Constant.swift */; };
+		ADDA4C272A41B4C400A97160 /* CoreDataTestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */; };
 		ADECB3062A3DB566005BA03F /* FocusAppsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3052A3DB566005BA03F /* FocusAppsApp.swift */; };
 		ADECB3082A3DB566005BA03F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3072A3DB566005BA03F /* ContentView.swift */; };
 		ADECB30A2A3DB567005BA03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADECB3092A3DB567005BA03F /* Assets.xcassets */; };
 		ADECB30D2A3DB567005BA03F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADECB30C2A3DB567005BA03F /* Preview Assets.xcassets */; };
 		ADECB31B2A3DB8FB005BA03F /* FocusData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3192A3DB8FB005BA03F /* FocusData.xcdatamodeld */; };
-		ADECB3262A3DBAD2005BA03F /* Presistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3252A3DBAD2005BA03F /* Presistance.swift */; };
+		ADECB3262A3DBAD2005BA03F /* PresistanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3252A3DBAD2005BA03F /* PresistanceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,23 +42,27 @@
 		056A1CDF2A41A4480029B5B9 /* TimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		056A1CE12A41A4590029B5B9 /* SoundController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
 		056A1CE42A41A4750029B5B9 /* ambient.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient.mp3; sourceTree = "<group>"; };
-		AD7285C62A41FC4900D8D5AE /* TaskMOsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMOsView.swift; sourceTree = "<group>"; };
-		AD7285C82A4209F600D8D5AE /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
-		AD7285CA2A420E5C00D8D5AE /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
-		AD7285D12A4296F100D8D5AE /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
-		AD7285D32A4297A300D8D5AE /* TimerViewModelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModelInput.swift; sourceTree = "<group>"; };
-		AD7285D52A4297DD00D8D5AE /* TimerViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModelOutput.swift; sourceTree = "<group>"; };
-		ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestingView.swift; sourceTree = "<group>"; };
 		056A1CE62A41ABD90029B5B9 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		056A1CEC2A429AD70029B5B9 /* CircleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTest.swift; sourceTree = "<group>"; };
 		056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelection.swift; sourceTree = "<group>"; };
+		AD4ACD7E2A443EA200E7691E /* CharacterMO+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+Extention.swift"; sourceTree = "<group>"; };
+		AD4ACD802A45171200E7691E /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		AD7285C62A41FC4900D8D5AE /* TaskMOsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMOsView.swift; sourceTree = "<group>"; };
+		AD7285C82A4209F600D8D5AE /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		AD7285CA2A420E5C00D8D5AE /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		ADD5E4EB2A42E9AE00624B0F /* TaskMO+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskMO+Extention.swift"; sourceTree = "<group>"; };
+		ADD5E4ED2A42ECC500624B0F /* SessionMO+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionMO+Extention.swift"; sourceTree = "<group>"; };
+		ADD5E4F22A43E91500624B0F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		ADD5E4F42A43EDA300624B0F /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		ADD5E4F62A43EDF900624B0F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestingView.swift; sourceTree = "<group>"; };
 		ADECB3022A3DB566005BA03F /* FocusApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADECB3052A3DB566005BA03F /* FocusAppsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusAppsApp.swift; sourceTree = "<group>"; };
 		ADECB3072A3DB566005BA03F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ADECB3092A3DB567005BA03F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADECB30C2A3DB567005BA03F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ADECB31A2A3DB8FB005BA03F /* FocusData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FocusData.xcdatamodel; sourceTree = "<group>"; };
-		ADECB3252A3DBAD2005BA03F /* Presistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presistance.swift; sourceTree = "<group>"; };
+		ADECB3252A3DBAD2005BA03F /* PresistanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresistanceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +83,6 @@
 				056A1CDA2A41A42E0029B5B9 /* FocusView.swift */,
 				056A1CD92A41A42E0029B5B9 /* TimerPickerView.swift */,
 				056A1CEC2A429AD70029B5B9 /* CircleTest.swift */,
-				ADECB3072A3DB566005BA03F /* ContentView.swift */,
 				ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */,
 				056A1CE62A41ABD90029B5B9 /* SummaryView.swift */,
 				056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */,
@@ -100,9 +107,25 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		AD4ACD7D2A442C7800E7691E /* TimerScene */ = {
+			isa = PBXGroup;
+			children = (
+				AD4ACD9F2A457EF000E7691E /* Component */,
+			);
+			path = TimerScene;
+			sourceTree = "<group>";
+		};
+		AD4ACD9F2A457EF000E7691E /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		AD7285C42A41FC0A00D8D5AE /* CoreDataScene */ = {
 			isa = PBXGroup;
 			children = (
+				ADD5E4F12A42F16900624B0F /* Component */,
 				AD7285C62A41FC4900D8D5AE /* TaskMOsView.swift */,
 				AD7285C82A4209F600D8D5AE /* SessionView.swift */,
 				AD7285CA2A420E5C00D8D5AE /* ActivityView.swift */,
@@ -110,40 +133,47 @@
 			path = CoreDataScene;
 			sourceTree = "<group>";
 		};
-		AD7285CC2A42934800D8D5AE /* TimerScene */ = {
+		AD7285CC2A42934800D8D5AE /* Unsorted */ = {
 			isa = PBXGroup;
 			children = (
-				AD7285CE2A4293A200D8D5AE /* Presentation */,
-			);
-			path = TimerScene;
-			sourceTree = "<group>";
-		};
-		AD7285CE2A4293A200D8D5AE /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				AD7285CF2A42967700D8D5AE /* ViewModels */,
 				056A1CD82A41A4190029B5B9 /* Components */,
 				056A1CD72A41A40F0029B5B9 /* View */,
 			);
-			path = Presentation;
+			path = Unsorted;
 			sourceTree = "<group>";
 		};
-		AD7285CF2A42967700D8D5AE /* ViewModels */ = {
+		ADD5E4EF2A42F13500624B0F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AD7285D02A4296A600D8D5AE /* TimerViewModel */,
+				AD4ACD802A45171200E7691E /* TimerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		AD7285D02A4296A600D8D5AE /* TimerViewModel */ = {
+		ADD5E4F02A42F14600624B0F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AD7285D12A4296F100D8D5AE /* TimerViewModel.swift */,
-				AD7285D32A4297A300D8D5AE /* TimerViewModelInput.swift */,
-				AD7285D52A4297DD00D8D5AE /* TimerViewModelOutput.swift */,
+				ADECB3072A3DB566005BA03F /* ContentView.swift */,
+				AD7285CC2A42934800D8D5AE /* Unsorted */,
+				AD4ACD7D2A442C7800E7691E /* TimerScene */,
+				AD7285C42A41FC0A00D8D5AE /* CoreDataScene */,
 			);
-			path = TimerViewModel;
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADD5E4F12A42F16900624B0F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		ADD5E4F82A43EE1D00624B0F /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				ADD5E4F62A43EDF900624B0F /* Constant.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		ADECB2F92A3DB566005BA03F = {
@@ -194,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				ADECB3052A3DB566005BA03F /* FocusAppsApp.swift */,
+				ADD5E4F22A43E91500624B0F /* AppState.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -210,9 +241,9 @@
 		ADECB3162A3DB73B005BA03F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				ADECB31C2A3DB9B2005BA03F /* CoreDataModel */,
-				ADECB3192A3DB8FB005BA03F /* FocusData.xcdatamodeld */,
-				ADECB3252A3DBAD2005BA03F /* Presistance.swift */,
+				ADD5E4F82A43EE1D00624B0F /* Constant */,
+				ADECB3252A3DBAD2005BA03F /* PresistanceController.swift */,
+				ADD5E4F42A43EDA300624B0F /* UserDefaultManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -220,17 +251,22 @@
 		ADECB3182A3DB7D8005BA03F /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				AD7285CC2A42934800D8D5AE /* TimerScene */,
-				AD7285C42A41FC0A00D8D5AE /* CoreDataScene */,
+				ADD5E4F02A42F14600624B0F /* View */,
+				ADD5E4EF2A42F13500624B0F /* ViewModels */,
+				ADECB31C2A3DB9B2005BA03F /* Models */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		ADECB31C2A3DB9B2005BA03F /* CoreDataModel */ = {
+		ADECB31C2A3DB9B2005BA03F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ADECB3192A3DB8FB005BA03F /* FocusData.xcdatamodeld */,
+				ADD5E4EB2A42E9AE00624B0F /* TaskMO+Extention.swift */,
+				ADD5E4ED2A42ECC500624B0F /* SessionMO+Extention.swift */,
+				AD4ACD7E2A443EA200E7691E /* CharacterMO+Extention.swift */,
 			);
-			path = CoreDataModel;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,23 +340,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD7285D22A4296F100D8D5AE /* TimerViewModel.swift in Sources */,
 				ADDA4C272A41B4C400A97160 /* CoreDataTestingView.swift in Sources */,
+				ADD5E4F52A43EDA300624B0F /* UserDefaultManager.swift in Sources */,
 				056A1CE22A41A4590029B5B9 /* SoundController.swift in Sources */,
-				AD7285D62A4297DD00D8D5AE /* TimerViewModelOutput.swift in Sources */,
 				AD7285CB2A420E5C00D8D5AE /* ActivityView.swift in Sources */,
+				AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */,
 				056A1CE02A41A4480029B5B9 /* TimeManager.swift in Sources */,
 				ADECB31B2A3DB8FB005BA03F /* FocusData.xcdatamodeld in Sources */,
-				AD7285D42A4297A300D8D5AE /* TimerViewModelInput.swift in Sources */,
 				056A1CED2A429AD70029B5B9 /* CircleTest.swift in Sources */,
 				056A1CE72A41ABD90029B5B9 /* SummaryView.swift in Sources */,
+				ADD5E4F72A43EDF900624B0F /* Constant.swift in Sources */,
 				056A1CDC2A41A42E0029B5B9 /* FocusView.swift in Sources */,
 				056A1CDB2A41A42E0029B5B9 /* TimerPickerView.swift in Sources */,
 				056A1CDE2A41A43E0029B5B9 /* TaskView.swift in Sources */,
+				AD4ACD812A45171200E7691E /* TimerViewModel.swift in Sources */,
 				AD7285C92A4209F600D8D5AE /* SessionView.swift in Sources */,
 				AD7285C72A41FC4900D8D5AE /* TaskMOsView.swift in Sources */,
-				ADECB3262A3DBAD2005BA03F /* Presistance.swift in Sources */,
+				ADECB3262A3DBAD2005BA03F /* PresistanceController.swift in Sources */,
 				ADECB3082A3DB566005BA03F /* ContentView.swift in Sources */,
+				ADD5E4F32A43E91500624B0F /* AppState.swift in Sources */,
+				ADD5E4EE2A42ECC500624B0F /* SessionMO+Extention.swift in Sources */,
+				ADD5E4EC2A42E9AE00624B0F /* TaskMO+Extention.swift in Sources */,
 				056A1CEF2A42A4460029B5B9 /* MusicSelection.swift in Sources */,
 				ADECB3062A3DB566005BA03F /* FocusAppsApp.swift in Sources */,
 			);
