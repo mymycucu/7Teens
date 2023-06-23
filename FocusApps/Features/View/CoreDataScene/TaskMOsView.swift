@@ -8,20 +8,15 @@
 import SwiftUI
 
 struct TaskMOsView: View {
-//    @Environment(\.managedObjectContext) private var viewContext
     let persistenceController = PersistenceController.shared
-    let taskMOs : FetchRequest<TaskMO>
-    
-    init(){
-        taskMOs = FetchRequest<TaskMO>(entity: TaskMO.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \TaskMO.createdAt, ascending: false)])
-    }
-    
+    @EnvironmentObject var appState: AppState
+
     var body: some View {
         NavigationView {
             VStack {
                 Section {
                     List {
-                        ForEach(taskMOs.wrappedValue) { task in
+                        ForEach(appState.taskMOList ?? []) { task in
                             NavigationLink {
                                 SessionView(taskMO: task)
                                     .navigationTitle("\(task.name!) Session")
@@ -44,11 +39,11 @@ struct TaskMOsView: View {
         }
     }
 }
-
 //struct TaskMOsView_Previews: PreviewProvider {
-//    static var persistenceController = PersistenceController.shared
 //    static var previews: some View {
-//        TaskMOsView().environment(\.managedObjectContext,
-//                                    persistenceController.container.viewContext)
+//        TaskMOsView()
+//            .environmentObject(AppState())
+//            .environment(\.managedObjectContext,
+//                          PersistenceController.shared.container.viewContext)
 //    }
 //}

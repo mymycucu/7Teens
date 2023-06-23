@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var appState: AppState
     @StateObject private var timerManager = TimerManager()
     @State var activityName: String
     @State var selectedTab = 1
@@ -15,7 +16,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             TabView(selection: $selectedTab) {
-                SummaryView()
+                TaskMOsView()
+                    .environmentObject(AppState())
                     .tabItem {
                         Image(systemName: "chart.xyaxis.line")
                         Text("Insight")

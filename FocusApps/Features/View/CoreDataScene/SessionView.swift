@@ -13,19 +13,9 @@ struct SessionView: View {
     
     let taskMO : TaskMO
     
-    var sessionMOs : [SessionMO]
-    
-    init(taskMO : TaskMO){
-        self.taskMO = taskMO
-        
-        self.sessionMOs = taskMO.session?.allObjects as! [SessionMO]
-        self.sessionMOs = self.sessionMOs.sorted(by: {$0.createdAt! < $1.createdAt!})
-        
-    }
-    
     var body: some View {
         
-            ForEach(sessionMOs) { session in
+        ForEach(taskMO.sessionMOList) { session in
                 VStack{
                     Text("\(session.createdAt!)")
                     ActivityView(sessionMO: session)

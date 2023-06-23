@@ -44,7 +44,7 @@ struct CoreDataTestingView: View {
         let newTaskMO = TaskMO(context: viewContext)
         newTaskMO.name = "Task \(numTask)"
         newTaskMO.createdAt = Date()
-        newTaskMO.is_done = false
+        newTaskMO.isDone = false
         do {
             try viewContext.save()
             numTask += 1

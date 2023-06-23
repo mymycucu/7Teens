@@ -10,21 +10,12 @@ import SwiftUI
 struct ActivityView: View {
     @Environment(\.managedObjectContext) private var viewContext
     let persistenceController = PersistenceController.shared
-    
     var sessionMO : SessionMO
-    var activityMOs : [SessionActivityMO]
-    
-    init(sessionMO : SessionMO){
-        self.sessionMO = sessionMO
-        
-        self.activityMOs = sessionMO.activity?.allObjects as! [SessionActivityMO]
-        self.activityMOs = self.activityMOs.sorted(by: {$0.createdAt! < $1.createdAt!})
-    }
     
     var body: some View {
         List {
-            ForEach(activityMOs) { activity in
-                Text("\(getActivityType(type:Int(activity.type))) - \(activity.duration/60) min")
+            ForEach(sessionMO.activityMOList) { activity in
+                Text("\(getActivityType(type:Int(activity.type))) - \(activity.duration/60) min - \(getIsToday(date:(activity.createdAt ?? Date())))")
             }
         }
     }
@@ -37,8 +28,18 @@ struct ActivityView: View {
         } else {
             return "error"
         }
-            
     }
+    func getIsToday(date: Date) -> String{
+        let currentDate = Date()
+        let calendar = Calendar.current
+        
+        if calendar.isDate(date, inSameDayAs: currentDate) {
+            return "today"
+        } else {
+            return "not today"
+        }
+    }
+    
 }
 
 //struct ActivityView_Previews: PreviewProvider {

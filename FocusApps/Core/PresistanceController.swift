@@ -11,6 +11,10 @@ struct PersistenceController {
     static let shared = PersistenceController()
     
     let container: NSPersistentCloudKitContainer
+    
+    var viewContext: NSManagedObjectContext {
+        return container.viewContext
+    }
 
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "FocusData")
@@ -19,21 +23,33 @@ struct PersistenceController {
         }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
+    }
+    
+    func create<T: NSManagedObject>(_ type: T.Type) -> T? {
+        guard let entityName = T.entity().name else {
+            return nil
+        }
+        let object = NSEntityDescription.insertNewObject(forEntityName: entityName, into: container.viewContext) as? T
+        return object
+    }
+    
+    func save() throws {
+        if container.viewContext.hasChanges {
+            do {
+                try container.viewContext.save()
+            } catch {
+                let nserror = error as NSError
+                throw nserror
+            }
+        }
+    }
+    
+    func delete(_ object: NSManagedObject) {
+        container.viewContext.delete(object)
     }
     
     func createSampleData(){
@@ -43,28 +59,28 @@ struct PersistenceController {
         task.id = UUID()
         task.name = "Belajar SwiftUI"
         task.createdAt = Date()
-        task.is_done = false
+        task.isDone = false
         
         let session1 = SessionMO(context: viewContext)
         session1.id = UUID()
         session1.createdAt = Date()
         session1.task = task
         
-        let activity1 = SessionActivityMO(context: viewContext)
+        let activity1 = ActivityMO(context: viewContext)
         activity1.id = UUID()
         activity1.createdAt = Date()
         activity1.type = 1
         activity1.duration = 1800
         activity1.session = session1
         
-        let activity2 = SessionActivityMO(context: viewContext)
+        let activity2 = ActivityMO(context: viewContext)
         activity2.id = UUID()
         activity2.createdAt = Date()
         activity2.type = 0
         activity2.duration = 300
         activity2.session = session1
         
-        let activity3 = SessionActivityMO(context: viewContext)
+        let activity3 = ActivityMO(context: viewContext)
         activity3.id = UUID()
         activity3.createdAt = Date()
         activity3.type = 1
@@ -75,14 +91,14 @@ struct PersistenceController {
         task1.id = UUID()
         task1.name = "Belajar hangeul"
         task1.createdAt = Date()
-        task1.is_done = true
+        task1.isDone = true
         
         let session2 = SessionMO(context: viewContext)
         session2.id = UUID()
         session2.createdAt = Date()
         session2.task = task1
         
-        let activity4 = SessionActivityMO(context: viewContext)
+        let activity4 = ActivityMO(context: viewContext)
         activity4.id = UUID()
         activity4.createdAt = Date()
         activity4.type = 1
@@ -94,14 +110,14 @@ struct PersistenceController {
         session3.createdAt = Date()
         session3.task = task1
         
-        let activity5 = SessionActivityMO(context: viewContext)
+        let activity5 = ActivityMO(context: viewContext)
         activity5.id = UUID()
         activity5.createdAt = Date()
         activity5.type = 1
         activity5.duration = 1200
         activity5.session = session3
         
-        let activity6 = SessionActivityMO(context: viewContext)
+        let activity6 = ActivityMO(context: viewContext)
         activity6.id = UUID()
         activity6.createdAt = Date()
         activity6.type = 0
