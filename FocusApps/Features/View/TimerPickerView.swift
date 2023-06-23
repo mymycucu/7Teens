@@ -13,7 +13,8 @@ struct TimePickerView: View {
     var body: some View {
             ZStack {
                 Circle()
-                    .stroke(Color.blue, lineWidth: 1.5)
+                    .fill(.blue)
+//                    .stroke(Color.blue, lineWidth: 1.5)
                     .frame(width: 250, height: 250)
                 
                 HStack {

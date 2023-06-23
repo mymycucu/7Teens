@@ -21,14 +21,14 @@ struct FocusView: View {
                 //Streak
                 HStack {
                     Image(systemName: "flame.fill")
-                        .foregroundColor(.white)
+                        .foregroundColor(.red)
                     
                     Text("3")
                         .foregroundColor(.white)
                 }
                 .frame(width: 40, height: 20)
                 .padding(8)
-                .background(.blue)
+                .background(.yellow)
                 .cornerRadius(6)
                 
                 Spacer()
@@ -45,7 +45,7 @@ struct FocusView: View {
                 .padding()
                 .frame(width: 20, height: 20)
                 .padding(8)
-                .background(.blue)
+                .background(.yellow)
                 .cornerRadius(6)
                 .sheet(isPresented: $isModalVisible) {
                         // Your modal content view here
@@ -68,14 +68,16 @@ struct FocusView: View {
                 TimePickerView(timerManager: timerManager)
                 
                 //Cycle
-                Text("Cycle:")
-                    .padding()
-                Picker("Options", selection: $selectedOption) {
-                    ForEach(0..<options.count) { index in
-                        Text(options[index])
+                HStack {
+                    Text("Cycle: ")
+                    Picker("One", selection: $selectedOption) {
+                        ForEach(0..<options.count) { index in
+                            Text(options[index])
+                        }
                     }
+                    .pickerStyle(MenuPickerStyle())
                 }
-                .pickerStyle(MenuPickerStyle()) // Apply a dropdown style
+
                
                 //Start Button
                 Button(action: {
@@ -111,6 +113,6 @@ struct FocusView: View {
 
 //struct FocusView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        FocusView()
+//        FocusView(activityName: "j", timerManager: <#TimerManager#>)
 //    }
 //}
