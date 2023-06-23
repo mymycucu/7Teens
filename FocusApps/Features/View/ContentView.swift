@@ -14,6 +14,7 @@ struct ContentView: View {
     @State var selectedTab = 1
     
     var body: some View {
+<<<<<<< HEAD
         NavigationView{
             TabView(selection: $selectedTab) {
                 TaskMOsView()
@@ -40,7 +41,35 @@ struct ContentView: View {
                     }
                     .tag(2)
             }
+=======
+        
+        TabView(selection: $selectedTab) {
+            
+            // Focus Page
+            FocusView(activityName: $activityName, timerManager: timerManager)
+                .tabItem {
+                    Label("Focus", systemImage: "clock")
+                }
+
+            
+            SummaryView()
+                .tabItem {
+                    Label("Insight", systemImage: "chart.xyaxis.line")
+                }
+            
+            // Uncompleted Task
+            ShopView()
+                .tabItem {
+                    Label("Shop", systemImage: "clock")
+                }
+
+>>>>>>> b2c49408374a3ea9f71aa41d8a89da0b4fa84e7b
         }
+//        NavigationView{
+//
+//            // Apply tab bar appearance
+//
+//        }
     }
 }
 

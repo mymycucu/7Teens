@@ -27,6 +27,8 @@
 		ADD5E4F52A43EDA300624B0F /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5E4F42A43EDA300624B0F /* UserDefaultManager.swift */; };
 		ADD5E4F72A43EDF900624B0F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5E4F62A43EDF900624B0F /* Constant.swift */; };
 		ADDA4C272A41B4C400A97160 /* CoreDataTestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */; };
+		056A1CF12A43FE0F0029B5B9 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CF02A43FE0F0029B5B9 /* ShopView.swift */; };
+		056A1D0D2A4438EE0029B5B9 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1D0C2A4438EE0029B5B9 /* Items.swift */; };
 		ADECB3062A3DB566005BA03F /* FocusAppsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3052A3DB566005BA03F /* FocusAppsApp.swift */; };
 		ADECB3082A3DB566005BA03F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3072A3DB566005BA03F /* ContentView.swift */; };
 		ADECB30A2A3DB567005BA03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADECB3092A3DB567005BA03F /* Assets.xcassets */; };
@@ -56,6 +58,8 @@
 		ADD5E4F42A43EDA300624B0F /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		ADD5E4F62A43EDF900624B0F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestingView.swift; sourceTree = "<group>"; };
+		056A1CF02A43FE0F0029B5B9 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		056A1D0C2A4438EE0029B5B9 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		ADECB3022A3DB566005BA03F /* FocusApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADECB3052A3DB566005BA03F /* FocusAppsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusAppsApp.swift; sourceTree = "<group>"; };
 		ADECB3072A3DB566005BA03F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */,
 				056A1CE62A41ABD90029B5B9 /* SummaryView.swift */,
 				056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */,
+				056A1CF02A43FE0F0029B5B9 /* ShopView.swift */,
+				056A1D0C2A4438EE0029B5B9 /* Items.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				AD7285CB2A420E5C00D8D5AE /* ActivityView.swift in Sources */,
 				AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */,
 				056A1CE02A41A4480029B5B9 /* TimeManager.swift in Sources */,
+				056A1CF12A43FE0F0029B5B9 /* ShopView.swift in Sources */,
 				ADECB31B2A3DB8FB005BA03F /* FocusData.xcdatamodeld in Sources */,
 				056A1CED2A429AD70029B5B9 /* CircleTest.swift in Sources */,
 				056A1CE72A41ABD90029B5B9 /* SummaryView.swift in Sources */,
@@ -357,6 +364,7 @@
 				AD7285C92A4209F600D8D5AE /* SessionView.swift in Sources */,
 				AD7285C72A41FC4900D8D5AE /* TaskMOsView.swift in Sources */,
 				ADECB3262A3DBAD2005BA03F /* PresistanceController.swift in Sources */,
+				056A1D0D2A4438EE0029B5B9 /* Items.swift in Sources */,
 				ADECB3082A3DB566005BA03F /* ContentView.swift in Sources */,
 				ADD5E4F32A43E91500624B0F /* AppState.swift in Sources */,
 				ADD5E4EE2A42ECC500624B0F /* SessionMO+Extention.swift in Sources */,
@@ -491,7 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FocusApps/Preview Content\"";
-				DEVELOPMENT_TEAM = 7UW53Z6Q89;
+				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -520,7 +528,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FocusApps/Preview Content\"";
-				DEVELOPMENT_TEAM = 7UW53Z6Q89;
+				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

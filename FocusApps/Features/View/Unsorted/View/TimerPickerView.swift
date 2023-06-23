@@ -16,31 +16,26 @@ struct TimePickerView: View {
                     .stroke(Color.blue, lineWidth: 1.5)
                     .frame(width: 250, height: 250)
                 
-                HStack{
+                HStack {
                     Picker("Hours", selection: $timerManager.hours) {
-                        ForEach(0..<24) { hour in
+                        ForEach(0..<23) { hour in
                             Text("\(hour)h")
+                                .font(.system(size: 20)) // Adjust the font size as desired
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
                     .frame(width: 60)
                     
                     Picker("Minutes", selection: $timerManager.minutes) {
-                        ForEach(0..<24) { minute in
+                        ForEach(0..<59) { minute in
                             Text("\(minute)m")
+                                .font(.system(size: 20)) // Adjust the font size as desired
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
                     .frame(width: 60)
-                    
-//                    Picker("Seconds", selection: $timerManager.seconds) {
-//                        ForEach(0..<24) { hour in
-//                            Text("\(hour)h")
-//                        }
-//                    }
-//                    .pickerStyle(WheelPickerStyle())
-//                    .frame(width: 60)
                 }
+
             }
     }
 }

@@ -11,49 +11,73 @@ struct FocusView: View {
     @Binding var activityName: String
     @ObservedObject var timerManager: TimerManager
     @State private var isModalVisible = false
+    @State private var selectedOption = 0
+    let options = ["Option 1", "Option 2", "Option 3"]
     
     var body: some View {
         VStack {
-            Text("3 Days Streak!")
-                .font(.system(size: 16,weight: .medium))
-                .padding()
-                .frame(width: 140, height: 41)
-                .foregroundColor(.white)
+            
+            HStack{
+                //Streak
+                HStack {
+                    Image(systemName: "flame.fill")
+                        .foregroundColor(.white)
+                    
+                    Text("3")
+                        .foregroundColor(.white)
+                }
+                .frame(width: 40, height: 20)
+                .padding(8)
                 .background(.blue)
-                .cornerRadius(15)
+                .cornerRadius(6)
+                
+                Spacer()
+                
+                //Music
+                Button(action: {
+                    isModalVisible = true
+                }) {
+                    HStack {
+                        Image(systemName: "music.note")
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding()
+                .frame(width: 20, height: 20)
+                .padding(8)
+                .background(.blue)
+                .cornerRadius(6)
+                .sheet(isPresented: $isModalVisible) {
+                        // Your modal content view here
+                        MusicSelection()
+                        .fixedSize()
+                        .presentationDetents([.medium, .large])
+                    }
+            }
+            .padding()
+            
             
             TextField("Write your activity", text: $activityName)
                 .multilineTextAlignment(.center)
                 .padding()
             
-//            Text(timerManager.formattedTime())
-//                .font(.largeTitle)
-//                .padding()
             
             
             //Timer
             if !timerManager.timerIsRunning {
                 TimePickerView(timerManager: timerManager)
                 
-                //Music Picker
-                Button(action: {
-                    isModalVisible = true
-                }) {
-                    HStack {
-                        Image(systemName: "music.note")
-                            .foregroundColor(.blue)
-                        Text("Music Name")
-                            .foregroundColor(.blue)
+                //Cycle
+                Text("Cycle:")
+                    .padding()
+                Picker("Options", selection: $selectedOption) {
+                    ForEach(0..<options.count) { index in
+                        Text(options[index])
                     }
-//                        .frame(width: 170, height: 52)
                 }
-                .padding()
-                .sheet(isPresented: $isModalVisible) {
-                        // Your modal content view here
-                        MusicSelection()
-                        .presentationDetents([.medium, .large])
-                    }
-                
+                .pickerStyle(MenuPickerStyle()) // Apply a dropdown style
+               
+                //Start Button
                 Button(action: {
                     timerManager.startTimer()
                     // Play sound when start button clicked
@@ -67,24 +91,6 @@ struct FocusView: View {
                 }
                 .padding()
                 
-                //Uncompleted Task
-                Button(action: {
-                    // Handle button action here if needed
-                    // For example, perform some tasks before navigating
-                }) {
-                    NavigationLink(destination: TaskView()) {
-                        Text("You have last task uncompleted\n **Lorem Ipsum**")
-                            .foregroundColor(.black)
-                            .frame(width: 320, height: 50)
-                            .multilineTextAlignment(.leading)
-                            .padding(5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 0.2)
-                            )
-                    }
-                }
-                .padding()
             } else {
                 
                 Text(timerManager.formattedTime())
