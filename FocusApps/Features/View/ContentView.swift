@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var appState: AppState
     @StateObject private var timerManager = TimerManager()
     @State var activityName: String
     @State var selectedTab = 1
@@ -15,35 +16,34 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             TabView(selection: $selectedTab) {
-                SummaryView()
+                
+                // Focus Page
+                FocusView(activityName: $activityName, timerManager: timerManager)
+                    .tabItem {
+                        Label("Focus", systemImage: "clock")
+                    }
+                
+                
+                TaskMOsView()
+                    .environmentObject(AppState())
                     .tabItem {
                         Image(systemName: "chart.xyaxis.line")
                         Text("Insight")
                     }
                     .tag(0)
                 
-                //Focus Page
-                FocusView(activityName: $activityName, timerManager: timerManager)
+                // Uncompleted Task
+                ShopView()
                     .tabItem {
-                        Image(systemName: "clock")
-                        Text("Focus")
+                        Label("Shop", systemImage: "clock")
                     }
-                    .tag(1)
-                
-                //Uncompleted Task
-                Text("Second Tab")
-                    .tabItem {
-                        Image(systemName: "circle")
-                        Text("Tab 2")
-                    }
-                    .tag(2)
             }
         }
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(activityName: "")
+    }
+}

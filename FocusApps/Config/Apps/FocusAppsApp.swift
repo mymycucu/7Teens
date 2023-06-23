@@ -9,13 +9,18 @@ import SwiftUI
 
 @main
 struct FocusAppsApp: App {
+    @StateObject var appState = AppState()
     let persistenceController = PersistenceController.shared
     
     var body: some Scene {
         WindowGroup {
+//            ContentView(activityName: "")
+//                .environment(\.managedObjectContext,
+//                             persistenceController.container.viewContext)
             ContentView(activityName: "")
-                .environment(\.managedObjectContext,
-                             persistenceController.container.viewContext)
+                .environmentObject(appState)
+//                .environment(\.managedObjectContext,
+//                              persistenceController.container.viewContext)
         }
     }
 }
