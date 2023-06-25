@@ -9,25 +9,12 @@ import SwiftUI
 
 struct MusicSelection: View {
     var body: some View {
-        VStack{
-            Button(action: {
-    //            isModalVisible = true
-            }) {
-                HStack{
-                    Text("Forest Wind")
-                        .foregroundColor(.black)
-                    Spacer()
-                    Image(systemName: "speaker.wave.2")
-                        .foregroundColor(.blue)
-                }
-                .frame(width: 320, height: 25)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(.black, lineWidth: 0.2)
-                )
-            }
-            .padding(.vertical, 10)
+        VStack (alignment: .leading){
+            
+            Text("Choose your music")
+                .multilineTextAlignment(.leading)
+                .font(.system(size: 22, weight: .bold))
+                .padding(.vertical, 10)
             
             Button(action: {
     //            isModalVisible = true
@@ -37,16 +24,14 @@ struct MusicSelection: View {
                         .foregroundColor(.black)
                     Spacer()
                     Image(systemName: "speaker.wave.2")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.black)
                 }
-                .frame(width: 320, height: 25)
+                .frame(width: 320, height: 20)
                 .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(.black, lineWidth: 0.2)
-                )
+                .background(Color(.systemGray5))
+                .cornerRadius(8)
             }
-            .padding(.vertical, 10)
+            .padding(.vertical, 7)
             
             Button(action: {
     //            isModalVisible = true
@@ -56,20 +41,45 @@ struct MusicSelection: View {
                         .foregroundColor(.black)
                     Spacer()
                     Image(systemName: "speaker.wave.2")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.black)
                 }
-                .frame(width: 320, height: 25)
+                .frame(width: 320, height: 20)
                 .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(.black, lineWidth: 0.2)
-                )
+                .background(Color(.systemGray5))
+                .cornerRadius(8)
             }
-            .padding(.vertical, 10)
+            .padding(.vertical, 7)
+            
+            Button(action: {
+    //            isModalVisible = true
+            }) {
+                HStack{
+                    Text("Forest Wind")
+                        .foregroundColor(.black)
+                    Spacer()
+                    Image(systemName: "speaker.wave.2")
+                        .foregroundColor(.black)
+                }
+                .frame(width: 320, height: 20)
+                .padding()
+                .background(Color(.systemGray5))
+                .cornerRadius(8)
+            }
+            .padding(.vertical, 7)
+            
+            //Start Button
+            Button(action: {
+
+            }) {
+                Text("Choose")
+                    .foregroundColor(.white)
+                    .frame(width: 350, height: 52)
+                    .background(Color(red: 0.97, green: 0.7, blue: 0.1))
+                    .cornerRadius(40)
+            }
+            .padding(.vertical, 20)
         }
-        
-        
-        
+        .padding(.top,40)
         
     }
 }

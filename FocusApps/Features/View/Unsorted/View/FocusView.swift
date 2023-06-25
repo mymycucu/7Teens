@@ -12,7 +12,7 @@ struct FocusView: View {
     @ObservedObject var timerManager: TimerManager
     @State private var isModalVisible = false
     @State private var selectedOption = 0
-    let options = ["Option 1", "Option 2", "Option 3"]
+    let options = ["One", "Two", "Three"]
     
     var body: some View {
         VStack {
@@ -50,16 +50,29 @@ struct FocusView: View {
                 .sheet(isPresented: $isModalVisible) {
                         // Your modal content view here
                         MusicSelection()
-                        .fixedSize()
-                        .presentationDetents([.medium, .large])
+//                        .presentationDetents([.medium, .large])
+                        .presentationDetents([.height(400)])
+                        .presentationDragIndicator(.visible)
                     }
             }
             .padding()
             
+//            Spacer()
+            
             
             TextField("Write your activity", text: $activityName)
+                .overlay(
+                    VStack {
+                        Divider()
+                            .background(Color(red: 0.07, green: 0.34, blue: 0.35))
+                            .offset(x: 0, y: 25)
+                            .frame(width: 200)
+                            // Adjust the color here
+                    }
+                )
+                .font(.system(size: 22))
                 .multilineTextAlignment(.center)
-                .padding()
+                .padding(.vertical, 50)
             
             
             
@@ -73,10 +86,12 @@ struct FocusView: View {
                     Picker("One", selection: $selectedOption) {
                         ForEach(0..<options.count) { index in
                             Text(options[index])
+                            
                         }
                     }
-                    .pickerStyle(MenuPickerStyle())
+                    .pickerStyle(.menu)
                 }
+                .padding(.vertical, 20)
 
                
                 //Start Button
@@ -88,7 +103,7 @@ struct FocusView: View {
                     Text("Start")
                         .foregroundColor(.white)
                         .frame(width: 170, height: 52)
-                        .background(.primary)
+                        .background(Color(red: 0.97, green: 0.7, blue: 0.1))
                         .cornerRadius(40)
                 }
                 .padding()
@@ -107,6 +122,8 @@ struct FocusView: View {
                 }
                 .padding()
             }
+            
+            Spacer()
         }
     }
 }

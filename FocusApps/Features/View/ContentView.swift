@@ -20,15 +20,16 @@ struct ContentView: View {
                 // Focus Page
                 FocusView(activityName: $activityName, timerManager: timerManager)
                     .tabItem {
-                        Label("Focus", systemImage: "clock")
+                        Label("Focus", systemImage: "target")
+
                     }
                 
                 
                 TaskMOsView()
                     .environmentObject(AppState())
                     .tabItem {
-                        Image(systemName: "chart.xyaxis.line")
-                        Text("Insight")
+                        Image(systemName: "note.text")
+                        Text("Incomplete")
                     }
                     .tag(0)
                 
@@ -38,6 +39,7 @@ struct ContentView: View {
                         Label("Shop", systemImage: "clock")
                     }
             }
+            .accentColor(Color(red: 0.25, green: 0.6, blue: 0.58))
         }
     }
 }
