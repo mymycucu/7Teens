@@ -16,12 +16,12 @@ struct TaskMOsView: View {
             VStack {
                 Section {
                     List {
-                        ForEach(appState.taskMOList ?? []) { task in
+                        ForEach(appState.getTaskData()) { task in
                             NavigationLink {
                                 SessionView(taskMO: task)
                                     .navigationTitle("\(task.name!) Session")
                             } label: {
-                                Text(task.name!)
+                                Text(task.name ?? "failed to load")
                             }
                         }
                     }

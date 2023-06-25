@@ -9,25 +9,36 @@ import Foundation
 import CoreData
 
 class AppState: ObservableObject {
-    @Published var taskMOList: [TaskMO]?
+    @Published var timerManager: TimerManager
+    @Published var task: TaskMO
+    @Published var session: SessionMO
+    
     
     let preview: Bool
     
     init(preview: Bool = false) {
         self.preview = preview
-        refreshData()
+        self.timerManager = TimerManager()
+        self.task = TaskMO()
+        self.session = SessionMO()
+    }
+    
+    func createTask(){
+        
+    }
+    
+    func getTaskData() -> [TaskMO] {
+        let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
+        if let taskMOs = try? PersistenceController.shared.viewContext.fetch(fetchRequest) {
+            return taskMOs
+        }
+        return []
     }
     
     func refreshData(){
-        getTaskData()
+        
     }
-    
-    func getTaskData() {
-        let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
-        if let taskMOs = try? PersistenceController.shared.viewContext.fetch(fetchRequest) {
-            self.taskMOList = taskMOs
-        }
-    }
+
 }
 
 // TO:DO

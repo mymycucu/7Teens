@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var appState: AppState
-    @StateObject private var timerManager = TimerManager()
     @State var activityName: String
     @State var selectedTab = 1
     
@@ -18,7 +17,7 @@ struct ContentView: View {
             TabView(selection: $selectedTab) {
                 
                 // Focus Page
-                FocusView(activityName: $activityName, timerManager: timerManager)
+                FocusView(activityName: $activityName, timerManager: appState.timerManager)
                     .tabItem {
                         Label("Focus", systemImage: "clock")
                     }
@@ -45,5 +44,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(activityName: "")
+            .environmentObject(AppState())
     }
 }
