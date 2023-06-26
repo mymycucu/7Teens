@@ -1,28 +1,38 @@
 import SwiftUI
 
 
-
-struct CircleTest: View {
-    @State private var selection = "Red"
-    let colors = ["Red", "Green", "Blue", "Black", "Tartan"]
-
+struct AccordionView: View {
+    
+    @State var isAccordionExpanded: Bool = false
+    @State var isAccordionExpanded2: Bool = false
+    
     var body: some View {
         VStack {
-            Picker("Select a paint color", selection: $selection) {
-                ForEach(colors, id: \.self) {
-                    Text($0)
+//            Toggle("Expand Accordion", isOn: $isAccordionExpanded.animation()) // THIS FIX the Disclosure Animation
+//                .padding(.horizontal)
+            
+            DisclosureGroup("The Title Of Accordion", isExpanded: $isAccordionExpanded) {
+                VStack {
+                    Image(systemName: "star")
+                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed mauris sit amet ex finibus suscipit. Nullam dapibus pulvinar eros, eget fringilla enim finibus ac. Nunc tempor sem in vehicula placerat. Nam vitae fermentum nisl. Proin dictum ligula vel interdum hendrerit. ")
+                        .onTapGesture { isAccordionExpanded.toggle() }
                 }
-            }
-            .pickerStyle(.menu)
+            }.padding()
+            
+            DisclosureGroup("The Title Of Accordion", isExpanded: $isAccordionExpanded2) {
+                VStack {
+                    Image(systemName: "star")
+                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed mauris sit amet ex finibus suscipit. Nullam dapibus pulvinar eros, eget fringilla enim finibus ac. Nunc tempor sem in vehicula placerat. Nam vitae fermentum nisl. Proin dictum ligula vel interdum hendrerit. ")
+                        .onTapGesture { isAccordionExpanded2.toggle() }
+                }
+            }.padding()
 
-            Text("Selected color: \(selection)")
         }
     }
 }
 
-
 struct CircleTest_Previews: PreviewProvider {
     static var previews: some View {
-        CircleTest()
+        AccordionView()
     }
 }

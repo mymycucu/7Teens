@@ -18,6 +18,10 @@
 		056A1CEF2A42A4460029B5B9 /* MusicSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */; };
 		056A1D112A458A770029B5B9 /* CountdownFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1D102A458A770029B5B9 /* CountdownFocusView.swift */; };
 		05EF44F32A48833C00765C0B /* RestStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF44F22A48833C00765C0B /* RestStartView.swift */; };
+		05EF44F52A489AB400765C0B /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF44F42A489AB400765C0B /* CustomAlert.swift */; };
+		05EF44F72A4942D700765C0B /* StreakStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF44F62A4942D700765C0B /* StreakStamp.swift */; };
+		05EF44F92A4969F600765C0B /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF44F82A4969F600765C0B /* StreakView.swift */; };
+		05EF44FB2A49802A00765C0B /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF44FA2A49802A00765C0B /* RewardView.swift */; };
 		AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACD7E2A443EA200E7691E /* CharacterMO+Extention.swift */; };
 		AD4ACD812A45171200E7691E /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACD802A45171200E7691E /* TimerViewModel.swift */; };
 		AD4ACDA22A45828900E7691E /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACDA02A45828800E7691E /* ShopView.swift */; };
@@ -51,6 +55,10 @@
 		056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelection.swift; sourceTree = "<group>"; };
 		056A1D102A458A770029B5B9 /* CountdownFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownFocusView.swift; sourceTree = "<group>"; };
 		05EF44F22A48833C00765C0B /* RestStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestStartView.swift; sourceTree = "<group>"; };
+		05EF44F42A489AB400765C0B /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		05EF44F62A4942D700765C0B /* StreakStamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakStamp.swift; sourceTree = "<group>"; };
+		05EF44F82A4969F600765C0B /* StreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
+		05EF44FA2A49802A00765C0B /* RewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
 		AD4ACD7E2A443EA200E7691E /* CharacterMO+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+Extention.swift"; sourceTree = "<group>"; };
 		AD4ACD802A45171200E7691E /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		AD4ACDA02A45828800E7691E /* ShopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
@@ -93,6 +101,8 @@
 				056A1CEC2A429AD70029B5B9 /* CircleTest.swift */,
 				ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */,
 				056A1D102A458A770029B5B9 /* CountdownFocusView.swift */,
+				05EF44F82A4969F600765C0B /* StreakView.swift */,
+				05EF44FA2A49802A00765C0B /* RewardView.swift */,
 				05EF44F22A48833C00765C0B /* RestStartView.swift */,
 				056A1CE62A41ABD90029B5B9 /* SummaryView.swift */,
 				056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */,
@@ -107,6 +117,8 @@
 			children = (
 				056A1CDF2A41A4480029B5B9 /* TimeManager.swift */,
 				056A1CE12A41A4590029B5B9 /* SoundController.swift */,
+				05EF44F42A489AB400765C0B /* CustomAlert.swift */,
+				05EF44F62A4942D700765C0B /* StreakStamp.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -352,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05EF44F92A4969F600765C0B /* StreakView.swift in Sources */,
 				ADDA4C272A41B4C400A97160 /* CoreDataTestingView.swift in Sources */,
 				AD4ACDA32A45828900E7691E /* Items.swift in Sources */,
 				ADD5E4F52A43EDA300624B0F /* UserDefaultManager.swift in Sources */,
@@ -359,8 +372,10 @@
 				AD7285CB2A420E5C00D8D5AE /* ActivityView.swift in Sources */,
 				056A1D112A458A770029B5B9 /* CountdownFocusView.swift in Sources */,
 				AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */,
+				05EF44FB2A49802A00765C0B /* RewardView.swift in Sources */,
 				056A1CE02A41A4480029B5B9 /* TimeManager.swift in Sources */,
 				AD4ACDA22A45828900E7691E /* ShopView.swift in Sources */,
+				05EF44F72A4942D700765C0B /* StreakStamp.swift in Sources */,
 				ADECB31B2A3DB8FB005BA03F /* FocusData.xcdatamodeld in Sources */,
 				056A1CED2A429AD70029B5B9 /* CircleTest.swift in Sources */,
 				056A1CE72A41ABD90029B5B9 /* SummaryView.swift in Sources */,
@@ -379,6 +394,7 @@
 				ADD5E4EC2A42E9AE00624B0F /* TaskMO+Extention.swift in Sources */,
 				056A1CEF2A42A4460029B5B9 /* MusicSelection.swift in Sources */,
 				ADECB3062A3DB566005BA03F /* FocusAppsApp.swift in Sources */,
+				05EF44F52A489AB400765C0B /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

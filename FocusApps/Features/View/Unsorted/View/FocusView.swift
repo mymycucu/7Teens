@@ -51,7 +51,7 @@ struct FocusView: View {
                         // Your modal content view here
                         MusicSelection()
 //                        .presentationDetents([.medium, .large])
-                        .presentationDetents([.height(400)])
+                        .presentationDetents([.height(380)])
                         .presentationDragIndicator(.visible)
                     }
             }
