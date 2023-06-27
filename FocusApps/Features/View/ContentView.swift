@@ -24,7 +24,6 @@ struct ContentView: View {
 
                     }
                 
-                
                 TaskMOsView()
                     .environmentObject(AppState())
                     .tabItem {

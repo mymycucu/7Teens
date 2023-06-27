@@ -10,7 +10,8 @@ import SwiftUI
 struct FocusView: View {
     @Binding var activityName: String
     @ObservedObject var timerManager: TimerManager
-    @State private var isModalVisible = false
+    @State private var isMusicModalVisible = false
+    @State private var isFaqModalVisible = false
     @State private var selectedOption = 0
     let options = ["One", "Two", "Three"]
     
@@ -18,61 +19,82 @@ struct FocusView: View {
         VStack {
             
             HStack{
+                
+                //FAQ
+                Button(action: {
+                    isFaqModalVisible = true
+                }) {
+                    HStack {
+                        Image(systemName: "questionmark.circle.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(Color(red: 0.7, green: 0.45, blue: 0.05))
+                    }
+                }
+//                .padding()
+                .frame(width: 44, height: 44)
+//                .padding(8)
+                .background(.yellow)
+                .cornerRadius(8)
+                .sheet(isPresented: $isFaqModalVisible) {
+                    FaqAccordion()
+                        .padding(.top, 20)
+//                        .presentationDetents([.medium, .large])
+                        .presentationDetents([.height(400)])
+                        .presentationDragIndicator(.visible)
+                    }
+                
+                Spacer()
+                
                 //Streak
                 HStack {
                     Image(systemName: "flame.fill")
-                        .foregroundColor(.red)
+                        .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
                     
-                    Text("3")
-                        .foregroundColor(.white)
+                    Text("2")
+                        .foregroundColor(Color(red: 0.7, green: 0.45, blue: 0.05))
+                        .font(.system(size: 20, weight: .bold))
                 }
                 .frame(width: 40, height: 20)
                 .padding(8)
-                .background(.yellow)
                 .cornerRadius(6)
                 
                 Spacer()
                 
                 //Music
                 Button(action: {
-                    isModalVisible = true
+                    isMusicModalVisible = true
                 }) {
                     HStack {
                         Image(systemName: "music.note")
-                            .foregroundColor(.white)
+                            .font(.system(size: 20))
+                            .foregroundColor(Color(red: 0.7, green: 0.45, blue: 0.05))
                     }
                 }
-                .padding()
-                .frame(width: 20, height: 20)
-                .padding(8)
+                .frame(width: 44, height: 44)
                 .background(.yellow)
-                .cornerRadius(6)
-                .sheet(isPresented: $isModalVisible) {
-                        // Your modal content view here
+                .cornerRadius(8)
+                .sheet(isPresented: $isMusicModalVisible) {
                         MusicSelection()
-//                        .presentationDetents([.medium, .large])
                         .presentationDetents([.height(380)])
                         .presentationDragIndicator(.visible)
                     }
             }
             .padding()
-            
-//            Spacer()
-            
+
             
             TextField("Write your activity", text: $activityName)
                 .overlay(
                     VStack {
-                        Divider()
-                            .background(Color(red: 0.07, green: 0.34, blue: 0.35))
+                        Rectangle()
+                            .fill(Color(red: 0.07, green: 0.34, blue: 0.35))
+                            .frame(width: 200, height: 2) // Adjust the line width here
                             .offset(x: 0, y: 25)
-                            .frame(width: 200)
-                            // Adjust the color here
                     }
                 )
                 .font(.system(size: 22))
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 50)
+
             
             
             

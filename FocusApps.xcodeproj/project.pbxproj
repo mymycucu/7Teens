@@ -17,6 +17,7 @@
 		056A1CED2A429AD70029B5B9 /* CircleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CEC2A429AD70029B5B9 /* CircleTest.swift */; };
 		056A1CEF2A42A4460029B5B9 /* MusicSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */; };
 		056A1D112A458A770029B5B9 /* CountdownFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1D102A458A770029B5B9 /* CountdownFocusView.swift */; };
+		05A211422A498F9700A3F9D0 /* FaqAccordion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A211412A498F9700A3F9D0 /* FaqAccordion.swift */; };
 		05EF44F32A48833C00765C0B /* RestStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF44F22A48833C00765C0B /* RestStartView.swift */; };
 		05EF44F52A489AB400765C0B /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF44F42A489AB400765C0B /* CustomAlert.swift */; };
 		05EF44F72A4942D700765C0B /* StreakStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF44F62A4942D700765C0B /* StreakStamp.swift */; };
@@ -54,6 +55,7 @@
 		056A1CEC2A429AD70029B5B9 /* CircleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTest.swift; sourceTree = "<group>"; };
 		056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelection.swift; sourceTree = "<group>"; };
 		056A1D102A458A770029B5B9 /* CountdownFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownFocusView.swift; sourceTree = "<group>"; };
+		05A211412A498F9700A3F9D0 /* FaqAccordion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqAccordion.swift; sourceTree = "<group>"; };
 		05EF44F22A48833C00765C0B /* RestStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestStartView.swift; sourceTree = "<group>"; };
 		05EF44F42A489AB400765C0B /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		05EF44F62A4942D700765C0B /* StreakStamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakStamp.swift; sourceTree = "<group>"; };
@@ -105,7 +107,6 @@
 				05EF44FA2A49802A00765C0B /* RewardView.swift */,
 				05EF44F22A48833C00765C0B /* RestStartView.swift */,
 				056A1CE62A41ABD90029B5B9 /* SummaryView.swift */,
-				056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */,
 				AD4ACDA12A45828900E7691E /* Items.swift */,
 				AD4ACDA02A45828800E7691E /* ShopView.swift */,
 			);
@@ -119,6 +120,8 @@
 				056A1CE12A41A4590029B5B9 /* SoundController.swift */,
 				05EF44F42A489AB400765C0B /* CustomAlert.swift */,
 				05EF44F62A4942D700765C0B /* StreakStamp.swift */,
+				056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */,
+				05A211412A498F9700A3F9D0 /* FaqAccordion.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				05EF44F32A48833C00765C0B /* RestStartView.swift in Sources */,
 				AD7285C92A4209F600D8D5AE /* SessionView.swift in Sources */,
 				AD7285C72A41FC4900D8D5AE /* TaskMOsView.swift in Sources */,
+				05A211422A498F9700A3F9D0 /* FaqAccordion.swift in Sources */,
 				ADECB3262A3DBAD2005BA03F /* PresistanceController.swift in Sources */,
 				ADECB3082A3DB566005BA03F /* ContentView.swift in Sources */,
 				ADD5E4F32A43E91500624B0F /* AppState.swift in Sources */,
