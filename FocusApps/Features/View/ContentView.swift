@@ -24,6 +24,7 @@ struct ContentView: View {
 
                     }
                 
+                
                 TaskMOsView()
                     .environmentObject(AppState())
                     .tabItem {
@@ -38,6 +39,7 @@ struct ContentView: View {
                         Label("Shop", systemImage: "clock")
                     }
             }
+            .background(.white)
             .accentColor(Color(red: 0.25, green: 0.6, blue: 0.58))
         }
     }
