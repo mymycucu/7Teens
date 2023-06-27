@@ -49,10 +49,10 @@ struct SelectButtonView: View {
                 .font(.system(size: 22, weight: .bold))
                 .padding(.vertical, 10)
             
-            ToggleButton(title: "Forest Wind", option: "Forest Wind", selectedOption: $selectedOption)
-            ToggleButton(title: "Ocean Waves", option: "Ocean Waves", selectedOption: $selectedOption)
-            ToggleButton(title: "Rain Sounds", option: "Rain Sounds", selectedOption: $selectedOption)
-            
+//            ToggleButton(title: "Forest Wind", option: "Forest Wind", selectedOption: $selectedOption)
+//            ToggleButton(title: "Ocean Waves", option: "Ocean Waves", selectedOption: $selectedOption)
+//            ToggleButton(title: "Rain Sounds", option: "Rain Sounds", selectedOption: $selectedOption)
+//
             // Start Button
             Button(action: {
                 // Perform action when Start button is pressed
