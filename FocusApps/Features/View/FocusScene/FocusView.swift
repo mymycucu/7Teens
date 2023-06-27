@@ -9,13 +9,11 @@ import SwiftUI
 
 struct FocusView: View {
     @EnvironmentObject var appState: AppState
-    @StateObject var viewModel = FocusViewModel()
-    @State var taskName = ""
-    @State var timerIsActive = false
+    @StateObject var viewModel = TimerViewModel()
     @State private var isMusicModalVisible = false
     @State private var isFaqModalVisible = false
     @State private var selectedOption = 0
-    let options = ["One", "Two", "Three"]
+    let options = ["One", "Two", "Three", "Four"]
     
     var body: some View {
         VStack {
@@ -84,7 +82,7 @@ struct FocusView: View {
             .padding()
 
             
-            TextField("Write your activity", text: $taskName)
+            TextField("Write your activity", text: $viewModel.taskName)
                 .overlay(
                     VStack {
                         Rectangle()
@@ -101,9 +99,8 @@ struct FocusView: View {
             
             
             //Timer
-            if !viewModel.focusUI.timerIsActive {
+            if !viewModel.timerIsRunning {
                 TimePickerView(viewModel: viewModel)
-                
                 //Cycle
                 HStack {
                     Text("Cycle: ")
@@ -119,11 +116,7 @@ struct FocusView: View {
                
                 //Start Button
                 Button(action: {
-                    viewModel.startTimer()
-                    timerIsActive = true
-                    print("\(viewModel.timerController.minutes)")
-                    // Play sound when start button clicked
-//                    SoundController.instance.playSound(fileName: "ambient")
+                    viewModel.startSession()
                 }) {
                     Text("Start")
                         .foregroundColor(.white)
@@ -132,17 +125,14 @@ struct FocusView: View {
                         .cornerRadius(40)
                 }
                 .padding()
-                
             } else {
                 
-                Text(viewModel.focusUI.formattedTime)
+                Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
                 .font(.largeTitle)
                 .padding()
                 
                 Button(action: {
-                    SoundController.instance.player?.stop()
-                    viewModel.timerController.stopTimer()
-                    timerIsActive = false
+                    viewModel.stopSession()
                 }) {
                     Text("Stop")
                 }
