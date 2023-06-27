@@ -13,23 +13,25 @@ struct TimePickerView: View {
     var body: some View {
             ZStack {
                 Circle()
-                    .fill(.blue)
+                    .fill(ImagePaint(image: Image("CountdownFocusBG")))
+//                    .overlay(Circle().stroke(Color.blue, lineWidth: 1.5))
                     .frame(width: 250, height: 250)
+
                 
                 HStack {
-                    Picker("Hours", selection: $viewModel.timerController.hours) {
-                        ForEach(0..<23) { hour in
-                            Text("\(hour)h")
-                                .font(.system(size: 20)) // Adjust the font size as desired
+                    Picker("Minutes", selection: $viewModel.timerController.hours) {
+                        ForEach(0..<59) { minute in
+                            Text("\(minute)")
+                                .font(.system(size: 30)) // Adjust the font size as desired
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
                     .frame(width: 60)
                     
-                    Picker("Minutes", selection: $viewModel.timerController.minutes) {
-                        ForEach(0..<60) { minute in
-                            Text("\(minute)m")
-                                .font(.system(size: 20)) // Adjust the font size as desired
+                    Picker("Seconds", selection: $viewModel.timerController.minutes) {
+                        ForEach(0..<59) { second in
+                            Text("\(second)")
+                                .font(.system(size: 30)) // Adjust the font size as desired
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
