@@ -1,5 +1,5 @@
 //
-//  InsightViewModel.swift
+//  UncompleteViewModel.swift
 //  FocusApps
 //
 //  Created by Hilmy Noerfatih on 25/06/23.
@@ -9,11 +9,15 @@ import Foundation
 import CoreData
 
 @MainActor
-class InsightViewModel: ObservableObject {
+class UncompleteViewModel: ObservableObject {
     @Published var taskMOList: [TaskMO] = []
     
     init() {
         refreshData()
+    }
+    
+    func refreshData(){
+        getTaskData()
     }
     
     func getTaskData() {
@@ -22,9 +26,4 @@ class InsightViewModel: ObservableObject {
             self.taskMOList = taskMOs
         }
     }
-    
-    func refreshData(){
-        getTaskData()
-    }
-    
 }

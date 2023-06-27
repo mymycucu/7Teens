@@ -17,6 +17,8 @@
 		056A1CED2A429AD70029B5B9 /* CircleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CEC2A429AD70029B5B9 /* CircleTest.swift */; };
 		056A1CEF2A42A4460029B5B9 /* MusicSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */; };
 		AD25B5682A487E3600C56931 /* InsightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B5672A487E3600C56931 /* InsightViewModel.swift */; };
+		056A1D112A458A770029B5B9 /* CountdownFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1D102A458A770029B5B9 /* CountdownFocusView.swift */; };
+		05EF44F32A48833C00765C0B /* RestStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF44F22A48833C00765C0B /* RestStartView.swift */; };
 		AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACD7E2A443EA200E7691E /* CharacterMO+Extention.swift */; };
 		AD4ACD812A45171200E7691E /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACD802A45171200E7691E /* TimerViewModel.swift */; };
 		AD4ACDA22A45828900E7691E /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACDA02A45828800E7691E /* ShopView.swift */; };
@@ -49,6 +51,8 @@
 		056A1CEC2A429AD70029B5B9 /* CircleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTest.swift; sourceTree = "<group>"; };
 		056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelection.swift; sourceTree = "<group>"; };
 		AD25B5672A487E3600C56931 /* InsightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightViewModel.swift; sourceTree = "<group>"; };
+		056A1D102A458A770029B5B9 /* CountdownFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownFocusView.swift; sourceTree = "<group>"; };
+		05EF44F22A48833C00765C0B /* RestStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestStartView.swift; sourceTree = "<group>"; };
 		AD4ACD7E2A443EA200E7691E /* CharacterMO+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+Extention.swift"; sourceTree = "<group>"; };
 		AD4ACD802A45171200E7691E /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		AD4ACDA02A45828800E7691E /* ShopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				056A1CD92A41A42E0029B5B9 /* TimerPickerView.swift */,
 				056A1CEC2A429AD70029B5B9 /* CircleTest.swift */,
 				ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */,
+				056A1D102A458A770029B5B9 /* CountdownFocusView.swift */,
+				05EF44F22A48833C00765C0B /* RestStartView.swift */,
 				056A1CE62A41ABD90029B5B9 /* SummaryView.swift */,
 				056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */,
 				AD4ACDA12A45828900E7691E /* Items.swift */,
@@ -354,6 +360,7 @@
 				ADD5E4F52A43EDA300624B0F /* UserDefaultManager.swift in Sources */,
 				056A1CE22A41A4590029B5B9 /* SoundController.swift in Sources */,
 				AD7285CB2A420E5C00D8D5AE /* ActivityView.swift in Sources */,
+				056A1D112A458A770029B5B9 /* CountdownFocusView.swift in Sources */,
 				AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */,
 				056A1CE02A41A4480029B5B9 /* TimeManager.swift in Sources */,
 				AD25B5682A487E3600C56931 /* InsightViewModel.swift in Sources */,
@@ -366,6 +373,7 @@
 				056A1CDB2A41A42E0029B5B9 /* TimerPickerView.swift in Sources */,
 				056A1CDE2A41A43E0029B5B9 /* TaskView.swift in Sources */,
 				AD4ACD812A45171200E7691E /* TimerViewModel.swift in Sources */,
+				05EF44F32A48833C00765C0B /* RestStartView.swift in Sources */,
 				AD7285C92A4209F600D8D5AE /* SessionView.swift in Sources */,
 				AD7285C72A41FC4900D8D5AE /* TaskMOsView.swift in Sources */,
 				ADECB3262A3DBAD2005BA03F /* PresistanceController.swift in Sources */,

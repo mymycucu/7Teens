@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct TimePickerView: View {
-    @ObservedObject var timerManager: TimerManager
+    @StateObject var viewModel: FocusViewModel
     
     var body: some View {
             ZStack {
                 Circle()
-                    .stroke(Color.blue, lineWidth: 1.5)
+                    .fill(.blue)
                     .frame(width: 250, height: 250)
                 
                 HStack {
-                    Picker("Hours", selection: $timerManager.hours) {
+                    Picker("Hours", selection: $viewModel.timerController.hours) {
                         ForEach(0..<23) { hour in
                             Text("\(hour)h")
                                 .font(.system(size: 20)) // Adjust the font size as desired
@@ -26,8 +26,8 @@ struct TimePickerView: View {
                     .pickerStyle(WheelPickerStyle())
                     .frame(width: 60)
                     
-                    Picker("Minutes", selection: $timerManager.minutes) {
-                        ForEach(0..<59) { minute in
+                    Picker("Minutes", selection: $viewModel.timerController.minutes) {
+                        ForEach(0..<60) { minute in
                             Text("\(minute)m")
                                 .font(.system(size: 20)) // Adjust the font size as desired
                         }

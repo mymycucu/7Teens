@@ -10,13 +10,18 @@ import SwiftUI
 struct TaskMOsView: View {
     let persistenceController = PersistenceController.shared
     @EnvironmentObject var appState: AppState
+    @ObservedObject var viewmodel: InsightViewModel
+    
+    init() {
+        viewmodel = InsightViewModel()
+    }
 
     var body: some View {
         NavigationView {
             VStack {
                 Section {
                     List {
-                        ForEach(appState.getTaskData()) { task in
+                        ForEach(viewmodel.taskMOList) { task in
                             NavigationLink {
                                 SessionView(taskMO: task)
                                     .navigationTitle("\(task.name!) Session")

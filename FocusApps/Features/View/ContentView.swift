@@ -17,26 +17,37 @@ struct ContentView: View {
             TabView(selection: $selectedTab) {
                 
                 // Focus Page
-                FocusView(activityName: $activityName, timerManager: appState.timerManager)
+                FocusView()
+                    .environmentObject(appState)
                     .tabItem {
-                        Label("Focus", systemImage: "clock")
+                        Label("Focus", systemImage: "target")
                     }
                 
-                
-                TaskMOsView()
-                    .environmentObject(AppState())
+                UncompleteView()
+                    .environmentObject(appState)
                     .tabItem {
-                        Image(systemName: "chart.xyaxis.line")
+                    Image(systemName: "note.text")
+                    Text("Uncomplete")
+                }
+                
+                // Uncompleted Task
+                TaskMOsView()
+                    .environmentObject(appState)
+                    .tabItem {
+                        Image(systemName: "note.text")
                         Text("Insight")
                     }
                     .tag(0)
-                
-                // Uncompleted Task
+            
+                // Shop
                 ShopView()
+                    .environmentObject(appState)
                     .tabItem {
                         Label("Shop", systemImage: "clock")
                     }
             }
+            .background(.white)
+            .accentColor(Color(red: 0.25, green: 0.6, blue: 0.58))
         }
     }
 }

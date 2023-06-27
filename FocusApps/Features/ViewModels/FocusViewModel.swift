@@ -1,22 +1,28 @@
 //
-//  AppState.swift
+//  TimerViewModel.swift
 //  FocusApps
 //
-//  Created by Hilmy Noerfatih on 22/06/23.
+//  Created by Hilmy Noerfatih on 23/06/23.
 //
 
 import Foundation
 import CoreData
 
-class AppState: ObservableObject {
+@MainActor
+class FocusViewModel: ObservableObject {
     @Published var task: TaskMO?
     @Published var session: SessionMO?
     @Published var activity: ActivityMO?
-    @Published var background: String
-    @Published var charEquipments: String
     
-    @Published var timerController: TimerController
-     var soundController: SoundController
+    @Published var focusUI: FocusUI = FocusUI()
+    
+    var timerController: TimerController
+    @Published var soundController: SoundController
+    
+    struct FocusUI {
+        var timerIsActive = false
+        var formattedTime = ""
+    }
     
     let preview: Bool
     
@@ -24,11 +30,11 @@ class AppState: ObservableObject {
         self.preview = preview
         self.timerController = TimerController()
         self.soundController = SoundController()
+        self.timerController.delegate = self
+        //
         self.task = nil
         self.session = nil
         self.activity = nil
-        self.background = ""
-        self.charEquipments = ""
     }
     
     func createTask(name: String){
@@ -59,7 +65,8 @@ class AppState: ObservableObject {
     
     func startTimer(){
         timerController.startTimer()
-    
+        focusUI.timerIsActive = timerController.timerIsRunning
+        
     }
     
     func stopTimer(){
@@ -83,8 +90,10 @@ class AppState: ObservableObject {
 
 }
 
-// TO:DO
-// 1. Prepare swift data model
-// 2. Transform coredata to swift model
-// 3. use the swift model for the ui
+extension FocusViewModel: TimerDelegate {
+    func getTime(time: String) {
+        focusUI.formattedTime = time
+    }
+}
+
 
