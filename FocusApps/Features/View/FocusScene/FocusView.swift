@@ -30,9 +30,7 @@ struct FocusView: View {
                             .foregroundColor(Color(red: 0.7, green: 0.45, blue: 0.05))
                     }
                 }
-//                .padding()
                 .frame(width: 44, height: 44)
-//                .padding(8)
                 .background(.yellow)
                 .cornerRadius(8)
                 .sheet(isPresented: $isFaqModalVisible) {
@@ -98,8 +96,6 @@ struct FocusView: View {
                 .padding(.vertical, 50)
 
             
-            
-            
             //Timer
             if !viewModel.timerIsRunning {
                 TimePickerView(viewModel: viewModel)
@@ -136,16 +132,19 @@ struct FocusView: View {
                 .padding()
             } else {
                 
-                Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
-                .font(.largeTitle)
-                .padding()
+//                Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
+//                .font(.largeTitle)
+//                .padding()
+//
+//                Button(action: {
+//                    SoundController.instance.player?.stop()
+//                    timerManager.stopTimer()
+//                }) {
+//                    Text("Stop")
+//                }
+//                .padding()
                 
-                Button(action: {
-                    viewModel.stopSession()
-                }) {
-                    Text("Stop")
-                }
-                .padding()
+                CountdownFocusView(timerManager: TimerManager())
             }
             
             Spacer()
