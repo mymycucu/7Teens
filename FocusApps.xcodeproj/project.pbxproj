@@ -84,6 +84,7 @@
 		D4D804832A4C772700CC9894 /* cat-hat-lilac.json in Resources */ = {isa = PBXBuildFile; fileRef = D4D8047F2A4C772700CC9894 /* cat-hat-lilac.json */; };
 		D4D804842A4C772700CC9894 /* cat-hat-sage.json in Resources */ = {isa = PBXBuildFile; fileRef = D4D804802A4C772700CC9894 /* cat-hat-sage.json */; };
 		D4D804862A4C7B4B00CC9894 /* ShopCharacterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D804852A4C7B4B00CC9894 /* ShopCharacterItem.swift */; };
+		D4D804882A4C801D00CC9894 /* ShopPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D804872A4C801D00CC9894 /* ShopPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +166,7 @@
 		D4D8047F2A4C772700CC9894 /* cat-hat-lilac.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cat-hat-lilac.json"; sourceTree = "<group>"; };
 		D4D804802A4C772700CC9894 /* cat-hat-sage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cat-hat-sage.json"; sourceTree = "<group>"; };
 		D4D804852A4C7B4B00CC9894 /* ShopCharacterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterItem.swift; sourceTree = "<group>"; };
+		D4D804872A4C801D00CC9894 /* ShopPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				D4545F3B2A4A8F9700887B9C /* ShopButton.swift */,
+				D4D804872A4C801D00CC9894 /* ShopPreview.swift */,
 				D4545F3F2A4A95F600887B9C /* ShopSegmented.swift */,
 			);
 			path = Component;
@@ -585,6 +588,7 @@
 				AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */,
 				D4545F3E2A4A90A100887B9C /* RoundedCorner.swift in Sources */,
 				D4D804862A4C7B4B00CC9894 /* ShopCharacterItem.swift in Sources */,
+				D4D804882A4C801D00CC9894 /* ShopPreview.swift in Sources */,
 				053589022A4BD77D0064185D /* RewardView.swift in Sources */,
 				AD25B5682A487E3600C56931 /* InsightViewModel.swift in Sources */,
 				AD4ACDA22A45828900E7691E /* ShopView.swift in Sources */,

@@ -15,6 +15,7 @@ class AppState: ObservableObject {
     @Published var background: String
     @Published var char: String
     @Published var body: String
+    @Published var hat: String
     
     var firstRun = true
     let preview: Bool
@@ -27,6 +28,7 @@ class AppState: ObservableObject {
         self.background = ""
         self.char = ""
         self.body = ""
+        self.hat = ""
         if firstRun {
             appDataInit()
             self.firstRun = false
@@ -52,9 +54,14 @@ class AppState: ObservableObject {
         catItem!.id = UUID()
         catItem!.itemName = "cat"
         catItem!.createdAt = Date()
+        let hatRedItem = PersistenceController.shared.create(ItemTransactionMO.self)
+        hatRedItem!.id = UUID()
+        hatRedItem!.itemName = "hat-red"
+        hatRedItem!.createdAt = Date()
         do {
             try PersistenceController.shared.save()
             self.body = "cat"
+            self.hat = "hat-red"
         } catch {
             print("Error saving")
         }

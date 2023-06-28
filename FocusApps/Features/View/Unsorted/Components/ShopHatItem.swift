@@ -17,6 +17,9 @@ struct ShopHatItem: View {
         Button{
             if viewModel.isBought(name: item.itemName){
                 isShowingPopUp = false
+                if (appState.hat != item.itemName){
+                    appState.hat = item.itemName
+                }
             }else{
                 viewModel.itemToBuy = item
                 isShowingPopUp = true
@@ -36,9 +39,9 @@ struct ShopHatItem: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .inset(by: 2)
-                            .stroke((appState.body == item.itemName) ? Color("Green") : Color("GreyL-3"), lineWidth: 4)
+                            .stroke((appState.hat == item.itemName) ? Color("Green") : Color("GreyL-3"), lineWidth: 4)
                     )
-                    if (appState.body == item.itemName) {
+                    if (appState.hat == item.itemName) {
                         VStack{
                             HStack{
                                 Spacer()

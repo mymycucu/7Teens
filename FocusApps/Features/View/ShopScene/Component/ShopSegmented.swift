@@ -10,6 +10,7 @@ import SwiftUI
 struct ShopSegmented: View {
     @Binding var selectedTab: Tabs
     var body: some View {
+        // MARK: segmented button
         HStack {
             Button{
                 selectedTab = .character

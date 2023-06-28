@@ -48,9 +48,9 @@ struct ShopView: View {
                 
                 // MARK: preview
                 VStack {
-                    LottieView(name: "cat-hat-red", loopMode: .autoReverse)
-                        .frame(width: 200, height: 225)
                     
+                    ShopPreview(bodyName: appState.body, hatName: appState.hat)
+
                     //character's shadow
                     Ellipse()
                         .foregroundColor(.black)

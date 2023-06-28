@@ -14,6 +14,7 @@ struct ShopCharacterItem: View {
     @Binding var isShowingPopUp: Bool
     
     var body: some View {
+        // MARK: Button Character Item
         Button{
             if viewModel.isBought(name: item.itemName){
                 isShowingPopUp = false
@@ -23,6 +24,7 @@ struct ShopCharacterItem: View {
             }
         }label: {
             ZStack {
+                // MARK: Character that already bought
                 if viewModel.isBought(name: item.itemName){
                     HStack(alignment: .center, spacing: 0) {
                         Image(item.itemName)
@@ -38,6 +40,7 @@ struct ShopCharacterItem: View {
                             .inset(by: 2)
                             .stroke((appState.body == item.itemName) ? Color("Green") : Color("GreyL-3"), lineWidth: 4)
                     )
+                    // MARK: character is bought && selected
                     if (appState.body == item.itemName) {
                         VStack{
                             HStack{
@@ -57,7 +60,9 @@ struct ShopCharacterItem: View {
                         .frame(width: 115, height: 115, alignment: .center)
                     }
                     
-                } else {
+                }
+                // MARK: character is not bought
+                else {
                     HStack(alignment: .center, spacing: 0) {
                         Image(item.itemName)
                             .resizable()
@@ -89,12 +94,5 @@ struct ShopCharacterItem: View {
             }
         }
         
-    }
-}
-
-
-struct ShopCharacterItem_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopCharacterItem()
     }
 }
