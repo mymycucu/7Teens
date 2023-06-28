@@ -44,10 +44,13 @@ struct ToggleButton: View {
     let title: String
     let option: String
     @Binding var selectedOption: String?
+    @StateObject var viewModel = TimerViewModel()
+
     
     var body: some View {
         Button(action: {
             selectedOption = option
+            viewModel.playSound(fileName: "ambient")
         }) {
             HStack {
                 Text(title)
