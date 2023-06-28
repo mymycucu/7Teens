@@ -23,8 +23,13 @@ struct RewardView: View {
                 
                 //Reward Desc
                 Text("Congratulations")
-                    .font(.system(size: 26, weight: .bold))
+                    .font(.custom("PlusJakartaSans-Bold", size: 26))
+                    .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
+
                 Text("on your remarkable focus and achievement 🎉")
+                    .font(.custom("PlusJakartaSans-SemiBold", size: 14))
+                    .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
+
                 
                 //Coin
                 HStack{
@@ -32,36 +37,46 @@ struct RewardView: View {
                         .resizable()
                         .frame(width: 76, height: 76)
                     Text("+50")
-                        .font(.system(size: 52, weight: .bold))
+                        .font(.custom("PlusJakartaSans-Bold", size: 52))
+                        .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
+
                 }
                 .padding(.vertical, 40)
                 
                 //Reward Focus Container
                 VStack (alignment: .leading){
                     Text("Focus Time")
-                        .font(.system(size: 12, weight: .medium))
+                        .font(.custom("PlusJakartaSans-Medium", size: 14))
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 2)
                     HStack{
                         Text("25 Minutes")
-                            .font(.system(size: 16, weight: .bold))
+                            .font(.custom("PlusJakartaSans-Bold", size: 16))
+                            .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
+                            .padding(.bottom, 10)
                         
                         Spacer()
                         
                         Text("+30")
-                            .font(.system(size: 16, weight: .bold))
+                            .font(.custom("PlusJakartaSans-Bold", size: 16))
+                            .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                         
                     }
                     
                     Text("Streak")
-                        .font(.system(size: 12, weight: .medium))
-                        .padding(.top, 20)
+                        .font(.custom("PlusJakartaSans-Medium", size: 14))
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 2)
                     HStack{
                         Text("Day 3")
-                            .font(.system(size: 16, weight: .bold))
+                            .font(.custom("PlusJakartaSans-Bold", size: 16))
+                            .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                         
                         Spacer()
                         
                         Text("+20")
-                            .font(.system(size: 16, weight: .bold))
+                            .font(.custom("PlusJakartaSans-Bold", size: 16))
+                            .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                         
                     }
                 }
@@ -73,13 +88,15 @@ struct RewardView: View {
                 //Confirmation Container
                 VStack{
                     Text("Has this task been completed?")
+                        .font(.custom("PlusJakartaSans-Medium", size: 18))
+                        .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                         .padding(.top, 30)
                     HStack{
                         
                         Button(action: {}) {
                             Text("No, Uncompleted")
+                                .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                                 .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
-                                .fontWeight(.semibold)
                         }
                         
                         Spacer()
@@ -87,8 +104,8 @@ struct RewardView: View {
                         
                         Button(action: {}) {
                             Text("Yes, Completed")
+                                .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                                 .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
-                                .fontWeight(.semibold)
                         }
                     }
                     .padding(.horizontal, 30)
@@ -101,7 +118,8 @@ struct RewardView: View {
                 .padding(.top, 20)
                 
                 Button(action: {}) {
-                    Text("Continue")
+                    Text("OK")
+                        .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                         .foregroundColor(.white)
                         .frame(width: 358, height: 50)
                         .background(Color(red: 0.97, green: 0.7, blue: 0.1))

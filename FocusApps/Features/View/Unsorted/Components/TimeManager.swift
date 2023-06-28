@@ -7,27 +7,19 @@
 
 import Foundation
 
-protocol TimerDelegate {
-    func getTime(time: String)
-}
-
-class TimerController {
-    var hours = 0
-    var minutes = 0
-    var seconds = 0
-    var timerIsRunning = false
-    var timer: Timer? = nil
-    var delegate: TimerDelegate? = nil
+class TimerManager: ObservableObject {
+    @Published var hours = 0
+    @Published var minutes = 0
+    @Published var seconds = 0
+    @Published var timerIsRunning = false
+    @Published var timer: Timer? = nil
     
-//    private var soundController = SoundController()
-    
+    private var soundController = SoundController()
     
     func startTimer() {
-//        let totalSeconds = hours * 3600 + minutes * 60 + seconds
-        self.timerIsRunning = true
-//        soundController.playSound(fileName: "ambient")
+        let totalSeconds = hours * 3600 + minutes * 60 + seconds
+        timerIsRunning = true
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            print("\(self.minutes) min - \(self.seconds) sec")
             if self.seconds > 0 {
                 self.seconds -= 1
             } else {
@@ -45,15 +37,14 @@ class TimerController {
                     }
                 }
             }
-            self.delegate?.getTime(time: self.formattedTime())
         }
-//        soundController.player?.stop()
+        soundController.playSound(fileName: "ambient")
     }
     
     func stopTimer() {
         timer?.invalidate()
         timerIsRunning = false
-//        soundController.player?.pause()
+        soundController.player?.pause()
     }
     
     func resetTimer() {
@@ -62,13 +53,15 @@ class TimerController {
         minutes = 0
         seconds = 0
         timerIsRunning = false
-//        soundController.player?.stop()
+        soundController.player?.stop()
     }
     
     func formattedTime() -> String {
         let formattedHours = String(format: "%02d", hours)
         let formattedMinutes = String(format: "%02d", minutes)
         let formattedSeconds = String(format: "%02d", seconds)
-        return "\(formattedHours):\(formattedMinutes):\(formattedSeconds)"
+//        return "\(formattedHours):\(formattedMinutes):\(formattedSeconds)"
+        return "\(formattedMinutes):\(formattedSeconds)"
+
     }
 }
