@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051E42922A4A95DB00B4BAF6 /* PlusJakartaSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42842A4A95DB00B4BAF6 /* PlusJakartaSans-Italic.ttf */; };
+		051E42932A4A95DB00B4BAF6 /* PlusJakartaSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42852A4A95DB00B4BAF6 /* PlusJakartaSans-Light.ttf */; };
+		051E42942A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42862A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLightItalic.ttf */; };
+		051E42952A4A95DB00B4BAF6 /* PlusJakartaSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42872A4A95DB00B4BAF6 /* PlusJakartaSans-SemiBold.ttf */; };
+		051E42962A4A95DB00B4BAF6 /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42882A4A95DB00B4BAF6 /* PlusJakartaSans-Medium.ttf */; };
+		051E42972A4A95DB00B4BAF6 /* PlusJakartaSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42892A4A95DB00B4BAF6 /* PlusJakartaSans-LightItalic.ttf */; };
+		051E42982A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E428A2A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLight.ttf */; };
+		051E42992A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E428B2A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBold.ttf */; };
+		051E429A2A4A95DB00B4BAF6 /* PlusJakartaSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E428C2A4A95DB00B4BAF6 /* PlusJakartaSans-MediumItalic.ttf */; };
+		051E429B2A4A95DB00B4BAF6 /* PlusJakartaSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E428D2A4A95DB00B4BAF6 /* PlusJakartaSans-SemiBoldItalic.ttf */; };
+		051E429C2A4A95DB00B4BAF6 /* PlusJakartaSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E428E2A4A95DB00B4BAF6 /* PlusJakartaSans-BoldItalic.ttf */; };
+		051E429D2A4A95DB00B4BAF6 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E428F2A4A95DB00B4BAF6 /* PlusJakartaSans-Regular.ttf */; };
+		051E429E2A4A95DB00B4BAF6 /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42902A4A95DB00B4BAF6 /* PlusJakartaSans-Bold.ttf */; };
+		051E429F2A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42912A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBoldItalic.ttf */; };
 		056A1CDB2A41A42E0029B5B9 /* TimerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CD92A41A42E0029B5B9 /* TimerPickerView.swift */; };
 		056A1CDC2A41A42E0029B5B9 /* FocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CDA2A41A42E0029B5B9 /* FocusView.swift */; };
 		056A1CDE2A41A43E0029B5B9 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CDD2A41A43E0029B5B9 /* TaskView.swift */; };
@@ -42,6 +56,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		051E42802A4A8D3D00B4BAF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		051E42842A4A95DB00B4BAF6 /* PlusJakartaSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Italic.ttf"; sourceTree = "<group>"; };
+		051E42852A4A95DB00B4BAF6 /* PlusJakartaSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Light.ttf"; sourceTree = "<group>"; };
+		051E42862A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		051E42872A4A95DB00B4BAF6 /* PlusJakartaSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		051E42882A4A95DB00B4BAF6 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; };
+		051E42892A4A95DB00B4BAF6 /* PlusJakartaSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		051E428A2A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		051E428B2A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		051E428C2A4A95DB00B4BAF6 /* PlusJakartaSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		051E428D2A4A95DB00B4BAF6 /* PlusJakartaSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		051E428E2A4A95DB00B4BAF6 /* PlusJakartaSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		051E428F2A4A95DB00B4BAF6 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; };
+		051E42902A4A95DB00B4BAF6 /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
+		051E42912A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		056A1CD92A41A42E0029B5B9 /* TimerPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPickerView.swift; sourceTree = "<group>"; };
 		056A1CDA2A41A42E0029B5B9 /* FocusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusView.swift; sourceTree = "<group>"; };
 		056A1CDD2A41A43E0029B5B9 /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
@@ -88,6 +117,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		051E42712A4A8D0B00B4BAF6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				051E42902A4A95DB00B4BAF6 /* PlusJakartaSans-Bold.ttf */,
+				051E428E2A4A95DB00B4BAF6 /* PlusJakartaSans-BoldItalic.ttf */,
+				051E428B2A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBold.ttf */,
+				051E42912A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBoldItalic.ttf */,
+				051E428A2A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLight.ttf */,
+				051E42862A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLightItalic.ttf */,
+				051E42842A4A95DB00B4BAF6 /* PlusJakartaSans-Italic.ttf */,
+				051E42852A4A95DB00B4BAF6 /* PlusJakartaSans-Light.ttf */,
+				051E42892A4A95DB00B4BAF6 /* PlusJakartaSans-LightItalic.ttf */,
+				051E42882A4A95DB00B4BAF6 /* PlusJakartaSans-Medium.ttf */,
+				051E428C2A4A95DB00B4BAF6 /* PlusJakartaSans-MediumItalic.ttf */,
+				051E428F2A4A95DB00B4BAF6 /* PlusJakartaSans-Regular.ttf */,
+				051E42872A4A95DB00B4BAF6 /* PlusJakartaSans-SemiBold.ttf */,
+				051E428D2A4A95DB00B4BAF6 /* PlusJakartaSans-SemiBoldItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		056A1CD72A41A40F0029B5B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +271,7 @@
 		ADECB3042A3DB566005BA03F /* FocusApps */ = {
 			isa = PBXGroup;
 			children = (
+				051E42802A4A8D3D00B4BAF6 /* Info.plist */,
 				ADECB3182A3DB7D8005BA03F /* Features */,
 				ADECB3162A3DB73B005BA03F /* Core */,
 				ADECB3132A3DB64A005BA03F /* Config */,
@@ -258,6 +309,7 @@
 		ADECB3152A3DB6AC005BA03F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				051E42712A4A8D0B00B4BAF6 /* Fonts */,
 				056A1CE32A41A46A0029B5B9 /* Sounds */,
 				ADECB3092A3DB567005BA03F /* Assets.xcassets */,
 			);
@@ -353,8 +405,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				051E42942A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLightItalic.ttf in Resources */,
+				051E429C2A4A95DB00B4BAF6 /* PlusJakartaSans-BoldItalic.ttf in Resources */,
+				051E42922A4A95DB00B4BAF6 /* PlusJakartaSans-Italic.ttf in Resources */,
+				051E429A2A4A95DB00B4BAF6 /* PlusJakartaSans-MediumItalic.ttf in Resources */,
+				051E42992A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBold.ttf in Resources */,
+				051E42982A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLight.ttf in Resources */,
+				051E429F2A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBoldItalic.ttf in Resources */,
 				ADECB30D2A3DB567005BA03F /* Preview Assets.xcassets in Resources */,
+				051E42962A4A95DB00B4BAF6 /* PlusJakartaSans-Medium.ttf in Resources */,
 				056A1CE52A41A4750029B5B9 /* ambient.mp3 in Resources */,
+				051E429E2A4A95DB00B4BAF6 /* PlusJakartaSans-Bold.ttf in Resources */,
+				051E42972A4A95DB00B4BAF6 /* PlusJakartaSans-LightItalic.ttf in Resources */,
+				051E429B2A4A95DB00B4BAF6 /* PlusJakartaSans-SemiBoldItalic.ttf in Resources */,
+				051E42952A4A95DB00B4BAF6 /* PlusJakartaSans-SemiBold.ttf in Resources */,
+				051E42932A4A95DB00B4BAF6 /* PlusJakartaSans-Light.ttf in Resources */,
+				051E429D2A4A95DB00B4BAF6 /* PlusJakartaSans-Regular.ttf in Resources */,
 				ADECB30A2A3DB567005BA03F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,7 +592,7 @@
 				DEVELOPMENT_TEAM = 7UW53Z6Q89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = FocusApps/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -556,7 +622,7 @@
 				DEVELOPMENT_TEAM = 7UW53Z6Q89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = FocusApps/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

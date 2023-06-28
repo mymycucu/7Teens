@@ -51,8 +51,10 @@ struct FocusView: View {
                         .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
                     
                     Text("2")
+                        .font(.custom("PlusJakartaSans-Bold", size: 20))
                         .foregroundColor(Color(red: 0.7, green: 0.45, blue: 0.05))
-                        .font(.system(size: 20, weight: .bold))
+
+                    
                 }
                 .frame(width: 40, height: 20)
                 .padding(8)
@@ -91,7 +93,7 @@ struct FocusView: View {
                             .offset(x: 0, y: 25)
                     }
                 )
-                .font(.system(size: 22))
+                .font(.custom("PlusJakartaSans-Regular", size: 22))
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 50)
 
@@ -104,12 +106,18 @@ struct FocusView: View {
                 //Cycle
                 HStack {
                     Text("Cycle: ")
+                        .font(.custom("PlusJakartaSans-Medium", size: 16))
                     Picker("One", selection: $selectedOption) {
                         ForEach(0..<options.count) { index in
                             Text(options[index])
                         }
                     }
                     .pickerStyle(.menu)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.black, lineWidth: 0.5)
+                    )
+                    
                 }
                 .padding(.vertical, 20)
 
@@ -119,8 +127,9 @@ struct FocusView: View {
                     viewModel.startSession()
                 }) {
                     Text("Start")
+                        .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                         .foregroundColor(.white)
-                        .frame(width: 170, height: 52)
+                        .frame(width: 119, height: 50)
                         .background(Color(red: 0.97, green: 0.7, blue: 0.1))
                         .cornerRadius(40)
                 }

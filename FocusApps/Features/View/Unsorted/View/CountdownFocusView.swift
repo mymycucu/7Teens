@@ -25,7 +25,7 @@ struct CountdownFocusView: View {
                     .frame(height: 100)
                 
                 Text("You are on cycle")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.custom("PlusJakartaSans-SemiBold", size: 11))
                 
                 HStack{
                     ZStack {
@@ -36,12 +36,14 @@ struct CountdownFocusView: View {
                             .font(.system(size: 12, weight: .semibold))
                             .foregroundColor(.white)
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack{
                         Circle()
                             .frame(width: 10, height: 10)
                             .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack {
                         Circle()
@@ -51,12 +53,14 @@ struct CountdownFocusView: View {
                             .font(.system(size: 12, weight: .semibold))
                             .foregroundColor(.white)
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack{
                         Circle()
                             .frame(width: 10, height: 10)
                             .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack {
                         Circle()
@@ -66,12 +70,14 @@ struct CountdownFocusView: View {
                             .font(.system(size: 12, weight: .semibold))
                             .foregroundColor(.white)
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack{
                         Circle()
                             .frame(width: 10, height: 10)
                             .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack {
                         Circle()
@@ -81,23 +87,26 @@ struct CountdownFocusView: View {
                             .font(.system(size: 12, weight: .semibold))
                             .foregroundColor(.white)
                     }
+                    .padding(.horizontal, -2)
                     
                 }
                 
                
                 
-                Text("Let’s focus on finishing your")
-                    .font(.system(size: 16, weight: .medium))
+                Text("Let’s focus on")
+                    .font(.custom("PlusJakartaSans-Medium", size: 16))
+                    .foregroundColor(.gray)
                     .padding(.top, 50)
-                Text("Finishing Thesis")
-                    .font(.system(size: 26, weight: .bold))
-                    .padding(.top, 2)
+                Text("Thesis")
+                    .font(.custom("PlusJakartaSans-Bold", size: 26))
+                    .foregroundColor(.gray)
+                    .padding(.top,-7)
                     
                 
                 Spacer()
                 
-                Text("24 : 50")
-                    .font(.system(size: 48, weight: .bold))
+                Text("24:50")
+                    .font(.custom("PlusJakartaSans-Bold", size: 48))
 //                    .padding(.bottom, 150)
                 
                 Image("kucingTerbang")
@@ -113,8 +122,9 @@ struct CountdownFocusView: View {
 
                 }) {
                     Text("Stop")
+                        .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                         .foregroundColor(.white)
-                        .frame(width: 170, height: 52)
+                        .frame(width: 358, height: 50)
                         .background(Color(red: 0.97, green: 0.7, blue: 0.1))
                         .cornerRadius(40)
                 }
