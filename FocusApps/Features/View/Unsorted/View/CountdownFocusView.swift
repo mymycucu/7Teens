@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CountdownFocusView: View {
     @State var background = "CountdownFocusBG"
-    @ObservedObject var timerManager: TimerManager
-    
+    @StateObject var viewModel: TimerViewModel
     var body: some View {
         ZStack{
             Image(background)
@@ -67,7 +66,7 @@ struct CountdownFocusView: View {
                 
                 Spacer()
                 
-                Text(timerManager.formattedTime())
+                Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
 //                Text("24:50")
                     .font(.custom("PlusJakartaSans-Bold", size: 48))
 //                    .padding(.bottom, 150)
@@ -100,6 +99,6 @@ struct CountdownFocusView: View {
 
 struct CountdownFocusView_Previews: PreviewProvider {
     static var previews: some View {
-        CountdownFocusView( timerManager: TimerManager())
+        CountdownFocusView( viewModel: TimerViewModel())
     }
 }

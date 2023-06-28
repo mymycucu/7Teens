@@ -21,6 +21,10 @@
 		051E429D2A4A95DB00B4BAF6 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E428F2A4A95DB00B4BAF6 /* PlusJakartaSans-Regular.ttf */; };
 		051E429E2A4A95DB00B4BAF6 /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42902A4A95DB00B4BAF6 /* PlusJakartaSans-Bold.ttf */; };
 		051E429F2A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42912A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBoldItalic.ttf */; };
+		053589002A4BD76F0064185D /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053588FF2A4BD76F0064185D /* StreakView.swift */; };
+		053589022A4BD77D0064185D /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589012A4BD77D0064185D /* RewardView.swift */; };
+		053589082A4BD8860064185D /* StreakStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589052A4BD8860064185D /* StreakStamp.swift */; };
+		0535890A2A4BD88D0064185D /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589092A4BD88D0064185D /* CustomAlert.swift */; };
 		056A1CDB2A41A42E0029B5B9 /* TimerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CD92A41A42E0029B5B9 /* TimerPickerView.swift */; };
 		056A1CDC2A41A42E0029B5B9 /* FocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CDA2A41A42E0029B5B9 /* FocusView.swift */; };
 		056A1CDE2A41A43E0029B5B9 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1CDD2A41A43E0029B5B9 /* TaskView.swift */; };
@@ -102,6 +106,10 @@
 		051E428F2A4A95DB00B4BAF6 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; };
 		051E42902A4A95DB00B4BAF6 /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
 		051E42912A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		053588FF2A4BD76F0064185D /* StreakView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
+		053589012A4BD77D0064185D /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
+		053589052A4BD8860064185D /* StreakStamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreakStamp.swift; sourceTree = "<group>"; };
+		053589092A4BD88D0064185D /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		056A1CD92A41A42E0029B5B9 /* TimerPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPickerView.swift; sourceTree = "<group>"; };
 		056A1CDA2A41A42E0029B5B9 /* FocusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusView.swift; sourceTree = "<group>"; };
 		056A1CDD2A41A43E0029B5B9 /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
@@ -193,6 +201,8 @@
 				056A1CEC2A429AD70029B5B9 /* CircleTest.swift */,
 				ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */,
 				056A1D102A458A770029B5B9 /* CountdownFocusView.swift */,
+				053588FF2A4BD76F0064185D /* StreakView.swift */,
+				053589012A4BD77D0064185D /* RewardView.swift */,
 				05EF44F22A48833C00765C0B /* RestStartView.swift */,
 				056A1CE62A41ABD90029B5B9 /* SummaryView.swift */,
 				AD4ACDA12A45828900E7691E /* Items.swift */,
@@ -210,6 +220,8 @@
 =======
 >>>>>>> ad3136d23f509ec72f4b989ef5163564b78288e0
 				05A211412A498F9700A3F9D0 /* FaqAccordion.swift */,
+				053589092A4BD88D0064185D /* CustomAlert.swift */,
+				053589052A4BD8860064185D /* StreakStamp.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -550,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053589002A4BD76F0064185D /* StreakView.swift in Sources */,
 				ADDA4C272A41B4C400A97160 /* CoreDataTestingView.swift in Sources */,
 				AD4ACDA32A45828900E7691E /* Items.swift in Sources */,
 				ADD5E4F52A43EDA300624B0F /* UserDefaultManager.swift in Sources */,
@@ -557,6 +570,7 @@
 				AD25B56B2A48937800C56931 /* UncompleteView.swift in Sources */,
 				056A1D112A458A770029B5B9 /* CountdownFocusView.swift in Sources */,
 				AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */,
+				053589022A4BD77D0064185D /* RewardView.swift in Sources */,
 				AD25B5682A487E3600C56931 /* InsightViewModel.swift in Sources */,
 				AD4ACDA22A45828900E7691E /* ShopView.swift in Sources */,
 				ADECB31B2A3DB8FB005BA03F /* FocusData.xcdatamodeld in Sources */,
@@ -565,6 +579,7 @@
 				ADD5E4F72A43EDF900624B0F /* Constant.swift in Sources */,
 				056A1CDC2A41A42E0029B5B9 /* FocusView.swift in Sources */,
 				056A1CDB2A41A42E0029B5B9 /* TimerPickerView.swift in Sources */,
+				053589082A4BD8860064185D /* StreakStamp.swift in Sources */,
 				056A1CDE2A41A43E0029B5B9 /* TaskView.swift in Sources */,
 				05EF44F32A48833C00765C0B /* RestStartView.swift in Sources */,
 				AD7285C92A4209F600D8D5AE /* SessionView.swift in Sources */,
@@ -579,6 +594,7 @@
 				ADD5E4EC2A42E9AE00624B0F /* TaskMO+Extention.swift in Sources */,
 				056A1CEF2A42A4460029B5B9 /* MusicSelection.swift in Sources */,
 				ADECB3062A3DB566005BA03F /* FocusAppsApp.swift in Sources */,
+				0535890A2A4BD88D0064185D /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
