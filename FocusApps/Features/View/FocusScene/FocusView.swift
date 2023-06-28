@@ -48,7 +48,7 @@ struct FocusView: View {
                     Image(systemName: "flame.fill")
                         .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
                     
-                    Text("2")
+                    Text("\(appState.streak)")
                         .font(.custom("PlusJakartaSans-Bold", size: 20))
                         .foregroundColor(Color(red: 0.7, green: 0.45, blue: 0.05))
 

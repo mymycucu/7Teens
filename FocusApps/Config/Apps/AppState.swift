@@ -9,42 +9,25 @@ import Foundation
 import CoreData
 
 class AppState: ObservableObject {
-    @Published var task: TaskMO?
-    @Published var session: SessionMO?
-    @Published var activity: ActivityMO?
-    @Published var background: String
-    @Published var char: String
-    @Published var body: String
+    
+    @Published var background: String = UserDefaults.standard.string(forKey: "background") ??  "bg-forest"
+    @Published var body: String = UserDefaults.standard.string(forKey: "body") ??  "cat"
+    @Published var hat: String = UserDefaults.standard.string(forKey: "hat") ??  "hat-red"
+    @Published var coins: Int = UserDefaults.standard.integer(forKey: "coins")
+    @Published var streak: Int = UserDefaults.standard.integer(forKey: "streak")
+    @Published var lastStreak: Date = (UserDefaults.standard.object(forKey: "lastStreak") as? Date) ?? Date()
+
     
     var firstRun = true
     let preview: Bool
     
     init(preview: Bool = false) {
         self.preview = preview
-        self.task = nil
-        self.session = nil
-        self.activity = nil
-        self.background = ""
-        self.char = ""
-        self.body = ""
         if firstRun {
             appDataInit()
             self.firstRun = false
         }
-    }
-    
-    func createTask(name: String){
-        let newTask = PersistenceController.shared.create(TaskMO.self)
-        newTask!.id = UUID()
-        newTask!.name = name
-        newTask!.isDone = false
-        newTask!.createdAt = Date()
-        do {
-            try PersistenceController.shared.save()
-            self.task = newTask!
-        } catch {
-            print("Error saving")
-        }
+        refreshData()
     }
     
     func appDataInit(){
@@ -54,35 +37,26 @@ class AppState: ObservableObject {
         catItem!.createdAt = Date()
         do {
             try PersistenceController.shared.save()
-            self.body = "cat"
         } catch {
             print("Error saving")
         }
-        
-    }
-    
-    func createSession(){
-        let newSession = PersistenceController.shared.create(SessionMO.self)
-        newSession!.id = UUID()
-        newSession!.task = self.task
-        newSession!.createdAt = Date()
+        UserDefaults.standard.set("bg-forest", forKey: "background")
+        UserDefaults.standard.set("cat", forKey: "body")
+        UserDefaults.standard.set("hat-red", forKey: "hat")
+        UserDefaults.standard.set(0, forKey: "coins")
+        UserDefaults.standard.set(0, forKey: "streak")
+        UserDefaults.standard.set(Date(), forKey: "lastStreak")
     }
     
     func refreshData(){
-        let characterFetchRequest = CharacterMO.fetchRequest()
-        characterFetchRequest.predicate = NSPredicate(format: "id == %@", "123")
-        let characters = try? PersistenceController.shared.viewContext.fetch(characterFetchRequest)
-        
-        UserDefaults.standard.set(123, forKey: "myCoin")
-        let myCoin = UserDefaults.standard.integer(forKey: "myCoin")
-        
-        
+        self.background = UserDefaults.standard.string(forKey: "background") ??  "bg-forest"
+        self.body = UserDefaults.standard.string(forKey: "body") ??  "cat"
+        self.hat = UserDefaults.standard.string(forKey: "hat") ??  "hat-red"
+        self.coins = UserDefaults.standard.integer(forKey: "coins")
+        self.streak = UserDefaults.standard.integer(forKey: "streak")
+        self.lastStreak = UserDefaults.standard.object(forKey: "lastStreak") as! Date
     }
 
 }
 
-// TO:DO
-// 1. Prepare swift data model
-// 2. Transform coredata to swift model
-// 3. use the swift model for the ui
 

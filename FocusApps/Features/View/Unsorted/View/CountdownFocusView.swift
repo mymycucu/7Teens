@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CountdownFocusView: View {
+    @EnvironmentObject var appState: AppState
     @State var background = "CountdownFocusBG"
     @StateObject var viewModel: TimerViewModel
     var body: some View {
         ZStack{
-            Image(background)
+            Image(appState.background)
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea(.all)
@@ -58,7 +59,7 @@ struct CountdownFocusView: View {
                     .font(.custom("PlusJakartaSans-Medium", size: 16))
                     .foregroundColor(.gray)
                     .padding(.top, 50)
-                Text("Thesis")
+                Text("\(viewModel.taskName)")
                     .font(.custom("PlusJakartaSans-Bold", size: 26))
                     .foregroundColor(.gray)
                     .padding(.top,-7)
@@ -71,7 +72,7 @@ struct CountdownFocusView: View {
                     .font(.custom("PlusJakartaSans-Bold", size: 48))
 //                    .padding(.bottom, 150)
                 
-                Image("kucingTerbang")
+                Image("\(appState.body)-\(appState.hat)")
                     .resizable()
                     .frame(width: 132, height: 132)
                     .padding(.vertical, 70)
