@@ -25,7 +25,7 @@ struct RestStartView: View {
                     .frame(height: 100)
                 
                 Text("You are on cycle")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.custom("PlusJakartaSans-SemiBold", size: 11))
                 
                 HStack{
                     ZStack {
@@ -36,12 +36,14 @@ struct RestStartView: View {
                             .font(.system(size: 12, weight: .semibold))
                             .foregroundColor(.white)
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack{
                         Circle()
                             .frame(width: 10, height: 10)
                             .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack {
                         Circle()
@@ -51,12 +53,14 @@ struct RestStartView: View {
                             .font(.system(size: 12, weight: .semibold))
                             .foregroundColor(.white)
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack{
                         Circle()
                             .frame(width: 10, height: 10)
                             .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack {
                         Circle()
@@ -66,12 +70,14 @@ struct RestStartView: View {
                             .font(.system(size: 12, weight: .semibold))
                             .foregroundColor(.white)
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack{
                         Circle()
                             .frame(width: 10, height: 10)
                             .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
                     }
+                    .padding(.horizontal, -2)
                     
                     ZStack {
                         Circle()
@@ -81,43 +87,42 @@ struct RestStartView: View {
                             .font(.system(size: 12, weight: .semibold))
                             .foregroundColor(.white)
                     }
+                    .padding(.horizontal, -2)
                     
                 }
                 
                
-                
                 Text("Take a rest before continue on")
-                    .font(.system(size: 16, weight: .medium))
+                    .font(.custom("PlusJakartaSans-Medium", size: 16))
+                    .foregroundColor(.gray)
                     .padding(.top, 50)
-                Text("Finishing Thesis")
-                    .font(.system(size: 26, weight: .bold))
-                    .padding(.vertical, 25)
+                Text("Thesis")
+                    .font(.custom("PlusJakartaSans-Bold", size: 26))
+                    .foregroundColor(.gray)
+                    .padding(.top,-7)
+                
+//                Text("Take a rest before continue on")
+//                    .font(.system(size: 16, weight: .medium))
+//                    .padding(.top, 50)
+//                Text("Finishing Thesis")
+//                    .font(.system(size: 26, weight: .bold))
+//                    .padding(.vertical, 25)
                     
+
                 
-//                Spacer()
-                
-                Text("05 : 00")
-                    .font(.system(size: 48, weight: .bold))
+                Text("05:00")
+                    .font(.custom("PlusJakartaSans-Bold", size: 48))
+                    .padding(.top, 50)
 //                    .padding(.bottom, 150)
-                
+                 
                 Text("Stretch your body and relax")
+                    .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                     .padding(.vertical, 10)
                 
                 
                 Spacer()
             
-                
-                //Start Button
-                Button(action: {
-
-                }) {
-                    Text("Stop")
-                        .foregroundColor(.white)
-                        .frame(width: 170, height: 52)
-                        .background(Color(red: 0.97, green: 0.7, blue: 0.1))
-                        .cornerRadius(40)
-                }
-                .padding(.bottom, 100)
+    
                 
             }
         }

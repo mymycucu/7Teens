@@ -20,7 +20,7 @@ struct StreakStamp: View {
 //                            .padding(5)
                         
                         Text("Day \(index + 1)")
-                            .font(.system(size: 10, weight: .bold))
+                            .font(.custom("PlusJakartaSans-SemiBold", size: 11))
                     }
                 }
             }
@@ -29,7 +29,7 @@ struct StreakStamp: View {
             
             Text("Focus for 25 minutes tomorrow to keep your streak!")
                 .multilineTextAlignment(.center)
-                .font(.system(size: 12,weight: .semibold))
+                .font(.custom("PlusJakartaSans-SemiBold", size: 12))
                 .padding(7)
         }
         .padding(.vertical, 15)

@@ -9,13 +9,11 @@ import SwiftUI
 
 struct FocusView: View {
     @EnvironmentObject var appState: AppState
-    @StateObject var viewModel = FocusViewModel()
-    @State var taskName = ""
-    @State var timerIsActive = false
+    @StateObject var viewModel = TimerViewModel()
     @State private var isMusicModalVisible = false
     @State private var isFaqModalVisible = false
     @State private var selectedOption = 0
-    let options = ["One", "Two", "Three"]
+    let options = ["One", "Two", "Three", "Four"]
     
     var body: some View {
         VStack {
@@ -32,9 +30,7 @@ struct FocusView: View {
                             .foregroundColor(Color(red: 0.7, green: 0.45, blue: 0.05))
                     }
                 }
-//                .padding()
                 .frame(width: 44, height: 44)
-//                .padding(8)
                 .background(.yellow)
                 .cornerRadius(8)
                 .sheet(isPresented: $isFaqModalVisible) {
@@ -53,8 +49,10 @@ struct FocusView: View {
                         .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
                     
                     Text("2")
+                        .font(.custom("PlusJakartaSans-Bold", size: 20))
                         .foregroundColor(Color(red: 0.7, green: 0.45, blue: 0.05))
-                        .font(.system(size: 20, weight: .bold))
+
+                    
                 }
                 .frame(width: 40, height: 20)
                 .padding(8)
@@ -84,7 +82,7 @@ struct FocusView: View {
             .padding()
 
             
-            TextField("Write your activity", text: $taskName)
+            TextField("Write your activity", text: $viewModel.taskName)
                 .overlay(
                     VStack {
                         Rectangle()
@@ -93,60 +91,60 @@ struct FocusView: View {
                             .offset(x: 0, y: 25)
                     }
                 )
-                .font(.system(size: 22))
+                .font(.custom("PlusJakartaSans-Regular", size: 22))
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 50)
 
             
-            
-            
             //Timer
-            if !viewModel.focusUI.timerIsActive {
+            if !viewModel.timerIsRunning {
                 TimePickerView(viewModel: viewModel)
-                
                 //Cycle
                 HStack {
                     Text("Cycle: ")
+                        .font(.custom("PlusJakartaSans-Medium", size: 16))
                     Picker("One", selection: $selectedOption) {
                         ForEach(0..<options.count) { index in
                             Text(options[index])
                         }
                     }
                     .pickerStyle(.menu)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.black, lineWidth: 0.5)
+                    )
+                    
                 }
                 .padding(.vertical, 20)
 
                
                 //Start Button
                 Button(action: {
-                    viewModel.startTimer()
-                    timerIsActive = true
-                    print("\(viewModel.timerController.minutes)")
-                    // Play sound when start button clicked
-//                    SoundController.instance.playSound(fileName: "ambient")
+                    viewModel.startSession()
                 }) {
                     Text("Start")
+                        .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                         .foregroundColor(.white)
-                        .frame(width: 170, height: 52)
+                        .frame(width: 119, height: 50)
                         .background(Color(red: 0.97, green: 0.7, blue: 0.1))
                         .cornerRadius(40)
                 }
                 .padding()
-                
             } else {
                 
-                Text(viewModel.focusUI.formattedTime)
-                .font(.largeTitle)
-                .padding()
+//                Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
+//                .font(.largeTitle)
+//                .padding()
+//
+//                Button(action: {
+//                    SoundController.instance.player?.stop()
+//                    timerManager.stopTimer()
+//                }) {
+//                    Text("Stop")
+//                }
+//                .padding()
                 
-                Button(action: {
-                    SoundController.instance.player?.stop()
-                    viewModel.timerController.stopTimer()
-                    timerIsActive = false
-                }) {
-                    Text("Stop")
-                }
-                .padding()
+                CountdownFocusView(viewModel: viewModel)
             }
             
             Spacer()

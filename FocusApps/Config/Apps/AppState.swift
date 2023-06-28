@@ -15,15 +15,10 @@ class AppState: ObservableObject {
     @Published var background: String
     @Published var charEquipments: String
     
-    @Published var timerController: TimerController
-     var soundController: SoundController
-    
     let preview: Bool
     
     init(preview: Bool = false) {
         self.preview = preview
-        self.timerController = TimerController()
-        self.soundController = SoundController()
         self.task = nil
         self.session = nil
         self.activity = nil
@@ -55,27 +50,6 @@ class AppState: ObservableObject {
         newSession!.task = self.task
         newSession!.createdAt = Date()
     }
-
-    
-    func startTimer(){
-        timerController.startTimer()
-    
-    }
-    
-    func stopTimer(){
-        
-    }
-    
-    
-    func startSound(){
-        
-    }
-    
-    func stopSound(){
-        
-    }
-    
-    
     
     func refreshData(){
         
