@@ -13,18 +13,25 @@ struct FocusWidgetAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
         var value: Int
+        
     }
 
     // Fixed non-changing properties about your activity go here!
     var name: String
+    
 }
 
 struct FocusWidgetLiveActivity: Widget {
+    
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: FocusWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
+//            let viewModel = FocusViewModel()
+            
             VStack {
-                Text("Hello")
+//                viewModel.focusUI.formattedTime
+                
+                Text("Heloo guys!")
             }
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
