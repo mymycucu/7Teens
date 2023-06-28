@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CountdownFocusView: View {
     @State var background = "CountdownFocusBG"
-//    @ObservedObject var timerManager: TimerManager
+    @ObservedObject var timerManager: TimerManager
     
     var body: some View {
         ZStack{
@@ -27,69 +27,31 @@ struct CountdownFocusView: View {
                 Text("You are on cycle")
                     .font(.custom("PlusJakartaSans-SemiBold", size: 11))
                 
-                HStack{
-                    ZStack {
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                        Text("1")
-                            .font(.system(size: 12, weight: .semibold))
-                            .foregroundColor(.white)
+                HStack {
+                    ForEach(1...4, id: \.self) { index in
+                        ZStack {
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(index > 3 ? .gray : Color(red: 0.25, green: 0.6, blue: 0.58))
+                            
+                            Text("\(index)")
+                                .font(.system(size: 12, weight: .semibold))
+                                .foregroundColor(.white)
+                        }
+                        .padding(.horizontal, -2)
+                        
+                        if index != 4 {
+                            ZStack {
+                                Circle()
+                                    .frame(width: 10, height: 10)
+                                    .foregroundColor(index > 3 ? .gray : Color(red: 0.25, green: 0.6, blue: 0.58))
+                            }
+                            .padding(.horizontal, -2)
+                        }
                     }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack{
-                        Circle()
-                            .frame(width: 10, height: 10)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack {
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                        Text("2")
-                            .font(.system(size: 12, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack{
-                        Circle()
-                            .frame(width: 10, height: 10)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack {
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                        Text("3")
-                            .font(.system(size: 12, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack{
-                        Circle()
-                            .frame(width: 10, height: 10)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack {
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                        Text("4")
-                            .font(.system(size: 12, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.horizontal, -2)
-                    
                 }
+
+
                 
                
                 
@@ -105,7 +67,8 @@ struct CountdownFocusView: View {
                 
                 Spacer()
                 
-                Text("24:50")
+                Text(timerManager.formattedTime())
+//                Text("24:50")
                     .font(.custom("PlusJakartaSans-Bold", size: 48))
 //                    .padding(.bottom, 150)
                 
@@ -137,6 +100,6 @@ struct CountdownFocusView: View {
 
 struct CountdownFocusView_Previews: PreviewProvider {
     static var previews: some View {
-        CountdownFocusView()
+        CountdownFocusView( timerManager: TimerManager())
     }
 }

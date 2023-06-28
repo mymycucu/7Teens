@@ -60,6 +60,8 @@ class TimerManager: ObservableObject {
         let formattedHours = String(format: "%02d", hours)
         let formattedMinutes = String(format: "%02d", minutes)
         let formattedSeconds = String(format: "%02d", seconds)
-        return "\(formattedHours):\(formattedMinutes):\(formattedSeconds)"
+//        return "\(formattedHours):\(formattedMinutes):\(formattedSeconds)"
+        return "\(formattedMinutes):\(formattedSeconds)"
+
     }
 }
