@@ -7,8 +7,16 @@
 
 import SwiftUI
 
+
 struct SummaryView: View {
+    
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(red: 0.97, green: 0.7, blue: 0.1, alpha: 1.0)
+        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+    }
+
     @State private var selectedSegment = 0
+    @State private var selectedTimeSegment = 0
     var body: some View {
         NavigationView {
             VStack {
@@ -18,15 +26,36 @@ struct SummaryView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-                
+
+                // Focus History
                 if selectedSegment == 0 {
-                    Text("Focus History View")
-                        .font(.title)
-                        .padding()
+                    
+                    VStack {
+                        // Statistic Container
+                        Statistics(selectedTimeSegment: $selectedTimeSegment)
+                        
+                        Text("Task Data")
+                            .font(.custom("PlusJakartaSans-Bold", size: 14))
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.top, 10)
+                            .padding(.horizontal)
+                        
+                        // Task Data
+                        if selectedTimeSegment == 2 {
+                            ScrollView {
+                                Task(selectedTimeSegment: $selectedTimeSegment)
+                            }
+                        } else {
+                            Task(selectedTimeSegment: $selectedTimeSegment)
+                        }
+                    }
+
+    
+                // Achievement
                 } else {
-                    Text("Achievements View")
-                        .font(.title)
-                        .padding()
+                    
+                    BadgesGrid()
                 }
                 Spacer()
             }

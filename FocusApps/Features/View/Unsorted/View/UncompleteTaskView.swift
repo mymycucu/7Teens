@@ -1,51 +1,19 @@
-//import SwiftUI
 //
+//  UncompleteTaskView.swift
+//  FocusApps
 //
-//struct AccordionView: View {
+//  Created by Ario Syahputra on 28/06/23.
 //
-//    @State var isAccordionExpanded: Bool = false
-//    @State var isAccordionExpanded2: Bool = false
-//
-//    var body: some View {
-//        VStack {
-////            Toggle("Expand Accordion", isOn: $isAccordionExpanded.animation()) // THIS FIX the Disclosure Animation
-////                .padding(.horizontal)
-//
-//            DisclosureGroup("The Title Of Accordion", isExpanded: $isAccordionExpanded) {
-//                VStack {
-//                    Image(systemName: "star")
-//                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed mauris sit amet ex finibus suscipit. Nullam dapibus pulvinar eros, eget fringilla enim finibus ac. Nunc tempor sem in vehicula placerat. Nam vitae fermentum nisl. Proin dictum ligula vel interdum hendrerit. ")
-//                        .onTapGesture { isAccordionExpanded.toggle() }
-//                }
-//            }.padding()
-//
-//            DisclosureGroup("The Title Of Accordion", isExpanded: $isAccordionExpanded2) {
-//                VStack {
-//                    Image(systemName: "star")
-//                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed mauris sit amet ex finibus suscipit. Nullam dapibus pulvinar eros, eget fringilla enim finibus ac. Nunc tempor sem in vehicula placerat. Nam vitae fermentum nisl. Proin dictum ligula vel interdum hendrerit. ")
-//                        .onTapGesture { isAccordionExpanded2.toggle() }
-//                }
-//            }.padding()
-//
-//        }
-//    }
-//}
-//
-//struct CircleTest_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AccordionView()
-//    }
-//}
 
 import SwiftUI
 
-struct ListItem: Identifiable {
+struct TaskList: Identifiable {
     let id = UUID()
     let title: String
     var isPinned: Bool
 }
 
-class ListViewModel: ObservableObject {
+class UncompleteTaskViewModel: ObservableObject {
     @Published var items: [ListItem] = [ListItem(title: "Item 1", isPinned: false), ListItem(title: "Item 2", isPinned: false),ListItem(title: "Item 1", isPinned: false),ListItem(title: "Item 1", isPinned: false),] // Dynamic array of ListItem
     
     func deleteItem(at index: IndexSet) {
@@ -72,7 +40,7 @@ class ListViewModel: ObservableObject {
     }
 }
 
-struct ListView: View {
+struct UncompleteTaskView: View {
     @StateObject private var viewModel = ListViewModel()
     
     var body: some View {
@@ -86,6 +54,8 @@ struct ListView: View {
                             Text(item.title)
                                 .font(.custom("PlusJakartaSans-Regular", size: 10))
                         }
+                        .padding(.vertical, 5)
+//                        .padding()
                         
                         Spacer()
                         
@@ -146,7 +116,9 @@ struct ListView: View {
                     }
                 }
                 .onDelete(perform: viewModel.deleteItem)
+//                .padding(.vertical, 2)
             }
+            .frame(width: 358)
             .padding(.vertical, 30)
             .listStyle(.plain)
             .offset(x: -10)
@@ -155,17 +127,43 @@ struct ListView: View {
     }
 }
 
+//struct UncompleteTaskView: View {
+//    @State private var items = ["Item 1", "Item 2", "Item 3"]
+//    var body: some View {
+//        NavigationView{
+//            VStack {
+//
+//
+////                VStack {
+////                    Text("Memorize Alphabet")
+////                        .font(.custom("PlusJakartaSans-Bold", size: 18))
+////                        .frame(maxWidth: .infinity, alignment: .leading)
+////
+////                    Text("10/05/23")
+////                        .font(.custom("PlusJakartaSans-Regular", size: 10))
+////                        .frame(maxWidth: .infinity, alignment: .leading)
+////                }
+////                .padding()
+////                .overlay(
+////                    VStack {
+////                        Rectangle()
+////                            .fill(Color(red: 0.07, green: 0.34, blue: 0.35))
+////                            .frame(width: 358, height: 0.5) // Adjust the line width here
+////                            .offset(x: 0, y: 25)
+////                    }
+////                )
+////
+//
+//
+//
+//            }
+//            .navigationBarTitle("Uncompleted Task")
+//        }
+//
+//    }}
 
-struct ListView_Previews: PreviewProvider {
+struct UncompleteTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        UncompleteTaskView()
     }
 }
-
-
-
-
-
-
-
-
