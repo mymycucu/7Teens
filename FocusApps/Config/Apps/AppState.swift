@@ -52,6 +52,13 @@ class AppState: ObservableObject {
     }
     
     func refreshData(){
+        let characterFetchRequest = CharacterMO.fetchRequest()
+        characterFetchRequest.predicate = NSPredicate(format: "id == %@", "123")
+        let characters = try? PersistenceController.shared.viewContext.fetch(characterFetchRequest)
+        
+        UserDefaults.standard.set(123, forKey: "myCoin")
+        let myCoin = UserDefaults.standard.integer(forKey: "myCoin")
+        
         
     }
 

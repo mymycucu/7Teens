@@ -31,19 +31,19 @@ class TimerViewModel: ObservableObject {
     // MARK: ViewModel Func
     func startSession(){
         playSound(fileName: "ambient")
-        startTimer()
+        startTimer(sec: hours * 3600 + minutes * 60 + seconds)
     }
     
     func stopSession(){
         stopSound()
         stopTimer()
     }
-    
+
     
     
     // MARK: TimerController Func
-    func startTimer() {
-        self.totalSeconds = hours * 3600 + minutes * 60 + seconds
+    func startTimer(sec : Int) {
+        self.totalSeconds = sec
         self.timerIsRunning = true
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [self] timer in
             if self.totalSeconds > 0 {
@@ -52,12 +52,12 @@ class TimerViewModel: ObservableObject {
                 self.stopSession()
                 self.timerIsRunning = false
             }
-            updateHourMinuteSec()
         }
     }
     
     func stopTimer() {
         timer?.invalidate()
+        resetTimer()
         timerIsRunning = false
     }
     
@@ -76,12 +76,9 @@ class TimerViewModel: ObservableObject {
     }
     
     func formattedTime(totalSecond: Int) -> String {
-        let hour = totalSeconds / 3600
-        let min = (totalSeconds % 3600) / 60
-        let sec = (totalSeconds % 3600) % 60
-        let formattedHours = String(format: "%02d", hour)
-        let formattedMinutes = String(format: "%02d", min)
-        let formattedSeconds = String(format: "%02d", sec)
+        let formattedHours = String(format: "%02d", (totalSeconds / 3600))
+        let formattedMinutes = String(format: "%02d", ((totalSeconds % 3600) / 60))
+        let formattedSeconds = String(format: "%02d", ((totalSeconds % 3600) % 60))
         return "\(formattedHours):\(formattedMinutes):\(formattedSeconds)"
     }
     

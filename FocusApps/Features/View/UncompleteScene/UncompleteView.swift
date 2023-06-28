@@ -49,11 +49,11 @@ struct UncompleteView: View {
     }
 }
 
-struct UncompleteView_Previews: PreviewProvider {
-    static var previews: some View {
-        UncompleteView()
-    }
-}
+//struct UncompleteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UncompleteView()
+//    }
+//}
 
 extension UncompleteView{
     func getDate(date: Date) -> String{

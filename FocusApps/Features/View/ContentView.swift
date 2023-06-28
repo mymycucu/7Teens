@@ -13,7 +13,7 @@ struct ContentView: View {
     @State var selectedTab = 1
     
     var body: some View {
-        NavigationView{
+        
             TabView(selection: $selectedTab) {
                 
                 // Focus Page
@@ -21,14 +21,14 @@ struct ContentView: View {
                     .environmentObject(appState)
                     .tabItem {
                         Label("Focus", systemImage: "target")
-                    }
+                    }.tag(1)
                 
                 UncompleteView()
                     .environmentObject(appState)
                     .tabItem {
                     Image(systemName: "note.text")
                     Text("Uncomplete")
-                }
+                    }.tag(2)
                 
                 // Uncompleted Task
                 TaskMOsView()
@@ -37,19 +37,19 @@ struct ContentView: View {
                         Image(systemName: "note.text")
                         Text("Insight")
                     }
-                    .tag(0)
+                    .tag(3)
             
                 // Shop
                 ShopView()
                     .environmentObject(appState)
                     .tabItem {
                         Label("Shop", systemImage: "clock")
-                    }
+                    }.tag(4)
             }
             .background(.white)
             .accentColor(Color(red: 0.25, green: 0.6, blue: 0.58))
         }
-    }
+    
 }
 
 //struct ContentView_Previews: PreviewProvider {
