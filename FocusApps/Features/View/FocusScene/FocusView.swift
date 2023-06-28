@@ -151,6 +151,10 @@ struct FocusView: View {
             
             Spacer()
         }
+//        .background(
+//            LottieView(name: "Beach_Test", loopMode: .autoReverse)
+//                .edgesIgnoringSafeArea(.all)
+//        )
     }
 }
 

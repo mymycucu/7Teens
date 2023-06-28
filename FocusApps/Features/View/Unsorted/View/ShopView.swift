@@ -8,118 +8,110 @@
 import SwiftUI
 
 struct ShopView: View {
+    @State var selectedTab : Tabs = .character
+    var coins : Int = 100
     var body: some View {
         
         ZStack {
-            // Background
-            Color("ShopBGColor").edgesIgnoringSafeArea(.all)
+            // MARK: background
+            RadialGradient(
+                gradient: Gradient(colors: [Color("PG-401"), Color("PG-400")]),
+                center: UnitPoint(x: 0.5, y: 0.35),
+                startRadius: 0,
+                endRadius: 200
+            )
+            .edgesIgnoringSafeArea(.all)
             
-            VStack {
+            VStack(spacing:0){
+                // MARK: user's coin
                 HStack {
-                    Text("Shop")
-                        .font(.system(size: 24, weight: .semibold))
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.black)
-                    
                     Spacer()
                     
-                    Text("100 $")
-                        .font(.system(size: 16, weight: .semibold))
-                        .padding(7)
-                        .background(.yellow)
-                        .cornerRadius(31)
+                    
+                    HStack{
+                        Image("coin")
+                            .resizable()
+                            .frame(width: 34,height: 34)
+                        Spacer()
+                        Text(String(coins))
+                    }
+                    .padding(.trailing, 16)
+                    .padding(.vertical, 0)
+                    .frame(width: 97, height: 34, alignment: .center)
+                    .background(Color("GreyL-5").opacity(0.9))
+                    .cornerRadius(22)
+                    
                 }
                 .padding()
                 
+                // MARK: preview
                 VStack {
-                    Image("kucing")
-                        .frame(width: 114, height: 227)
+                    LottieView(name: "cat_fly_red", loopMode: .autoReverse)
+                        .frame(width: 200, height: 225)
+                    
+                    //character's shadow
+                    Ellipse()
+                        .foregroundColor(.black)
+                        .opacity(0.07)
+                        .frame(width: 192, height: 18)
+                        .blur(radius: 2)
+                        .padding(.bottom, 30)
+                    
                 }
-                .frame(width: 358, height: 256)
-                .background(.white)
-                .cornerRadius(10)
-                .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
                 
-                
+                // MARK: Segmented Shop
+                HStack{
+                    ShopSegmented(selectedTab: $selectedTab)
+                    Spacer()
+                }.padding(.horizontal, 20)
                 
                 ZStack{
-                    Color(.white)
-                        .cornerRadius(20)
+                    // MARK: background
+                    Color("GreyL-6")
+                        .cornerRadius(12)
                         .edgesIgnoringSafeArea(.all)
                     
-                    HStack{
-                        
-                        VStack{
-                            VStack {
-                                Image("kucingitems")
-                                    .resizable()
-                                    .frame(width: 75, height: 60)
-                                
-                                Text("Cat")
-                                    .padding(.top, 5)
+                    // MARK: List
+                    ScrollView {
+                        VStack (spacing : 5){
+                            HStack{
+                                Button{
                                     
+                                }label: {
+                                    ItemShop()
+                                }
+                                ItemShop(itemSelected: false)
+                                ItemShop(isBought: false, isBuyable: true)
                             }
-                            .padding()
-                            .frame(width: 124, height: 120)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.black, lineWidth: 3)
-                            )
-                            
-                            Button(action: {
-
-                            }) {
-                                Text("Equip")
-                                    .foregroundColor(.white)
-                                    .frame(width: 124, height: 32)
-                                    .background(Color.black)
-                                    .cornerRadius(8)
-                            }
-                            .padding()
-                        }
-                        
-                        VStack{
-                            VStack {
-                                Image("kucingitems")
-                                    .resizable()
-                                    .frame(width: 75, height: 60)
-                                
-                                Text("Cat")
-                                    .padding(.top, 5)
+                            HStack{
+                                Button{
                                     
+                                }label: {
+                                    ItemShop(isBought: false, isBuyable: true)
+                                }
+                                ItemShop(isBought: false, isBuyable: true)
+                                ItemShop(isBought: false, isBuyable: false)
+                                
                             }
-                            .padding()
-                            .frame(width: 124, height: 120)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.black, lineWidth: 3)
-                            )
-                            
-                            Button(action: {
-
-                            }) {
-                                Text("Equip")
-                                    .foregroundColor(.white)
-                                    .frame(width: 114, height: 32)
-                                    .background(Color.black)
-                                    .cornerRadius(8)
+                            HStack{
+                                Button{
+                                    
+                                }label: {
+                                    ItemShop(isBought: false, isBuyable: false)
+                                }
+                                ItemShop(isBought: false, isBuyable: false)
+                                ItemShop(isBought: false, isBuyable: false)
+                                
                             }
-                            .padding()
-                        }
-                        
-                        
+                        }.padding(10)
                     }
                     
                 }
-                .padding(.top, 60)
                 
-                
-                
-                // Content
             }
-
             
         }
+        
     }
     
     struct ShopView_Previews: PreviewProvider {
