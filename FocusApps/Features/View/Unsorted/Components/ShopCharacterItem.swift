@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct ItemShop: View {
-    var isBought = true
-    var itemSelected = true
-    var itemName = "cat"
-    var isBuyable = false
+struct ShopCharacterBody: View {
+    @EnvironmentObject var appState: AppState
+    @StateObject var viewModel: ShopViewModel
+    var item: ShopItem
+    
     var body: some View {
         ZStack {
-            if isBought==true {
+            if viewModel.isBought(name: item.itemName){
                 HStack(alignment: .center, spacing: 0) {
-                    Image(itemName)
+                    Image(item.itemName)
                         .resizable()
                         .frame(width: 80)
                 }
@@ -27,9 +27,9 @@ struct ItemShop: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
                         .inset(by: 2)
-                        .stroke(itemSelected ? Color("Green") : Color("GreyL-3"), lineWidth: 4)
+                        .stroke((appState.body == item.itemName) ? Color("Green") : Color("GreyL-3"), lineWidth: 4)
                 )
-                if itemSelected == true {
+                if (appState.body == item.itemName) {
                     VStack{
                         HStack{
                             Spacer()
@@ -45,9 +45,9 @@ struct ItemShop: View {
                     .frame(width: 115, height: 115, alignment: .center)
                 }
                 
-            } else if isBought == false {
+            } else {
                 HStack(alignment: .center, spacing: 0) {
-                    Image(itemName)
+                    Image(item.itemName)
                         .resizable()
                         .frame(width: 80)
                 }
@@ -61,13 +61,13 @@ struct ItemShop: View {
                         Image("coin")
                             .resizable()
                             .frame(width: 14,height: 14)
-                        Text("105")
+                        Text("\(item.price)")
                             .foregroundColor(.white)
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 0)
                     .frame(height: 32, alignment: .center)
-                    .background(isBuyable ? Color("SY-500") : Color("GreyL-4"))
+                    .background(item.price <= 600 /* COIN */ ? Color("SY-500") : Color("GreyL-4"))
                     .cornerRadius(22)
                 }
                 .frame(width: 109, height: 149, alignment: .center)
@@ -79,8 +79,8 @@ struct ItemShop: View {
 }
 
 
-struct ItemShop_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemShop()
-    }
-}
+//struct shopCharacterItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopCharacterItem()
+//    }
+//}

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ShopView: View {
+    @EnvironmentObject var appState: AppState
+    @StateObject var viewModel = ShopViewModel()
     @State var selectedTab : Tabs = .character
-    var coins : Int = 100
     var body: some View {
         
         ZStack {
@@ -33,7 +34,7 @@ struct ShopView: View {
                             .resizable()
                             .frame(width: 34,height: 34)
                         Spacer()
-                        Text(String(coins))
+                        Text(String(200))
                     }
                     .padding(.trailing, 16)
                     .padding(.vertical, 0)
@@ -78,31 +79,40 @@ struct ShopView: View {
                                 Button{
                                     
                                 }label: {
-                                    ItemShop()
+                                    ShopCharacterBody(viewModel: viewModel, item: Constant.catItem)
                                 }
-                                ItemShop(itemSelected: false)
-                                ItemShop(isBought: false, isBuyable: true)
-                            }
-                            HStack{
                                 Button{
-                                    
+                                    viewModel.buyItem(item: Constant.dogItem)
                                 }label: {
-                                    ItemShop(isBought: false, isBuyable: true)
+                                    ShopCharacterBody(viewModel: viewModel, item: Constant.dogItem)
                                 }
-                                ItemShop(isBought: false, isBuyable: true)
-                                ItemShop(isBought: false, isBuyable: false)
                                 
-                            }
-                            HStack{
                                 Button{
-                                    
+                                    viewModel.buyItem(item: Constant.koalaItem)
                                 }label: {
-                                    ItemShop(isBought: false, isBuyable: false)
+                                    ShopCharacterBody(viewModel: viewModel, item: Constant.koalaItem)
                                 }
-                                ItemShop(isBought: false, isBuyable: false)
-                                ItemShop(isBought: false, isBuyable: false)
-                                
                             }
+//                            HStack{
+//                                Button{
+//
+//                                }label: {
+//                                    ItemShop(isBought: false, isBuyable: true)
+//                                }
+//                                ItemShop(isBought: false, isBuyable: true)
+//                                ItemShop(isBought: false, isBuyable: false)
+//
+//                            }
+//                            HStack{
+//                                Button{
+//                                    
+//                                }label: {
+//                                    ItemShop(isBought: false, isBuyable: false)
+//                                }
+//                                ItemShop(isBought: false, isBuyable: false)
+//                                ItemShop(isBought: false, isBuyable: false)
+//                                
+//                            }
                         }.padding(10)
                     }
                     
