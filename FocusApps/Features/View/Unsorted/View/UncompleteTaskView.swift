@@ -42,36 +42,50 @@ class UncompleteTaskViewModel: ObservableObject {
 
 struct UncompleteTaskView: View {
     @StateObject private var viewModel = ListViewModel()
+    @State private var isContinueModalVisible = false
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.items) { item in
-                    HStack {
-                        VStack (alignment: .leading){
-                            Text(item.title)
-                                .font(.custom("PlusJakartaSans-Bold", size: 18))
-                            Text(item.title)
-                                .font(.custom("PlusJakartaSans-Regular", size: 10))
-                        }
-                        .padding(.vertical, 5)
-//                        .padding()
-                        
-                        Spacer()
-                        
-                        if item.isPinned {
-                            Button(action: {
-                                viewModel.togglePin(for: item)
-                            }) {
-                                Image(systemName: "pin.fill")
-                                    .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
+                    Button(action: {
+                        // Handle button tap
+                        isContinueModalVisible = true
+                        print("Button tapped: \(item.title)")
+                    }) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(item.title)
+                                    .font(.custom("PlusJakartaSans-Bold", size: 18))
+                                Text(item.title)
+                                    .font(.custom("PlusJakartaSans-Regular", size: 10))
                             }
-                            .animation(.default)
+                            .padding(.vertical, 5)
+                            
+                            Spacer()
+                            
+                            if item.isPinned {
+                                Button(action: {
+                                    viewModel.togglePin(for: item)
+                                }) {
+                                    Image(systemName: "pin.fill")
+                                        .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
+                                }
+                                .animation(.default)
+                            }
                         }
                     }
+                    //Pop Up Modal
+                    .sheet(isPresented: $isContinueModalVisible) {
+                        ContinueConfirmation()
+                        .padding(.top, 20)
+                        .presentationDetents([.height(277)])
+                        .presentationDragIndicator(.visible)
+                    }
                     .listRowSeparatorTint(Color(red: 0.25, green: 0.6, blue: 0.58))
+                    
+                    // Delete action
                     .swipeActions(edge: .trailing) {
-                        // Delete action
                         Button(action: {
                             guard let index = viewModel.items.firstIndex(where: { $0.id == item.id }) else {
                                 return
@@ -82,8 +96,9 @@ struct UncompleteTaskView: View {
                         }
                         .tint(.red)
                     }
+                    
+                    // Pin action
                     .swipeActions(edge: .leading) {
-                        // Pin action
                         Button(action: {
                             viewModel.togglePin(for: item)
                         }) {
@@ -91,8 +106,9 @@ struct UncompleteTaskView: View {
                         }
                         .tint(.yellow)
                     }
+                    
+                    // Context menu actions (rename, delete, pin)
                     .contextMenu {
-                        // Context menu actions (rename, delete, pin)
                         Button(action: {
                             print("Renaming \(item.title)...")
                         }) {
@@ -113,12 +129,9 @@ struct UncompleteTaskView: View {
                         }) {
                             Label("Delete", systemImage: "trash")
                         }
-
-                        
                     }
                 }
                 .onDelete(perform: viewModel.deleteItem)
-//                .padding(.vertical, 2)
             }
             .frame(width: 358)
             .padding(.vertical, 30)
@@ -129,40 +142,6 @@ struct UncompleteTaskView: View {
     }
 }
 
-//struct UncompleteTaskView: View {
-//    @State private var items = ["Item 1", "Item 2", "Item 3"]
-//    var body: some View {
-//        NavigationView{
-//            VStack {
-//
-//
-////                VStack {
-////                    Text("Memorize Alphabet")
-////                        .font(.custom("PlusJakartaSans-Bold", size: 18))
-////                        .frame(maxWidth: .infinity, alignment: .leading)
-////
-////                    Text("10/05/23")
-////                        .font(.custom("PlusJakartaSans-Regular", size: 10))
-////                        .frame(maxWidth: .infinity, alignment: .leading)
-////                }
-////                .padding()
-////                .overlay(
-////                    VStack {
-////                        Rectangle()
-////                            .fill(Color(red: 0.07, green: 0.34, blue: 0.35))
-////                            .frame(width: 358, height: 0.5) // Adjust the line width here
-////                            .offset(x: 0, y: 25)
-////                    }
-////                )
-////
-//
-//
-//
-//            }
-//            .navigationBarTitle("Uncompleted Task")
-//        }
-//
-//    }}
 
 struct UncompleteTaskView_Previews: PreviewProvider {
     static var previews: some View {

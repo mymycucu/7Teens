@@ -55,4 +55,9 @@ struct CustomAlertView: View {
     }
 }
 
+struct CustomAlert_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomAlertView()
+    }
+}
 
