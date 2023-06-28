@@ -10,6 +10,7 @@ import SwiftUI
 struct ShopView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var viewModel = ShopViewModel()
+    @State var isShowingPopUp = false
     @State var selectedTab : Tabs = .character
     var body: some View {
         
@@ -47,7 +48,7 @@ struct ShopView: View {
                 
                 // MARK: preview
                 VStack {
-                    LottieView(name: "cat_fly_red", loopMode: .autoReverse)
+                    LottieView(name: "cat-hat-red", loopMode: .autoReverse)
                         .frame(width: 200, height: 225)
                     
                     //character's shadow
@@ -75,51 +76,42 @@ struct ShopView: View {
                     // MARK: List
                     ScrollView {
                         VStack (spacing : 5){
-                            HStack{
-                                Button{
-                                    
-                                }label: {
-                                    ShopCharacterBody(viewModel: viewModel, item: Constant.catItem)
-                                }
-                                Button{
-                                    viewModel.buyItem(item: Constant.dogItem)
-                                }label: {
-                                    ShopCharacterBody(viewModel: viewModel, item: Constant.dogItem)
-                                }
-                                
-                                Button{
-                                    viewModel.buyItem(item: Constant.koalaItem)
-                                }label: {
-                                    ShopCharacterBody(viewModel: viewModel, item: Constant.koalaItem)
-                                }
+                            ScrollView {
+                                VStack (spacing : 5){
+                                    if selectedTab == .character {
+                                        HStack{
+                                            ShopCharacterItem(viewModel: viewModel, item: Constant.catItem, isShowingPopUp: $isShowingPopUp)
+                                            ShopCharacterItem(viewModel: viewModel, item: Constant.dogItem, isShowingPopUp: $isShowingPopUp)
+                                            ShopCharacterItem(viewModel: viewModel, item: Constant.koalaItem, isShowingPopUp: $isShowingPopUp)
+                                            
+                                        }
+                                    } else {
+                                        HStack{
+                                            ShopHatItem(viewModel: viewModel, item: Constant.hatRed, isShowingPopUp: $isShowingPopUp)
+                                            ShopHatItem(viewModel: viewModel, item: Constant.hatBlue, isShowingPopUp: $isShowingPopUp)
+                                            ShopHatItem(viewModel: viewModel, item: Constant.hatLilac, isShowingPopUp: $isShowingPopUp)
+                                            
+                                            
+                                        }
+                                        HStack{
+                                            ShopHatItem(viewModel: viewModel, item: Constant.hatBrown, isShowingPopUp: $isShowingPopUp)
+                        
+                                            ShopHatItem(viewModel: viewModel, item: Constant.hatNavy, isShowingPopUp: $isShowingPopUp)
+                                            ShopHatItem(viewModel: viewModel, item: Constant.hatSage, isShowingPopUp: $isShowingPopUp)
+                                        }
+                                    }
+                                }.padding(10)
                             }
-//                            HStack{
-//                                Button{
-//
-//                                }label: {
-//                                    ItemShop(isBought: false, isBuyable: true)
-//                                }
-//                                ItemShop(isBought: false, isBuyable: true)
-//                                ItemShop(isBought: false, isBuyable: false)
-//
-//                            }
-//                            HStack{
-//                                Button{
-//                                    
-//                                }label: {
-//                                    ItemShop(isBought: false, isBuyable: false)
-//                                }
-//                                ItemShop(isBought: false, isBuyable: false)
-//                                ItemShop(isBought: false, isBuyable: false)
-//                                
-//                            }
                         }.padding(10)
                     }
                     
                 }
                 
             }
-            
+            if isShowingPopUp {
+                BuyItemShop(viewModel: viewModel, isShowingPopUp: $isShowingPopUp, item: viewModel.itemToBuy, itemTitle: "Brownies Cap")
+                
+            }
         }
         
     }

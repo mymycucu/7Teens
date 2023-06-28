@@ -50,7 +50,7 @@ struct CustomAlertView: View {
             .padding(.bottom, 5)
         }
         .padding()
-        .background(Color.gray)
+        .background(Color("GreyL-6"))
         .cornerRadius(12)
     }
 }
