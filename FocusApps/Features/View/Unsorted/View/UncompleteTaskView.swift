@@ -69,6 +69,7 @@ struct UncompleteTaskView: View {
                             .animation(.default)
                         }
                     }
+                    .listRowSeparatorTint(Color(red: 0.25, green: 0.6, blue: 0.58))
                     .swipeActions(edge: .trailing) {
                         // Delete action
                         Button(action: {
@@ -104,7 +105,7 @@ struct UncompleteTaskView: View {
                             Label(item.isPinned ? "Unpin" : "Pin", systemImage: "pin")
                         }
                         
-                        Button(action: {
+                        Button(role: .destructive, action: {
                             guard let index = viewModel.items.firstIndex(where: { $0.id == item.id }) else {
                                 return
                             }
@@ -112,6 +113,7 @@ struct UncompleteTaskView: View {
                         }) {
                             Label("Delete", systemImage: "trash")
                         }
+
                         
                     }
                 }
