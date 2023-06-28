@@ -11,7 +11,10 @@ struct ContentView: View {
     @EnvironmentObject var appState: AppState
     @State var activityName: String
     @State var selectedTab = 1
-    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.white
+        activityName = ""
+    }
     var body: some View {
         
             TabView(selection: $selectedTab) {
@@ -47,7 +50,7 @@ struct ContentView: View {
                     }.tag(4)
             }
             .background(.white)
-            .accentColor(Color(red: 0.25, green: 0.6, blue: 0.58))
+            .accentColor(Color("PG-400"))
         }
     
 }
@@ -58,3 +61,4 @@ struct ContentView: View {
 //            .environmentObject(AppState())
 //    }
 //}
+
