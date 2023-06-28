@@ -144,7 +144,7 @@ struct FocusView: View {
 //                }
 //                .padding()
                 
-                CountdownFocusView(timerManager: TimerManager())
+                CountdownFocusView(viewModel: viewModel)
             }
             
             Spacer()
