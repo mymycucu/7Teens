@@ -39,7 +39,6 @@
 		AD25B56B2A48937800C56931 /* UncompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B56A2A48937800C56931 /* UncompleteView.swift */; };
 		AD25B56D2A4893A600C56931 /* UncompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B56C2A4893A600C56931 /* UncompleteViewModel.swift */; };
 		AD25B5712A4A916000C56931 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B5702A4A916000C56931 /* TimerViewModel.swift */; };
-		AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACD7E2A443EA200E7691E /* CharacterMO+Extention.swift */; };
 		AD4ACDA22A45828900E7691E /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACDA02A45828800E7691E /* ShopView.swift */; };
 		AD4ACDA32A45828900E7691E /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACDA12A45828900E7691E /* Items.swift */; };
 		AD7285C72A41FC4900D8D5AE /* TaskMOsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285C62A41FC4900D8D5AE /* TaskMOsView.swift */; };
@@ -64,11 +63,6 @@
 		D4545F422A4A9AEF00887B9C /* SegmentedShopEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F412A4A9AEF00887B9C /* SegmentedShopEnum.swift */; };
 		D4545F472A4AD4B400887B9C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D4545F462A4AD4B400887B9C /* Lottie */; };
 		D4545F492A4AD57C00887B9C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F482A4AD57C00887B9C /* LottieView.swift */; };
-		D4545F6D2A4ADEB500887B9C /* cat_fly_blue.json in Resources */ = {isa = PBXBuildFile; fileRef = D4545F6A2A4ADEB500887B9C /* cat_fly_blue.json */; };
-		D4545F702A4AE0CE00887B9C /* Beach_Test.json in Resources */ = {isa = PBXBuildFile; fileRef = D4545F6F2A4AE0CE00887B9C /* Beach_Test.json */; };
-		D4545F742A4AE28C00887B9C /* cat_fly_red.json in Resources */ = {isa = PBXBuildFile; fileRef = D4545F712A4AE28C00887B9C /* cat_fly_red.json */; };
-		D4545F752A4AE28C00887B9C /* koala_fly_red.json in Resources */ = {isa = PBXBuildFile; fileRef = D4545F722A4AE28C00887B9C /* koala_fly_red.json */; };
-		D4545F762A4AE28C00887B9C /* dog_fly_red.json in Resources */ = {isa = PBXBuildFile; fileRef = D4545F732A4AE28C00887B9C /* dog_fly_red.json */; };
 		D4D804502A4BEFAA00CC9894 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8044F2A4BEFAA00CC9894 /* ShopViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +100,6 @@
 		AD25B56A2A48937800C56931 /* UncompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncompleteView.swift; sourceTree = "<group>"; };
 		AD25B56C2A4893A600C56931 /* UncompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncompleteViewModel.swift; sourceTree = "<group>"; };
 		AD25B5702A4A916000C56931 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
-		AD4ACD7E2A443EA200E7691E /* CharacterMO+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+Extention.swift"; sourceTree = "<group>"; };
 		AD4ACDA02A45828800E7691E /* ShopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		AD4ACDA12A45828900E7691E /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		AD7285C62A41FC4900D8D5AE /* TaskMOsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMOsView.swift; sourceTree = "<group>"; };
@@ -131,11 +124,6 @@
 		D4545F3F2A4A95F600887B9C /* ShopSegmented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSegmented.swift; sourceTree = "<group>"; };
 		D4545F412A4A9AEF00887B9C /* SegmentedShopEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedShopEnum.swift; sourceTree = "<group>"; };
 		D4545F482A4AD57C00887B9C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		D4545F6A2A4ADEB500887B9C /* cat_fly_blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = cat_fly_blue.json; path = "../../../../../../Asset/char copy/cat_fly_blue.json"; sourceTree = "<group>"; };
-		D4545F6F2A4AE0CE00887B9C /* Beach_Test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Beach_Test.json; path = ../../../../../../../Downloads/Beach_Test.json; sourceTree = "<group>"; };
-		D4545F712A4AE28C00887B9C /* cat_fly_red.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = cat_fly_red.json; path = ../../../../../../Asset/char/cat_fly_red.json; sourceTree = "<group>"; };
-		D4545F722A4AE28C00887B9C /* koala_fly_red.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = koala_fly_red.json; path = ../../../../../../Asset/char/koala_fly_red.json; sourceTree = "<group>"; };
-		D4545F732A4AE28C00887B9C /* dog_fly_red.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dog_fly_red.json; path = ../../../../../../Asset/char/dog_fly_red.json; sourceTree = "<group>"; };
 		D4D8044F2A4BEFAA00CC9894 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -352,7 +340,6 @@
 		ADECB3152A3DB6AC005BA03F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D4545F4A2A4AD5F900887B9C /* AnimationAssets */,
 				051E42712A4A8D0B00B4BAF6 /* Fonts */,
 				056A1CE32A41A46A0029B5B9 /* Sounds */,
 				ADECB3092A3DB567005BA03F /* Assets.xcassets */,
@@ -386,21 +373,8 @@
 				ADECB3192A3DB8FB005BA03F /* FocusData.xcdatamodeld */,
 				ADD5E4EB2A42E9AE00624B0F /* TaskMO+Extention.swift */,
 				ADD5E4ED2A42ECC500624B0F /* SessionMO+Extention.swift */,
-				AD4ACD7E2A443EA200E7691E /* CharacterMO+Extention.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		D4545F4A2A4AD5F900887B9C /* AnimationAssets */ = {
-			isa = PBXGroup;
-			children = (
-				D4545F712A4AE28C00887B9C /* cat_fly_red.json */,
-				D4545F732A4AE28C00887B9C /* dog_fly_red.json */,
-				D4545F722A4AE28C00887B9C /* koala_fly_red.json */,
-				D4545F6A2A4ADEB500887B9C /* cat_fly_blue.json */,
-				D4545F6F2A4AE0CE00887B9C /* Beach_Test.json */,
-			);
-			path = AnimationAssets;
 			sourceTree = "<group>";
 		};
 		D4D8044D2A4BEC1000CC9894 /* ShopScene */ = {
@@ -485,11 +459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4545F702A4AE0CE00887B9C /* Beach_Test.json in Resources */,
-				D4545F742A4AE28C00887B9C /* cat_fly_red.json in Resources */,
-				D4545F752A4AE28C00887B9C /* koala_fly_red.json in Resources */,
 				ADECB30D2A3DB567005BA03F /* Preview Assets.xcassets in Resources */,
-				D4545F6D2A4ADEB500887B9C /* cat_fly_blue.json in Resources */,
 				051E42942A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLightItalic.ttf in Resources */,
 				051E429C2A4A95DB00B4BAF6 /* PlusJakartaSans-BoldItalic.ttf in Resources */,
 				051E42922A4A95DB00B4BAF6 /* PlusJakartaSans-Italic.ttf in Resources */,
@@ -507,7 +477,6 @@
 				051E42932A4A95DB00B4BAF6 /* PlusJakartaSans-Light.ttf in Resources */,
 				051E429D2A4A95DB00B4BAF6 /* PlusJakartaSans-Regular.ttf in Resources */,
 				ADECB30A2A3DB567005BA03F /* Assets.xcassets in Resources */,
-				D4545F762A4AE28C00887B9C /* dog_fly_red.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +497,6 @@
 				AD7285CB2A420E5C00D8D5AE /* ActivityView.swift in Sources */,
 				AD25B56B2A48937800C56931 /* UncompleteView.swift in Sources */,
 				056A1D112A458A770029B5B9 /* CountdownFocusView.swift in Sources */,
-				AD4ACD7F2A443EA200E7691E /* CharacterMO+Extention.swift in Sources */,
 				D4545F3E2A4A90A100887B9C /* RoundedCorner.swift in Sources */,
 				053589022A4BD77D0064185D /* RewardView.swift in Sources */,
 				AD25B5682A487E3600C56931 /* InsightViewModel.swift in Sources */,
