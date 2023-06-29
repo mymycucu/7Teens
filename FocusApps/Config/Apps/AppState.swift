@@ -13,8 +13,11 @@ class AppState: ObservableObject {
     @Published var session: SessionMO?
     @Published var activity: ActivityMO?
     @Published var background: String
-    @Published var charEquipments: String
+    @Published var char: String
+    @Published var body: String
+    @Published var hat: String
     
+    var firstRun = true
     let preview: Bool
     
     init(preview: Bool = false) {
@@ -23,7 +26,13 @@ class AppState: ObservableObject {
         self.session = nil
         self.activity = nil
         self.background = ""
-        self.charEquipments = ""
+        self.char = ""
+        self.body = ""
+        self.hat = ""
+        if firstRun {
+            appDataInit()
+            self.firstRun = false
+        }
     }
     
     func createTask(name: String){
@@ -40,18 +49,23 @@ class AppState: ObservableObject {
         }
     }
     
-    func startFocus(){
+    func appDataInit(){
+        let catItem = PersistenceController.shared.create(ItemTransactionMO.self)
+        catItem!.id = UUID()
+        catItem!.itemName = "cat"
+        catItem!.createdAt = Date()
+        let hatRedItem = PersistenceController.shared.create(ItemTransactionMO.self)
+        hatRedItem!.id = UUID()
+        hatRedItem!.itemName = "hat-red"
+        hatRedItem!.createdAt = Date()
+        do {
+            try PersistenceController.shared.save()
+            self.body = "cat"
+            self.hat = "hat-red"
+        } catch {
+            print("Error saving")
+        }
         
-    }
-    
-    func createSession(){
-        let newSession = PersistenceController.shared.create(SessionMO.self)
-        newSession!.id = UUID()
-        newSession!.task = self.task
-        newSession!.createdAt = Date()
-    }
-    
-    func refreshData(){
         
     }
 

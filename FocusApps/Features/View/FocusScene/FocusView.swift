@@ -151,6 +151,10 @@ struct FocusView: View {
             
             Spacer()
         }
+//        .background(
+//            LottieView(name: "Beach_Test", loopMode: .autoReverse)
+//                .edgesIgnoringSafeArea(.all)
+//        )
         
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                     showAlert = true

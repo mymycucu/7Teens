@@ -11,7 +11,10 @@ struct ContentView: View {
     @EnvironmentObject var appState: AppState
     @State var activityName: String
     @State var selectedTab = 1
-    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.white
+        activityName = ""
+    }
     var body: some View {
         NavigationView{
             TabView(selection: $selectedTab) {
@@ -26,9 +29,9 @@ struct ContentView: View {
                 UncompleteTaskView()
                     .environmentObject(appState)
                     .tabItem {
-                    Image(systemName: "note.text")
-                    Text("Uncomplete")
-                }
+                        Image(systemName: "note.text")
+                        Text("Uncomplete")
+                    }
                 
                 // Uncompleted Task
                 SummaryView()
@@ -38,7 +41,7 @@ struct ContentView: View {
                         Text("Insight")
                     }
                     .tag(0)
-            
+                
                 // Shop
                 ShopView()
                     .environmentObject(appState)
@@ -47,16 +50,16 @@ struct ContentView: View {
                     }
             }
             .background(.white)
-            .accentColor(Color(red: 0.25, green: 0.6, blue: 0.58))
+            .accentColor(Color("PG-400"))
         }
         .preferredColorScheme(.light)
 
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(activityName: "")
-            .environmentObject(AppState())
-    }
-}
+// struct ContentView_Previews: PreviewProvider {
+//     static var previews: some View {
+//         ContentView(activityName: "")
+//             .environmentObject(AppState())
+//     }
+// }
