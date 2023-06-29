@@ -13,6 +13,8 @@ struct FocusView: View {
     @State private var isMusicModalVisible = false
     @State private var isFaqModalVisible = false
     @State private var selectedOption = 0
+    @State private var showAlert = false
+    @Environment(\.scenePhase) var scenePhase
     let options = ["One", "Two", "Three", "Four"]
     
     var body: some View {
@@ -148,6 +150,23 @@ struct FocusView: View {
             }
             
             Spacer()
+        }
+        
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+                    showAlert = true
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+            showAlert = false
+        }
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                print("Active")
+            } else if newPhase == .inactive {
+                print("Inactive")
+            } else if newPhase == .background {
+                print("Background")
+                NotificationManager.requestNotificationPermission()
+            }
         }
     }
 }
