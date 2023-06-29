@@ -11,6 +11,7 @@ import CoreData
 @MainActor
 class ShopViewModel: ObservableObject {
     @Published var itemBoughtList: [String] = []
+    @Published var itemToBuy: ShopItem = Constant.catItem
     
     init() {
         refreshData()

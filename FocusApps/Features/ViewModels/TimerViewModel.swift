@@ -21,6 +21,12 @@ class TimerViewModel: ObservableObject {
     @Published var focusStep = 0
     @Published var restStep = 0
     
+    @Published var isMusicModalVisible = false
+    @Published var isFaqModalVisible = false
+    @Published var selectedOption = 0
+    @Published var showAlert = false
+    
+    @Published var sceneState = 0
     
     // TimerController Var
     var hours = 0
@@ -51,6 +57,8 @@ class TimerViewModel: ObservableObject {
     func startFocus(){
         playSound(fileName: "ambient")
         startTimer(sec: hours * 3600 + minutes * 60 + seconds)
+        sceneState = 1
+        print(sceneState)
     }
 
     func createTask(){

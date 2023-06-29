@@ -24,9 +24,10 @@ struct ContentView: View {
                     .environmentObject(appState)
                     .tabItem {
                         Label("Focus", systemImage: "target")
-                    }.tag(1)
+                    }
+                    .tag(1)
                 
-                UncompleteView()
+                UncompleteTaskView()
                     .environmentObject(appState)
                     .tabItem {
                     Image(systemName: "note.text")
@@ -34,10 +35,10 @@ struct ContentView: View {
                     }.tag(2)
                 
                 // Uncompleted Task
-                TaskMOsView()
+                SummaryView()
                     .environmentObject(appState)
                     .tabItem {
-                        Image(systemName: "note.text")
+                        Image(systemName: "chart.bar.xaxis")
                         Text("Insight")
                     }
                     .tag(3)
@@ -46,19 +47,20 @@ struct ContentView: View {
                 ShopView()
                     .environmentObject(appState)
                     .tabItem {
-                        Label("Shop", systemImage: "clock")
+                        Label("Shop", systemImage: "basket.fill")
                     }.tag(4)
             }
             .background(.white)
             .accentColor(Color("PG-400"))
         }
-    
-}
+//        .preferredColorScheme(.light)
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView(activityName: "")
-//            .environmentObject(AppState())
-//    }
+}
 //}
 
+// struct ContentView_Previews: PreviewProvider {
+//     static var previews: some View {
+//         ContentView(activityName: "")
+//             .environmentObject(AppState())
+//     }
+// }

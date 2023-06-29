@@ -9,18 +9,13 @@ import SwiftUI
 
 struct CountdownFocusView: View {
     @EnvironmentObject var appState: AppState
-    @State var background = "CountdownFocusBG"
     @StateObject var viewModel: TimerViewModel
     var body: some View {
         ZStack{
-            Image(background)
-                .resizable()
+            LottieView(name: appState.background, loopMode: .autoReverse)
                 .scaledToFill()
-                .ignoresSafeArea(.all)
-                .edgesIgnoringSafeArea(.all)
             
             VStack {
-                
                 Spacer()
                     .frame(height: 100)
                 

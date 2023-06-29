@@ -35,8 +35,14 @@ class AppState: ObservableObject {
         catItem!.id = UUID()
         catItem!.itemName = "cat"
         catItem!.createdAt = Date()
+        let hatRedItem = PersistenceController.shared.create(ItemTransactionMO.self)
+        hatRedItem!.id = UUID()
+        hatRedItem!.itemName = "hat-red"
+        hatRedItem!.createdAt = Date()
         do {
             try PersistenceController.shared.save()
+            self.body = "cat"
+            self.hat = "hat-red"
         } catch {
             print("Error saving")
         }
