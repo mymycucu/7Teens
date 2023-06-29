@@ -1,51 +1,19 @@
-//import SwiftUI
 //
+//  UncompleteTaskView.swift
+//  FocusApps
 //
-//struct AccordionView: View {
+//  Created by Ario Syahputra on 28/06/23.
 //
-//    @State var isAccordionExpanded: Bool = false
-//    @State var isAccordionExpanded2: Bool = false
-//
-//    var body: some View {
-//        VStack {
-////            Toggle("Expand Accordion", isOn: $isAccordionExpanded.animation()) // THIS FIX the Disclosure Animation
-////                .padding(.horizontal)
-//
-//            DisclosureGroup("The Title Of Accordion", isExpanded: $isAccordionExpanded) {
-//                VStack {
-//                    Image(systemName: "star")
-//                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed mauris sit amet ex finibus suscipit. Nullam dapibus pulvinar eros, eget fringilla enim finibus ac. Nunc tempor sem in vehicula placerat. Nam vitae fermentum nisl. Proin dictum ligula vel interdum hendrerit. ")
-//                        .onTapGesture { isAccordionExpanded.toggle() }
-//                }
-//            }.padding()
-//
-//            DisclosureGroup("The Title Of Accordion", isExpanded: $isAccordionExpanded2) {
-//                VStack {
-//                    Image(systemName: "star")
-//                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed mauris sit amet ex finibus suscipit. Nullam dapibus pulvinar eros, eget fringilla enim finibus ac. Nunc tempor sem in vehicula placerat. Nam vitae fermentum nisl. Proin dictum ligula vel interdum hendrerit. ")
-//                        .onTapGesture { isAccordionExpanded2.toggle() }
-//                }
-//            }.padding()
-//
-//        }
-//    }
-//}
-//
-//struct CircleTest_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AccordionView()
-//    }
-//}
 
 import SwiftUI
 
-struct ListItem: Identifiable {
+struct TaskList: Identifiable {
     let id = UUID()
     let title: String
     var isPinned: Bool
 }
 
-class ListViewModel: ObservableObject {
+class UncompleteTaskViewModel: ObservableObject {
     @Published var items: [ListItem] = [ListItem(title: "Item 1", isPinned: false), ListItem(title: "Item 2", isPinned: false),ListItem(title: "Item 1", isPinned: false),ListItem(title: "Item 1", isPinned: false),] // Dynamic array of ListItem
     
     func deleteItem(at index: IndexSet) {
@@ -72,35 +40,52 @@ class ListViewModel: ObservableObject {
     }
 }
 
-struct ListView: View {
+struct UncompleteTaskView: View {
     @StateObject private var viewModel = ListViewModel()
+    @State private var isContinueModalVisible = false
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.items) { item in
-                    HStack {
-                        VStack (alignment: .leading){
-                            Text(item.title)
-                                .font(.custom("PlusJakartaSans-Bold", size: 18))
-                            Text(item.title)
-                                .font(.custom("PlusJakartaSans-Regular", size: 10))
-                        }
-                        
-                        Spacer()
-                        
-                        if item.isPinned {
-                            Button(action: {
-                                viewModel.togglePin(for: item)
-                            }) {
-                                Image(systemName: "pin.fill")
-                                    .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
+                    Button(action: {
+                        // Handle button tap
+                        isContinueModalVisible = true
+                        print("Button tapped: \(item.title)")
+                    }) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(item.title)
+                                    .font(.custom("PlusJakartaSans-Bold", size: 18))
+                                Text(item.title)
+                                    .font(.custom("PlusJakartaSans-Regular", size: 10))
                             }
-                            .animation(.default)
+                            .padding(.vertical, 5)
+                            
+                            Spacer()
+                            
+                            if item.isPinned {
+                                Button(action: {
+                                    viewModel.togglePin(for: item)
+                                }) {
+                                    Image(systemName: "pin.fill")
+                                        .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
+                                }
+                                .animation(.default)
+                            }
                         }
                     }
+                    //Pop Up Modal
+                    .sheet(isPresented: $isContinueModalVisible) {
+                        ContinueConfirmation()
+                        .padding(.top, 20)
+                        .presentationDetents([.height(277)])
+                        .presentationDragIndicator(.visible)
+                    }
+                    .listRowSeparatorTint(Color(red: 0.25, green: 0.6, blue: 0.58))
+                    
+                    // Delete action
                     .swipeActions(edge: .trailing) {
-                        // Delete action
                         Button(action: {
                             guard let index = viewModel.items.firstIndex(where: { $0.id == item.id }) else {
                                 return
@@ -111,8 +96,9 @@ struct ListView: View {
                         }
                         .tint(.red)
                     }
+                    
+                    // Pin action
                     .swipeActions(edge: .leading) {
-                        // Pin action
                         Button(action: {
                             viewModel.togglePin(for: item)
                         }) {
@@ -120,8 +106,9 @@ struct ListView: View {
                         }
                         .tint(.yellow)
                     }
+                    
+                    // Context menu actions (rename, delete, pin)
                     .contextMenu {
-                        // Context menu actions (rename, delete, pin)
                         Button(action: {
                             print("Renaming \(item.title)...")
                         }) {
@@ -134,7 +121,7 @@ struct ListView: View {
                             Label(item.isPinned ? "Unpin" : "Pin", systemImage: "pin")
                         }
                         
-                        Button(action: {
+                        Button(role: .destructive, action: {
                             guard let index = viewModel.items.firstIndex(where: { $0.id == item.id }) else {
                                 return
                             }
@@ -142,11 +129,11 @@ struct ListView: View {
                         }) {
                             Label("Delete", systemImage: "trash")
                         }
-                        
                     }
                 }
                 .onDelete(perform: viewModel.deleteItem)
             }
+            .frame(width: 358)
             .padding(.vertical, 30)
             .listStyle(.plain)
             .offset(x: -10)
@@ -156,16 +143,8 @@ struct ListView: View {
 }
 
 
-struct ListView_Previews: PreviewProvider {
+struct UncompleteTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        UncompleteTaskView()
     }
 }
-
-
-
-
-
-
-
-
