@@ -17,9 +17,9 @@ struct FocusView: View {
     
     var body: some View {
         VStack {
-            
-            HStack{
+            if !viewModel.timerIsRunning{
                 
+            HStack{
                 //FAQ
                 Button(action: {
                     isFaqModalVisible = true
@@ -97,14 +97,14 @@ struct FocusView: View {
 
             
             //Timer
-            if !viewModel.timerIsRunning {
+//            if !viewModel.timerIsRunning {
                 TimePickerView(viewModel: viewModel)
                 //Cycle
                 HStack {
                     Text("Cycle: ")
                         .font(.custom("PlusJakartaSans-Medium", size: 16))
-                    Picker("One", selection: $selectedOption) {
-                        ForEach(0..<options.count) { index in
+                    Picker("One", selection: $viewModel.cycle) {
+                        ForEach(0..<4) { index in
                             Text(options[index])
                         }
                     }
@@ -116,7 +116,18 @@ struct FocusView: View {
                     
                 }
                 .padding(.vertical, 20)
-
+                
+                Button(action: {
+                    viewModel.isNewTask = true
+                }) {
+                    Text("reset task")
+                        .font(.custom("PlusJakartaSans-SemiBold", size: 16))
+                        .foregroundColor(.white)
+                        .frame(width: 119, height: 50)
+                        .background(Color(red: 0.97, green: 0.7, blue: 0.1))
+                        .cornerRadius(40)
+                }
+                .padding()
                
                 //Start Button
                 Button(action: {
@@ -131,18 +142,6 @@ struct FocusView: View {
                 }
                 .padding()
             } else {
-                
-//                Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
-//                .font(.largeTitle)
-//                .padding()
-//
-//                Button(action: {
-//                    SoundController.instance.player?.stop()
-//                    timerManager.stopTimer()
-//                }) {
-//                    Text("Stop")
-//                }
-//                .padding()
                 
                 CountdownFocusView(viewModel: viewModel)
             }

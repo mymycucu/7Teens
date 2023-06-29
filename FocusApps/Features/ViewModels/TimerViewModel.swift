@@ -17,6 +17,11 @@ class TimerViewModel: ObservableObject {
     @Published var taskName = ""
     @Published var isNewTask = true
     
+    @Published var cycle = 0
+    @Published var focusStep = 0
+    @Published var restStep = 0
+    
+    
     // TimerController Var
     var hours = 0
     var minutes = 0
@@ -30,16 +35,64 @@ class TimerViewModel: ObservableObject {
     
     // MARK: ViewModel Func
     func startSession(){
-        playSound(fileName: "ambient")
-        startTimer(sec: hours * 3600 + minutes * 60 + seconds)
+        if isNewTask {
+            self.createTask()
+        }
+        self.createSession()
+        self.startFocus()
     }
     
     func stopSession(){
         stopSound()
         stopTimer()
+        
+    }
+    
+    func startFocus(){
+        playSound(fileName: "ambient")
+        startTimer(sec: hours * 3600 + minutes * 60 + seconds)
     }
 
+    func createTask(){
+        let newTask = PersistenceController.shared.create(TaskMO.self)
+        newTask!.id = UUID()
+        newTask!.name = self.taskName
+        newTask!.isDone = false
+        newTask!.createdAt = Date()
+        do {
+            try PersistenceController.shared.save()
+            self.task = newTask
+        } catch {
+            print("Error saving")
+        }
+    }
     
+    func createSession(){
+        let newSession = PersistenceController.shared.create(SessionMO.self)
+        newSession!.id = UUID()
+        newSession!.createdAt = Date()
+        newSession!.task = self.task
+        do {
+            try PersistenceController.shared.save()
+            self.session = newSession
+        } catch {
+            print("Error saving")
+        }
+    }
+    
+    func createFocus(){
+        let newFocus = PersistenceController.shared.create(ActivityMO.self)
+        newFocus!.id = UUID()
+        newFocus!.createdAt = Date()
+        newFocus!.type = 0
+        newFocus!.duration = Int32(hours * 3600 + minutes * 60 + seconds) // TOLONG DICEK LAGI
+        do {
+            try PersistenceController.shared.save()
+            self.activity = newFocus
+        } catch {
+            print("Error saving")
+        }
+    }
     
     // MARK: TimerController Func
     func startTimer(sec : Int) {

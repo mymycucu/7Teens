@@ -19,20 +19,6 @@ struct UncompleteView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Write your activity", text: $taskName)
-                    .overlay(
-                        VStack {
-                            Divider()
-                                .background(Color(red: 0.07, green: 0.34, blue: 0.35))
-                                .offset(x: 0, y: 25)
-                                .frame(width: 200)
-                                // Adjust the color here
-                        }
-                    )
-                    .font(.system(size: 22))
-                    .multilineTextAlignment(.center)
-                    .padding(.vertical, 50)
-                
                 List{
                     ForEach(viewModel.taskMOList){ task in
                         NavigationLink {
