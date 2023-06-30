@@ -15,22 +15,31 @@ struct FaqAccordion: View {
                 .padding()
             
             ScrollView{
+                // MARK: FAQ - 1
                 DisclosureGroup(content: {
                     VStack {
-                        Text("A cycle refers to a set of consecutive pomodoros and breaks. It is a series of work intervals and rest periods that form a complete unit of time management.")
+                        HStack{
+                            Text("Input the task name you want to work on. Set your desired focus time within a range of 10 minutes to an hour. Then, choose cycle up to 4 cycles.")
+                                .padding(.vertical)
+                            Spacer()
+                        }
                     }
                 }, label: {
-                    Text("What is Pomodoro?")
+                    Text("How to start focus with Timee?")
                         .foregroundColor(Color(red: 0.07, green: 0.34, blue: 0.35))
                         .bold()
                 })
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
                  Divider()
-                
+                // MARK: FAQ - 2
                 DisclosureGroup(content: {
                     VStack {
-                        Text("A cycle refers to a set of consecutive pomodoros and breaks. It is a series of work intervals and rest periods that form a complete unit of time management.")
+                        HStack{
+                            Text("A cycle is a series of focus times and rest periods. For example, If you choose 25 minutes focus time and 2 cycles, you repeat the 25 minutes of focus time twice. And there will be a 5-minute break between each focus time. ")
+                                .padding(.vertical)
+                            Spacer()
+                        }
                     }
                 }, label: {
                     Text("What is Cycle?")
@@ -41,12 +50,19 @@ struct FaqAccordion: View {
                 .padding(.vertical, 10)
                  Divider()
                 
+                // MARK: FAQ - 3
                 DisclosureGroup(content: {
-                    VStack {
-                        Text("A cycle refers to a set of consecutive pomodoros and breaks. It is a series of work intervals and rest periods that form a complete unit of time management.")
+                    VStack(alignment: .leading){
+                        HStack{
+                            Text("Timee provides focus ambience to improve your focus environment. You can customize the ambience of your focus by selecting a suitable soundtrack.")
+                                .padding(.vertical)
+                            Spacer()
+                        }
+                        
                     }
+                
                 }, label: {
-                    Text("How can i get streak?")
+                    Text("How Timee helps you to focus?")
                         .foregroundColor(Color(red: 0.07, green: 0.34, blue: 0.35))
                         .bold()
                 })
@@ -54,18 +70,6 @@ struct FaqAccordion: View {
                 .padding(.vertical, 10)
                  Divider()
                 
-                DisclosureGroup(content: {
-                    VStack {
-                        Text("A cycle refers to a set of consecutive pomodoros and breaks. It is a series of work intervals and rest periods that form a complete unit of time management.")
-                    }
-                }, label: {
-                    Text("How can i extend my focus time?")
-                        .foregroundColor(Color(red: 0.07, green: 0.34, blue: 0.35))
-                        .bold()
-                })
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                 Divider()
             }
             
        }
