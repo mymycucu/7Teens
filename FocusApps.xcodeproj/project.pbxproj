@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05162B8E2A4C09A10079A1DD /* UncompleteTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05162B8D2A4C09A10079A1DD /* UncompleteTaskView.swift */; };
 		05162B902A4C373D0079A1DD /* ContinueConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05162B8F2A4C373D0079A1DD /* ContinueConfirmation.swift */; };
+		05162BB02A4E70980079A1DD /* CountdownFocusEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05162BAF2A4E70980079A1DD /* CountdownFocusEndView.swift */; };
 		051E42922A4A95DB00B4BAF6 /* PlusJakartaSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42842A4A95DB00B4BAF6 /* PlusJakartaSans-Italic.ttf */; };
 		051E42932A4A95DB00B4BAF6 /* PlusJakartaSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42852A4A95DB00B4BAF6 /* PlusJakartaSans-Light.ttf */; };
 		051E42942A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 051E42862A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLightItalic.ttf */; };
@@ -84,6 +85,7 @@
 /* Begin PBXFileReference section */
 		05162B8D2A4C09A10079A1DD /* UncompleteTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncompleteTaskView.swift; sourceTree = "<group>"; };
 		05162B8F2A4C373D0079A1DD /* ContinueConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueConfirmation.swift; sourceTree = "<group>"; };
+		05162BAF2A4E70980079A1DD /* CountdownFocusEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownFocusEndView.swift; sourceTree = "<group>"; };
 		051E42802A4A8D3D00B4BAF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		051E42842A4A95DB00B4BAF6 /* PlusJakartaSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Italic.ttf"; sourceTree = "<group>"; };
 		051E42852A4A95DB00B4BAF6 /* PlusJakartaSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Light.ttf"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				056A1CEC2A429AD70029B5B9 /* CircleTest.swift */,
 				ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */,
 				056A1D102A458A770029B5B9 /* CountdownFocusView.swift */,
+				05162BAF2A4E70980079A1DD /* CountdownFocusEndView.swift */,
 				053588FF2A4BD76F0064185D /* StreakView.swift */,
 				053589012A4BD77D0064185D /* RewardView.swift */,
 				05EF44F22A48833C00765C0B /* RestStartView.swift */,
@@ -559,6 +562,7 @@
 				0535890E2A4BE80F0064185D /* Task.swift in Sources */,
 				056A1CED2A429AD70029B5B9 /* CircleTest.swift in Sources */,
 				D4D804602A4C24E200CC9894 /* BuyItemShop.swift in Sources */,
+				05162BB02A4E70980079A1DD /* CountdownFocusEndView.swift in Sources */,
 				056A1CE72A41ABD90029B5B9 /* SummaryView.swift in Sources */,
 				ADD5E4F72A43EDF900624B0F /* Constant.swift in Sources */,
 				056A1CDC2A41A42E0029B5B9 /* FocusView.swift in Sources */,
