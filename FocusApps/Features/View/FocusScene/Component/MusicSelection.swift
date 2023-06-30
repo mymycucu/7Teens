@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct MusicSelection: View {
-    @EnvironmentObject var appState: AppState 
+    @EnvironmentObject var appState: AppState
     @State private var selectedOption: String? = nil
+    @State private var selectedBg: String? = nil
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -19,13 +20,17 @@ struct MusicSelection: View {
                 .padding(.vertical, 10)
             
             //Music Selection Choice
-            ToggleButton(title: "Forest Wind", option: "Forest Wind", selectedOption: $selectedOption)
-            ToggleButton(title: "Ocean Waves", option: "Ocean Waves", selectedOption: $selectedOption)
-            ToggleButton(title: "Rain Drop", option: "Rain Sounds", selectedOption: $selectedOption)
+            ToggleButton(title: "Forest Wind", option: "forest-wind", background: "bg-forest",  selectedOption: $selectedOption, selectedBg: $selectedBg)
+                .environmentObject(appState)
+            ToggleButton(title: "Ocean Waves", option: "beach-wave",background: "bg-forest", selectedOption: $selectedOption, selectedBg: $selectedBg)
+                .environmentObject(appState)
+            ToggleButton(title: "Rain Drop", option: "raindrop", background: "bg-forest", selectedOption: $selectedOption, selectedBg: $selectedBg)
+                .environmentObject(appState)
             
             //Choose Button
             Button(action: {
                 // Perform action when Start button is pressed
+                appState.background
             }) {
                 Text("Choose")
                     .font(.custom("PlusJakartaSans-SemiBold", size: 16))
@@ -44,26 +49,29 @@ struct MusicSelection: View {
 struct ToggleButton: View {
     let title: String
     let option: String
+    let background: String
     @Binding var selectedOption: String?
+    @Binding var selectedBg: String?
+    @EnvironmentObject var appState: AppState
     @StateObject var viewModel = TimerViewModel()
 
     
     var body: some View {
         Button(action: {
-            selectedOption = option
-            viewModel.playSound(fileName: "ambient")
+            
+            viewModel.playSound(fileName: option)
         }) {
             HStack {
                 Text(title)
                     .font(.custom("PlusJakartaSans-Regular", size: 18))
-                    .foregroundColor( option == selectedOption ? .white : .black)
+                    .foregroundColor( option == appState.song ? .white : .black)
                 Spacer()
                 Image(systemName: "speaker.wave.2")
-                    .foregroundColor( option == selectedOption ? .white : .black)
+                    .foregroundColor( option == appState.song ? .white : .black)
             }
             .frame(width: 320, height: 20)
             .padding()
-            .background(option == selectedOption ? Color(red: 0.07, green: 0.34, blue: 0.35) : Color(.systemGray5))
+            .background(option == appState.song ? Color(red: 0.07, green: 0.34, blue: 0.35) : Color(.systemGray5))
             .cornerRadius(8)
         }
         .padding(.vertical, 7)

@@ -24,7 +24,7 @@ struct FocusView: View {
                             .ignoresSafeArea(.all)
                             .animation(
                                 .interpolatingSpring(stiffness: 200, damping: 20)
-                                .speed(1))
+                                .speed(0.2))
                 }
             
             switch viewModel.sceneState{

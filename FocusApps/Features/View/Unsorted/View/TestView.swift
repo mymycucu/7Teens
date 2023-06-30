@@ -16,7 +16,6 @@ struct TestView: View {
             LottieView(name: "bg-beach", loopMode: .autoReverse)
                 .ignoresSafeArea(.all)
                 .mask {
-                        
                         Circle()
                             .frame(
                                 width: isFull ? 2000 : 300,
@@ -25,6 +24,7 @@ struct TestView: View {
                             .animation(
                                 .interpolatingSpring(stiffness: 200, damping: 20)
                                 .speed(1))
+                    
                 }
             LottieView(name: "cat-hat-blue", loopMode: .autoReverse)
                 .frame(width: 200, height: 200)
@@ -33,21 +33,26 @@ struct TestView: View {
                 .mask {
                         Circle()
                             .frame(
-                                width: isFull ? 2000 : 300,
-                                height: isFull ? 2000 : 300)
+                                width: isFull ? 2000 : 0,
+                                height: isFull ? 2000 : 0)
                             .ignoresSafeArea(.all)
                             .animation(
                                 .interpolatingSpring(stiffness: 200, damping: 20)
                                 .speed(1))
                 }
-                
-            Button("start"){
-                withAnimation{
+            VStack{
+                Button("start"){
+                    withAnimation{
+                        
+                        isFull.toggle()
+                    }
                     
-                    isFull.toggle()
                 }
-                
+                Spacer()
+                Text("halo")
             }
+                
+            
         }
         .edgesIgnoringSafeArea(.all)
     }

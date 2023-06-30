@@ -16,43 +16,44 @@ struct ContentView: View {
         activityName = ""
     }
     var body: some View {
-        
-            TabView(selection: $selectedTab) {
-                
-                // Focus Page
-                FocusView()
-                    .environmentObject(appState)
-                    .tabItem {
-                        Label("Focus", systemImage: "target")
-                    }
-                    .tag(1)
-                
-                UncompleteTaskView()
-                    .environmentObject(appState)
-                    .tabItem {
-                    Image(systemName: "note.text")
-                    Text("Uncomplete")
-                    }.tag(2)
-                
-                // Uncompleted Task
-                SummaryView()
-                    .environmentObject(appState)
-                    .tabItem {
-                        Image(systemName: "chart.bar.xaxis")
-                        Text("Insight")
-                    }
-                    .tag(3)
-            
-                // Shop
-                ShopView()
-                    .environmentObject(appState)
-                    .tabItem {
-                        Label("Shop", systemImage: "basket.fill")
-                    }.tag(4)
-            }
-            .background(.white)
-            .accentColor(Color("PG-400"))
-        }
+        TestView()
+    }
+//            TabView(selection: $selectedTab) {
+//
+//                // Focus Page
+//                FocusView()
+//                    .environmentObject(appState)
+//                    .tabItem {
+//                        Label("Focus", systemImage: "target")
+//                    }
+//                    .tag(1)
+//
+//                UncompleteTaskView()
+//                    .environmentObject(appState)
+//                    .tabItem {
+//                    Image(systemName: "note.text")
+//                    Text("Uncomplete")
+//                    }.tag(2)
+//
+//                // Uncompleted Task
+//                SummaryView()
+//                    .environmentObject(appState)
+//                    .tabItem {
+//                        Image(systemName: "chart.bar.xaxis")
+//                        Text("Insight")
+//                    }
+//                    .tag(3)
+//
+//                // Shop
+//                ShopView()
+//                    .environmentObject(appState)
+//                    .tabItem {
+//                        Label("Shop", systemImage: "basket.fill")
+//                    }.tag(4)
+//            }
+//            .background(.white)
+//            .accentColor(Color("PG-400"))
+//        }
 //        .preferredColorScheme(.light)
 
 }

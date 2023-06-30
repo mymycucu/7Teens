@@ -38,7 +38,7 @@ struct CountdownFocusView: View {
                     .font(.custom("PlusJakartaSans-Bold", size: 48))
 //                    .padding(.bottom, 150)
                 
-                LottieView(name: "\(appState.body)-\(appState.hat)", loopMode: .autoReverse)
+                //LottieView(name: "\(appState.body)-\(appState.hat)", loopMode: .autoReverse)
                     .frame(width: 250, height: 250)
                 
                 Spacer()
