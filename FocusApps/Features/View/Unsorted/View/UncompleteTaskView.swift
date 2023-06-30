@@ -13,14 +13,14 @@ struct TaskList: Identifiable {
     var isPinned: Bool
 }
 
-class UncompleteTaskViewModel: ObservableObject {
-    @Published var items: [ListItem] = [ListItem(title: "Item 1", isPinned: false), ListItem(title: "Item 2", isPinned: false),ListItem(title: "Item 1", isPinned: false),ListItem(title: "Item 1", isPinned: false),] // Dynamic array of ListItem
+class ListViewModel: ObservableObject {
+    @Published var items: [TaskList] = [TaskList(title: "Item 1", isPinned: false), TaskList(title: "Item 2", isPinned: false), TaskList(title: "Item 1", isPinned: false),TaskList(title: "Item 1", isPinned: false),] // Dynamic array of ListItem
     
     func deleteItem(at index: IndexSet) {
         items.remove(atOffsets: index)
     }
     
-    func togglePin(for item: ListItem) {
+    func togglePin(for item: TaskList) {
         if let index = items.firstIndex(where: { $0.id == item.id }) {
             withAnimation {
                 items[index].isPinned.toggle()
@@ -39,6 +39,7 @@ class UncompleteTaskViewModel: ObservableObject {
         }
     }
 }
+
 
 struct UncompleteTaskView: View {
     @StateObject private var viewModel = ListViewModel()
