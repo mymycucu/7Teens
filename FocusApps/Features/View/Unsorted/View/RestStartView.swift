@@ -9,10 +9,15 @@ import SwiftUI
 
 struct RestStartView: View {
     @State var background = "CountdownFocusBG"
-//    @ObservedObject var timerManager: TimerManager
+    //    @ObservedObject var timerManager: TimerManager
+    
+    @EnvironmentObject var appState: AppState
+    @StateObject var viewModel = TimerViewModel()
+    @State var isShowingPopUp = false
     
     var body: some View {
         ZStack{
+            // MARK: Background
             Image(background)
                 .resizable()
                 .scaledToFill()
@@ -91,7 +96,7 @@ struct RestStartView: View {
                     
                 }
                 
-               
+                
                 Text("Take a rest before continue on")
                     .font(.custom("PlusJakartaSans-Medium", size: 16))
                     .foregroundColor(.gray)
@@ -101,30 +106,37 @@ struct RestStartView: View {
                     .foregroundColor(.gray)
                     .padding(.top,-7)
                 
-//                Text("Take a rest before continue on")
-//                    .font(.system(size: 16, weight: .medium))
-//                    .padding(.top, 50)
-//                Text("Finishing Thesis")
-//                    .font(.system(size: 26, weight: .bold))
-//                    .padding(.vertical, 25)
-                    
-
+                //                Text("Take a rest before continue on")
+                //                    .font(.system(size: 16, weight: .medium))
+                //                    .padding(.top, 50)
+                //                Text("Finishing Thesis")
+                //                    .font(.system(size: 26, weight: .bold))
+                //                    .padding(.vertical, 25)
+                
+                
                 
                 Text("05:00")
                     .font(.custom("PlusJakartaSans-Bold", size: 48))
                     .padding(.top, 50)
-//                    .padding(.bottom, 150)
-                 
+                //                    .padding(.bottom, 150)
+                
                 Text("Stretch your body and relax")
                     .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                     .padding(.vertical, 10)
                 
                 
                 Spacer()
-            
-    
+                
+                
                 
             }
+            
+            // MARK: Pop Up Alert
+            if isShowingPopUp {
+                CustomAlertView()
+                
+            }
+            
         }
     }
 }
