@@ -45,11 +45,11 @@
 		AD25B56B2A48937800C56931 /* UncompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B56A2A48937800C56931 /* UncompleteView.swift */; };
 		AD25B56D2A4893A600C56931 /* UncompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B56C2A4893A600C56931 /* UncompleteViewModel.swift */; };
 		AD25B5712A4A916000C56931 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B5702A4A916000C56931 /* TimerViewModel.swift */; };
-		AD25B5AD2A4DF50100C56931 /* AnimationAssets in Resources */ = {isa = PBXBuildFile; fileRef = AD25B5AC2A4DF50100C56931 /* AnimationAssets */; };
 		AD25B5AF2A4DF55800C56931 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B5AE2A4DF55800C56931 /* ShopView.swift */; };
 		AD4ACDA32A45828900E7691E /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACDA12A45828900E7691E /* Items.swift */; };
 		AD66531A2A4DF84C007A1C3E /* FocusSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6653192A4DF84C007A1C3E /* FocusSettingView.swift */; };
 		AD66531C2A4E0046007A1C3E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66531B2A4E0046007A1C3E /* TestView.swift */; };
+		AD66531E2A4E02E0007A1C3E /* AnimationAssets in Resources */ = {isa = PBXBuildFile; fileRef = AD66531D2A4E02E0007A1C3E /* AnimationAssets */; };
 		AD7285C72A41FC4900D8D5AE /* TaskMOsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285C62A41FC4900D8D5AE /* TaskMOsView.swift */; };
 		AD7285C92A4209F600D8D5AE /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285C82A4209F600D8D5AE /* SessionView.swift */; };
 		AD7285CB2A420E5C00D8D5AE /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7285CA2A420E5C00D8D5AE /* ActivityView.swift */; };
@@ -121,11 +121,11 @@
 		AD25B56A2A48937800C56931 /* UncompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncompleteView.swift; sourceTree = "<group>"; };
 		AD25B56C2A4893A600C56931 /* UncompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncompleteViewModel.swift; sourceTree = "<group>"; };
 		AD25B5702A4A916000C56931 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
-		AD25B5AC2A4DF50100C56931 /* AnimationAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AnimationAssets; sourceTree = "<group>"; };
 		AD25B5AE2A4DF55800C56931 /* ShopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		AD4ACDA12A45828900E7691E /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		AD6653192A4DF84C007A1C3E /* FocusSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSettingView.swift; sourceTree = "<group>"; };
 		AD66531B2A4E0046007A1C3E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		AD66531D2A4E02E0007A1C3E /* AnimationAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AnimationAssets; sourceTree = "<group>"; };
 		AD7285C62A41FC4900D8D5AE /* TaskMOsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMOsView.swift; sourceTree = "<group>"; };
 		AD7285C82A4209F600D8D5AE /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		AD7285CA2A420E5C00D8D5AE /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
@@ -383,7 +383,7 @@
 		ADECB3152A3DB6AC005BA03F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AD25B5AC2A4DF50100C56931 /* AnimationAssets */,
+				AD66531D2A4E02E0007A1C3E /* AnimationAssets */,
 				051E42712A4A8D0B00B4BAF6 /* Fonts */,
 				056A1CE32A41A46A0029B5B9 /* Sounds */,
 				ADECB3092A3DB567005BA03F /* Assets.xcassets */,
@@ -510,12 +510,12 @@
 				051E429C2A4A95DB00B4BAF6 /* PlusJakartaSans-BoldItalic.ttf in Resources */,
 				051E42922A4A95DB00B4BAF6 /* PlusJakartaSans-Italic.ttf in Resources */,
 				D4D804662A4C2BB400CC9894 /* beach-wave.mp3 in Resources */,
+				AD66531E2A4E02E0007A1C3E /* AnimationAssets in Resources */,
 				051E429A2A4A95DB00B4BAF6 /* PlusJakartaSans-MediumItalic.ttf in Resources */,
 				051E42992A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBold.ttf in Resources */,
 				051E42982A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraLight.ttf in Resources */,
 				051E429F2A4A95DB00B4BAF6 /* PlusJakartaSans-ExtraBoldItalic.ttf in Resources */,
 				ADECB30D2A3DB567005BA03F /* Preview Assets.xcassets in Resources */,
-				AD25B5AD2A4DF50100C56931 /* AnimationAssets in Resources */,
 				051E42962A4A95DB00B4BAF6 /* PlusJakartaSans-Medium.ttf in Resources */,
 				056A1CE52A41A4750029B5B9 /* ambient.mp3 in Resources */,
 				051E429E2A4A95DB00B4BAF6 /* PlusJakartaSans-Bold.ttf in Resources */,
@@ -714,7 +714,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FocusApps/Preview Content\"";
-				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
+				DEVELOPMENT_TEAM = 7UW53Z6Q89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FocusApps/Info.plist;
@@ -744,7 +744,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FocusApps/Preview Content\"";
-				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
+				DEVELOPMENT_TEAM = 7UW53Z6Q89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FocusApps/Info.plist;
