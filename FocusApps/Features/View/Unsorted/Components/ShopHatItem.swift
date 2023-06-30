@@ -14,6 +14,7 @@ struct ShopHatItem: View {
     @Binding var isShowingPopUp: Bool
     
     var body: some View {
+        // MARK: Button hat Item
         Button{
             if viewModel.isBought(name: item.itemName){
                 isShowingPopUp = false
@@ -26,6 +27,7 @@ struct ShopHatItem: View {
             }
         }label: {
             ZStack {
+                // MARK: hat is bought
                 if viewModel.isBought(name: item.itemName){
                     HStack(alignment: .center, spacing: 0) {
                         Image(item.itemName)
@@ -41,6 +43,7 @@ struct ShopHatItem: View {
                             .inset(by: 2)
                             .stroke((appState.hat == item.itemName) ? Color("Green") : Color("GreyL-3"), lineWidth: 4)
                     )
+                    // MARK: hat is bought && selected
                     if (appState.hat == item.itemName) {
                         VStack{
                             HStack{
@@ -60,7 +63,9 @@ struct ShopHatItem: View {
                         .frame(width: 115, height: 115, alignment: .center)
                     }
                     
-                } else {
+                }
+                // MARK: hat is not bought
+                else {
                     HStack(alignment: .center, spacing: 0) {
                         Image(item.itemName)
                             .resizable()
@@ -77,6 +82,10 @@ struct ShopHatItem: View {
                                 .resizable()
                                 .frame(width: 14,height: 14)
                             Text("\(item.price)")
+                                .font(
+                                    Font.custom("Plus Jakarta Sans", size: 14)
+                                        .weight(.semibold)
+                                )
                                 .foregroundColor(.white)
                         }
                         .padding(.horizontal, 16)

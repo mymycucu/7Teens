@@ -8,28 +8,42 @@
 import SwiftUI
 
 struct BadgesGrid: View {
-    let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9"]
-
+    let items:[BadgeItem] = [Constant.rookieAchiever, Constant.hatMaven,
+                             Constant.timeTamer, Constant.characterCollector,
+                             Constant.streakMaster, Constant.zenMaster]
+    var isAchieved: Bool = false
+    
     var body: some View {
         ScrollView {
-           LazyVGrid(columns: [
-               GridItem(.flexible(), spacing: 16),
-               GridItem(.flexible(), spacing: 16)
-           ], spacing: 16) {
-               ForEach(items, id: \.self) { item in
-                   VStack {
-                       Circle()
-                           .fill(Color(red: 0.9, green: 0.9, blue: 0.92))
-                           .frame(width: 143, height: 143)
+            LazyVGrid(columns: [
+                GridItem(.flexible(), spacing: 16),
+                GridItem(.flexible(), spacing: 16)
+            ], spacing: 16) {
+                ForEach(items, id: \.self) { item in
+                    VStack {
+                        // MARK: badge image
+                        if isAchieved {
+                            Image(item.badgeImage)
+                                .resizable()
+                                .frame(width: 154, height: 154)
+                        } else {
+                            Image(item.badgeImage+"-disable")
+                                .resizable()
+                                .frame(width: 154, height: 154)
+                        }
                        
-                       Text(item)
-                           .font(.body)
-                           .foregroundColor(.black)
-                   }
-               }
-           }
-           .padding()
-       }
+                        // MARK: badge title
+                        Text(item.badgeTitle)
+                            .font(
+                            Font.custom("Plus Jakarta Sans", size: 14)
+                            .weight(.semibold)
+                            )
+                            .foregroundColor(isAchieved ? .black : Color("GreyL-2"))
+                    }
+                }
+            }
+            .padding()
+        }
     }
 }
 
