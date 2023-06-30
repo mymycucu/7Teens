@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct RestStartView: View {
+    @StateObject var viewModel: TimerViewModel
     @State var background = "CountdownFocusBG"
 //    @ObservedObject var timerManager: TimerManager
     
     var body: some View {
         ZStack{
-            Image(background)
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea(.all)
-                .edgesIgnoringSafeArea(.all)
+//            Image(background)
+//                .resizable()
+//                .scaledToFill()
+//                .ignoresSafeArea(.all)
+//                .edgesIgnoringSafeArea(.all)
             
             VStack {
                 
@@ -27,76 +28,14 @@ struct RestStartView: View {
                 Text("You are on cycle")
                     .font(.custom("PlusJakartaSans-SemiBold", size: 11))
                 
-                HStack{
-                    ZStack {
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                        Text("1")
-                            .font(.system(size: 12, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack{
-                        Circle()
-                            .frame(width: 10, height: 10)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack {
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                        Text("2")
-                            .font(.system(size: 12, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack{
-                        Circle()
-                            .frame(width: 10, height: 10)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack {
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                        Text("3")
-                            .font(.system(size: 12, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack{
-                        Circle()
-                            .frame(width: 10, height: 10)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                    }
-                    .padding(.horizontal, -2)
-                    
-                    ZStack {
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(red: 0.25, green: 0.6, blue: 0.58))
-                        Text("4")
-                            .font(.system(size: 12, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.horizontal, -2)
-                    
-                }
+                CycleBarView(viewModel: viewModel)
                 
                
                 Text("Take a rest before continue on")
                     .font(.custom("PlusJakartaSans-Medium", size: 16))
                     .foregroundColor(.gray)
                     .padding(.top, 50)
-                Text("Thesis")
+                Text("\(viewModel.taskName)")
                     .font(.custom("PlusJakartaSans-Bold", size: 26))
                     .foregroundColor(.gray)
                     .padding(.top,-7)
@@ -110,7 +49,7 @@ struct RestStartView: View {
                     
 
                 
-                Text("05:00")
+                Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
                     .font(.custom("PlusJakartaSans-Bold", size: 48))
                     .padding(.top, 50)
 //                    .padding(.bottom, 150)
@@ -129,8 +68,8 @@ struct RestStartView: View {
     }
 }
 
-struct RestStartView_Previews: PreviewProvider {
-    static var previews: some View {
-        RestStartView()
-    }
-}
+//struct RestStartView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RestStartView()
+//    }
+//}

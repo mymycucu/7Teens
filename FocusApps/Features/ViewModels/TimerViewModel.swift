@@ -27,6 +27,7 @@ class TimerViewModel: ObservableObject {
     @Published var showAlert = false
     
     @Published var sceneState = 0
+    @Published var isTimer = false
     
     // TimerController Var
     var hours = 0
@@ -45,20 +46,56 @@ class TimerViewModel: ObservableObject {
             self.createTask()
         }
         self.createSession()
-        self.startFocus()
+        playSound(fileName: "ambient")
+        self.cycleController()
+    }
+    
+    func cycleController(){
+        if (focusStep <= cycle){
+            if (focusStep == restStep){
+                self.startFocus()
+            }else{
+                self.startRest()
+            }
+        } else {
+            self.stopSession()
+            self.sceneState = 3
+        }
+        print("---")
+        print("\(cycle) - \(focusStep) - \(restStep)")
     }
     
     func stopSession(){
         stopSound()
         stopTimer()
-        
+        cycle = 0
+        focusStep = 0
+        restStep = 0
+        sceneState = 0
+        isTimer = false
     }
     
     func startFocus(){
-        playSound(fileName: "ambient")
+        print("focus")
+        self.createFocus()
         startTimer(sec: hours * 3600 + minutes * 60 + seconds)
-        sceneState = 1
-        print(sceneState)
+        self.focusStep += 1
+        self.sceneState = 1
+        self.isTimer = true
+    }
+    
+    func startRest(){
+        print("rest")
+        self.createRest()
+        startTimer(sec: 10)
+        self.restStep += 1
+        self.sceneState = 2
+        self.isTimer = true
+    }
+    
+    
+    func forceStopSession(){
+        
     }
 
     func createTask(){
@@ -93,10 +130,24 @@ class TimerViewModel: ObservableObject {
         newFocus!.id = UUID()
         newFocus!.createdAt = Date()
         newFocus!.type = 0
-        newFocus!.duration = Int32(hours * 3600 + minutes * 60 + seconds) // TOLONG DICEK LAGI
+        newFocus!.duration = Int32(hours * 3600 + minutes * 60 + seconds)
         do {
             try PersistenceController.shared.save()
             self.activity = newFocus
+        } catch {
+            print("Error saving")
+        }
+    }
+    
+    func createRest(){
+        let newRest = PersistenceController.shared.create(ActivityMO.self)
+        newRest!.id = UUID()
+        newRest!.createdAt = Date()
+        newRest!.type = 1
+        newRest!.duration = Int32(10)
+        do {
+            try PersistenceController.shared.save()
+            self.activity = newRest
         } catch {
             print("Error saving")
         }
@@ -107,18 +158,19 @@ class TimerViewModel: ObservableObject {
         self.totalSeconds = sec
         self.timerIsRunning = true
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [self] timer in
+            print("\(totalSeconds)")
             if self.totalSeconds > 0 {
                 self.totalSeconds -= 1
             } else {
-                self.stopSession()
                 self.timerIsRunning = false
+                self.stopTimer()
+                self.cycleController()
             }
         }
     }
     
     func stopTimer() {
         timer?.invalidate()
-        resetTimer()
         timerIsRunning = false
     }
     

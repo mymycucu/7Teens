@@ -11,6 +11,7 @@ import CoreData
 class AppState: ObservableObject {
     
     @Published var background: String = UserDefaults.standard.string(forKey: "background") ??  "bg-forest"
+    @Published var song: String = UserDefaults.standard.string(forKey: "song") ??  "forest-wind"
     @Published var body: String = UserDefaults.standard.string(forKey: "body") ??  "cat"
     @Published var hat: String = UserDefaults.standard.string(forKey: "hat") ??  "hat-red"
     @Published var coins: Int = UserDefaults.standard.integer(forKey: "coins")

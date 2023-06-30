@@ -12,9 +12,6 @@ struct CountdownFocusView: View {
     @StateObject var viewModel: TimerViewModel
     var body: some View {
         ZStack{
-            LottieView(name: appState.background, loopMode: .autoReverse)
-                .scaledToFill()
-            
             VStack {
                 Spacer()
                     .frame(height: 100)
@@ -22,7 +19,7 @@ struct CountdownFocusView: View {
                 Text("You are on cycle")
                     .font(.custom("PlusJakartaSans-SemiBold", size: 11))
                 
-                ExtractedView(viewModel: viewModel)
+                CycleBarView(viewModel: viewModel)
                 
                 Text("Let’s focus on")
                     .font(.custom("PlusJakartaSans-Medium", size: 16))
@@ -41,10 +38,8 @@ struct CountdownFocusView: View {
                     .font(.custom("PlusJakartaSans-Bold", size: 48))
 //                    .padding(.bottom, 150)
                 
-                Image("kucingTerbang")
-                    .resizable()
-                    .frame(width: 132, height: 132)
-                    .padding(.vertical, 70)
+                LottieView(name: "\(appState.body)-\(appState.hat)", loopMode: .autoReverse)
+                    .frame(width: 250, height: 250)
                 
                 Spacer()
             
@@ -73,7 +68,7 @@ struct CountdownFocusView_Previews: PreviewProvider {
     }
 }
 
-struct ExtractedView: View {
+struct CycleBarView: View {
     @StateObject var viewModel: TimerViewModel
     var body: some View {
         HStack {
@@ -94,7 +89,7 @@ struct ExtractedView: View {
                     ZStack {
                         Circle()
                             .frame(width: 10, height: 10)
-                            .foregroundColor(index > viewModel.focusStep ? .gray : Color(red: 0.25, green: 0.6, blue: 0.58))
+                            .foregroundColor(index > viewModel.restStep ? .gray : Color(red: 0.25, green: 0.6, blue: 0.58))
                     }
                     .padding(.horizontal, -2)
                 }
@@ -105,6 +100,6 @@ struct ExtractedView: View {
 
 struct ExtractedView_Previews: PreviewProvider {
     static var previews: some View {
-        ExtractedView(viewModel: TimerViewModel())
+        CycleBarView(viewModel: TimerViewModel())
     }
 }

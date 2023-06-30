@@ -11,13 +11,6 @@ struct TimePickerView: View {
     @StateObject var viewModel: TimerViewModel
     
     var body: some View {
-            ZStack {
-                Circle()
-                    .fill(ImagePaint(image: Image("CountdownFocusBG")))
-//                    .overlay(Circle().stroke(Color.blue, lineWidth: 1.5))
-                    .frame(width: 250, height: 250)
-
-                
                 HStack {
                     Picker("Minutes", selection: $viewModel.minutes) {
                         ForEach(0..<60) { minute in
@@ -37,7 +30,6 @@ struct TimePickerView: View {
                     .pickerStyle(WheelPickerStyle())
                     .frame(width: 60)
                 }
-            }
     }
 }
 

@@ -13,10 +13,26 @@ struct FocusView: View {
     @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
-        VStack{
+        ZStack{
+            LottieView(name: appState.background, loopMode: .autoReverse)
+                .ignoresSafeArea(.all)
+                .mask {
+                        Circle()
+                            .frame(
+                                width: viewModel.isTimer ? 2000 : 300,
+                                height: viewModel.isTimer ? 2000 : 300)
+                            .ignoresSafeArea(.all)
+                            .animation(
+                                .interpolatingSpring(stiffness: 200, damping: 20)
+                                .speed(1))
+                }
+            
             switch viewModel.sceneState{
             case 1:
                 CountdownFocusView(viewModel: viewModel)
+                    .toolbar(.hidden, for: .tabBar)
+            case 2:
+                RestStartView(viewModel: viewModel)
                     .toolbar(.hidden, for: .tabBar)
             default:
                 FocusSettingView(viewModel: viewModel)
@@ -24,11 +40,6 @@ struct FocusView: View {
                 
             }
         }
-        
-//        .background(
-//            LottieView(name: "Beach_Test", loopMode: .autoReverse)
-//                .edgesIgnoringSafeArea(.all)
-//        )
         
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
             viewModel.showAlert = true
@@ -43,10 +54,29 @@ struct FocusView: View {
                 print("Inactive")
             } else if newPhase == .background {
                 print("Background")
-                NotificationManager.requestNotificationPermission()
+                if (viewModel.sceneState == 1){
+                    NotificationManager.requestNotificationPermission()
+                }
+                
             }
         }
     }
+}
+
+extension View {
+  @inlinable
+  public func reverseMask<Mask: View>(
+    alignment: Alignment = .center,
+    @ViewBuilder _ mask: () -> Mask
+  ) -> some View {
+    self.mask {
+      Rectangle()
+        .overlay(alignment: alignment) {
+          mask()
+            .blendMode(.destinationOut)
+        }
+    }
+  }
 }
 
 //struct FocusView_Previews: PreviewProvider {

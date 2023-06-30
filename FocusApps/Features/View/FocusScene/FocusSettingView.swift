@@ -69,6 +69,7 @@ struct FocusSettingView: View {
                 .cornerRadius(8)
                 .sheet(isPresented: $viewModel.isMusicModalVisible) {
                         MusicSelection()
+                        .environmentObject(appState)
                         .presentationDetents([.height(380)])
                         .presentationDragIndicator(.visible)
                     }
@@ -110,18 +111,6 @@ struct FocusSettingView: View {
                     
                 }
                 .padding(.vertical, 20)
-                
-                Button(action: {
-                    viewModel.isNewTask = true
-                }) {
-                    Text("reset task")
-                        .font(.custom("PlusJakartaSans-SemiBold", size: 16))
-                        .foregroundColor(.white)
-                        .frame(width: 119, height: 50)
-                        .background(Color(red: 0.97, green: 0.7, blue: 0.1))
-                        .cornerRadius(40)
-                }
-                .padding()
                
                 //Start Button
                 Button(action: {

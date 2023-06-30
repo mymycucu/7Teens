@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MusicSelection: View {
+    @EnvironmentObject var appState: AppState 
     @State private var selectedOption: String? = nil
     
     var body: some View {
