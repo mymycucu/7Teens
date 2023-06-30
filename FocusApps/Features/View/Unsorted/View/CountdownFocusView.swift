@@ -10,54 +10,79 @@ import SwiftUI
 struct CountdownFocusView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var viewModel: TimerViewModel
+    @State var isFull = false
+    
     var body: some View {
         ZStack{
-            VStack {
-                Spacer()
-                    .frame(height: 100)
-                
-                Text("You are on cycle")
-                    .font(.custom("PlusJakartaSans-SemiBold", size: 11))
-                
-                CycleBarView(viewModel: viewModel)
-                
-                Text("Let’s focus on")
-                    .font(.custom("PlusJakartaSans-Medium", size: 16))
-                    .foregroundColor(.gray)
-                    .padding(.top, 50)
-                Text("\(viewModel.taskName)")
-                    .font(.custom("PlusJakartaSans-Bold", size: 26))
-                    .foregroundColor(.gray)
-                    .padding(.top,-7)
-                    
-                
-                Spacer()
-                
-                Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
-//                Text("24:50")
-                    .font(.custom("PlusJakartaSans-Bold", size: 48))
-//                    .padding(.bottom, 150)
-                
-                //LottieView(name: "\(appState.body)-\(appState.hat)", loopMode: .autoReverse)
-                    .frame(width: 250, height: 250)
-                
-                Spacer()
-            
-                
-                //Start Button
-                Button(action: {
-                    viewModel.stopSession()
-                }) {
-                    Text("Stop")
-                        .font(.custom("PlusJakartaSans-SemiBold", size: 16))
-                        .foregroundColor(.white)
-                        .frame(width: 358, height: 50)
-                        .background(Color(red: 0.97, green: 0.7, blue: 0.1))
-                        .cornerRadius(40)
+            // Background
+            LottieView(name: "bg-forest", loopMode: .loop )
+                .ignoresSafeArea(.all)
+                .mask {
+                    Circle()
+                        .frame(width: isFull ? 2000 : 300, height: isFull ? 2000 : 300)
+                        .ignoresSafeArea(.all)
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
                 }
-                .padding(.bottom, 100)
-                
+            
+            if isFull {
+                VStack {
+                    Text("You are on cycle")
+                        .font(.custom("PlusJakartaSans-SemiBold", size: 11))
+                        .padding(.top, 40)
+                    
+                    CycleBarView(viewModel: viewModel)
+                        .padding(.bottom, 30)
+
+                    Text("Let’s focus on")
+                        .font(.custom("PlusJakartaSans-Medium", size: 16))
+                        .foregroundColor(.gray)
+
+                    Text("Thesis")
+                        .font(.custom("PlusJakartaSans-Bold", size: 26))
+                        .foregroundColor(.gray)
+                        .padding(.top,-7)
+                        .padding(.bottom, 40)
+                          
+                    // Timer Countdown
+                    //               Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
+                    Text("24:50")
+                        .font(.custom("PlusJakartaSans-Bold", size: 48))
+                        .padding(.bottom, 330)
+                    
+                    // Stop Button
+                    Button(action: {
+                        viewModel.stopSession()
+                    }) {
+                        Text("Stop")
+                            .font(.custom("PlusJakartaSans-SemiBold", size: 16))
+                            .foregroundColor(.white)
+                            .frame(width: 358, height: 50)
+                            .background(Color(red: 0.97, green: 0.7, blue: 0.1))
+                            .cornerRadius(40)
+                    }
+
+
+                }
             }
+            
+            //Character
+            LottieView(name: "cat-hat-blue", loopMode: .loop)
+                .frame(width: 132, height: 132)
+                .offset(y: isFull ? 90 : 300)
+                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                .mask {
+                    Circle()
+                        .frame(width: isFull ? 2000 : 0, height: isFull ? 2000 : 0)
+                        .ignoresSafeArea(.all)
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                }
+            
+            VStack {
+                Button("start") {
+                    isFull.toggle()
+                }
+            }
+ 
         }
     }
 }
