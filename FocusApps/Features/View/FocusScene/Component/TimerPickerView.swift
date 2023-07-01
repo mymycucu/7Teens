@@ -49,68 +49,68 @@ struct TimePickerView: View {
     @State private var selectedSecond: Int = 0
     
     var body: some View {
-                HStack {
-                    ScrollView(showsIndicators: false) {
-                        VStack(spacing: 0) {
-                            ForEach(0..<60) { minute in
-                                Button(action: {
-                                    selectedMinute = viewModel.minutes
-                                }) {
-                                    Text("\(minute)")
-                                        .font(.custom("PlusJakartaSans-Bold", size: 48))
-                                }
-                                .buttonStyle(PlainButtonStyle())
-                            }
-                        }
-                        .padding(.vertical, 8)
-                    }
-                    
-                    Text(":")
-                        .font(.custom("PlusJakartaSans-Bold", size: 48))
-                    
-                    ScrollView(showsIndicators: false) {
-                        VStack(spacing: 0) {
-                            ForEach(0..<60) { second in
-                                Button(action: {
-                                    selectedSecond = viewModel.seconds
-                                }) {
-                                    Text("\(second)")
-                                        .font(.custom("PlusJakartaSans-Bold", size: 48))
-                                }
-                                .buttonStyle(PlainButtonStyle())
-                            }
-                        }
-                        .padding(.vertical, 8)
-                    }
-                }
-                .frame(width: 150, height: 70)
-                
 //                HStack {
-//                    Picker("Minutes", selection: $viewModel.minutes) {
-//                        ForEach(0..<60) { minute in
-//                            Text("\(minute)")
-//                                .font(.custom("PlusJakartaSans-Bold", size: 30))
-//                                .background(EmptyView())
+//                    ScrollView(showsIndicators: false) {
+//                        VStack(spacing: 0) {
+//                            ForEach(0..<60) { minute in
+//                                Button(action: {
+//                                    selectedMinute = viewModel.minutes
+//                                }) {
+//                                    Text("\(minute)")
+//                                        .font(.custom("PlusJakartaSans-Bold", size: 48))
+//                                }
+//                                .buttonStyle(PlainButtonStyle())
+//                            }
 //                        }
+//                        .padding(.vertical, 8)
 //                    }
-//                    .pickerStyle(WheelPickerStyle())
-//                    .frame(width: 100)
-//                    .background(.clear)
 //
 //                    Text(":")
-//                        .font(.custom("PlusJakartaSans-Bold", size: 30))
+//                        .font(.custom("PlusJakartaSans-Bold", size: 48))
 //
-//                    Picker("Seconds", selection: $viewModel.seconds) {
-//                        ForEach(0..<60) { second in
-//                            Text("\(second)")
-//                                .font(.custom("PlusJakartaSans-Bold", size: 30))
-//                                .background(EmptyView())
+//                    ScrollView(showsIndicators: false) {
+//                        VStack(spacing: 0) {
+//                            ForEach(0..<60) { second in
+//                                Button(action: {
+//                                    selectedSecond = viewModel.seconds
+//                                }) {
+//                                    Text("\(second)")
+//                                        .font(.custom("PlusJakartaSans-Bold", size: 48))
+//                                }
+//                                .buttonStyle(PlainButtonStyle())
+//                            }
 //                        }
+//                        .padding(.vertical, 8)
 //                    }
-//                    .pickerStyle(WheelPickerStyle())
-//                    .frame(width: 100)
-//                    .background(.clear)
 //                }
+//                .frame(width: 150, height: 70)
+                
+                HStack {
+                    Picker("Minutes", selection: $viewModel.minutes) {
+                        ForEach(0..<60) { minute in
+                            Text("\(minute)")
+                                .font(.custom("PlusJakartaSans-Bold", size: 30))
+                                .background(EmptyView())
+                        }
+                    }
+                    .pickerStyle(WheelPickerStyle())
+                    .frame(width: 100)
+                    .background(.clear)
+
+                    Text(":")
+                        .font(.custom("PlusJakartaSans-Bold", size: 30))
+
+                    Picker("Seconds", selection: $viewModel.seconds) {
+                        ForEach(0..<60) { second in
+                            Text("\(second)")
+                                .font(.custom("PlusJakartaSans-Bold", size: 30))
+                                .background(EmptyView())
+                        }
+                    }
+                    .pickerStyle(WheelPickerStyle())
+                    .frame(width: 100)
+                    .background(.clear)
+                }
                 
 
             }

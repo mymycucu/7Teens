@@ -48,6 +48,7 @@ class AppState: ObservableObject {
             print("Error saving")
         }
         UserDefaults.standard.set("bg-forest", forKey: "background")
+        UserDefaults.standard.set("forest-wind", forKey: "song")
         UserDefaults.standard.set("cat", forKey: "body")
         UserDefaults.standard.set("hat-red", forKey: "hat")
         UserDefaults.standard.set(0, forKey: "coins")
@@ -57,11 +58,16 @@ class AppState: ObservableObject {
     
     func refreshData(){
         self.background = UserDefaults.standard.string(forKey: "background") ??  "bg-forest"
+        self.song = UserDefaults.standard.string(forKey: "song") ??  "forest-wind"
         self.body = UserDefaults.standard.string(forKey: "body") ??  "cat"
         self.hat = UserDefaults.standard.string(forKey: "hat") ??  "hat-red"
         self.coins = UserDefaults.standard.integer(forKey: "coins")
         self.streak = UserDefaults.standard.integer(forKey: "streak")
         self.lastStreak = UserDefaults.standard.object(forKey: "lastStreak") as! Date
+    }
+    
+    func getBg() -> String{
+        return UserDefaults.standard.string(forKey: "background") ??  "bg-forest"
     }
 
 }

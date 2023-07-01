@@ -11,21 +11,53 @@ struct FocusView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var viewModel = TimerViewModel()
     @Environment(\.scenePhase) var scenePhase
+    @State var lottieName = "bg-forest"
     
     var body: some View {
         ZStack{
-            LottieView(name: appState.background, loopMode: .autoReverse)
-                .ignoresSafeArea(.all)
-                .mask {
-                        Circle()
-                            .frame(
-                                width: viewModel.isTimer ? 2000 : 300,
-                                height: viewModel.isTimer ? 2000 : 300)
-                            .ignoresSafeArea(.all)
-                            .animation(
-                                .interpolatingSpring(stiffness: 200, damping: 20)
-                                .speed(0.2))
-                }
+            
+            switch appState.background {
+            case "bg-beach":
+                LottieView(name: "bg-beach", loopMode: .autoReverse)
+                    .ignoresSafeArea(.all)
+                    .mask {
+                            Circle()
+                                .frame(
+                                    width: viewModel.isTimer ? 2000 : 300,
+                                    height: viewModel.isTimer ? 2000 : 300)
+                                .ignoresSafeArea(.all)
+                                .animation(
+                                    .interpolatingSpring(stiffness: 200, damping: 20)
+                                    .speed(0.2))
+                    }
+            case "bg-rain":
+                LottieView(name: "bg-rain", loopMode: .autoReverse)
+                    .ignoresSafeArea(.all)
+                    .mask {
+                            Circle()
+                                .frame(
+                                    width: viewModel.isTimer ? 2000 : 300,
+                                    height: viewModel.isTimer ? 2000 : 300)
+                                .ignoresSafeArea(.all)
+                                .animation(
+                                    .interpolatingSpring(stiffness: 200, damping: 20)
+                                    .speed(0.2))
+                    }
+            default:
+                LottieView(name: "bg-forest", loopMode: .autoReverse)
+                    .ignoresSafeArea(.all)
+                    .mask {
+                            Circle()
+                                .frame(
+                                    width: viewModel.isTimer ? 2000 : 300,
+                                    height: viewModel.isTimer ? 2000 : 300)
+                                .ignoresSafeArea(.all)
+                                .animation(
+                                    .interpolatingSpring(stiffness: 200, damping: 20)
+                                    .speed(0.2))
+                    }
+            }
+            
             
             switch viewModel.sceneState{
             case 1:
@@ -34,6 +66,11 @@ struct FocusView: View {
             case 2:
                 RestStartView(viewModel: viewModel)
                     .toolbar(.hidden, for: .tabBar)
+            case 3:
+                StreakView()
+            case 4:
+                RewardView(viewModel: viewModel)
+                    .environmentObject(appState)
             default:
                 FocusSettingView(viewModel: viewModel)
                     .environmentObject(appState)

@@ -15,7 +15,9 @@ extension SessionMO {
     func getTotalFocusTime() -> Int{
         var totalFocusTime = 0
         for activity in activityMOList {
-            totalFocusTime += Int(activity.duration)
+            if activity.type == 0 {
+                totalFocusTime += Int(activity.duration)
+            }
         }
         return totalFocusTime
     }

@@ -48,8 +48,6 @@ struct TestView: View {
                     }
                     
                 }
-                Spacer()
-                Text("halo")
             }
                 
             

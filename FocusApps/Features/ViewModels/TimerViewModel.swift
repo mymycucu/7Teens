@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import CoreData
 
 class TimerViewModel: ObservableObject {
     // Data Var
@@ -41,7 +42,7 @@ class TimerViewModel: ObservableObject {
     var player: AVAudioPlayer?
     
     // MARK: ViewModel Func
-    func startSession(){
+    func startSession(song: String){
         if isNewTask {
             self.createTask()
         }
@@ -59,10 +60,8 @@ class TimerViewModel: ObservableObject {
             }
         } else {
             self.stopSession()
-            self.sceneState = 3
+            self.sceneState = 4
         }
-        print("---")
-        print("\(cycle) - \(focusStep) - \(restStep)")
     }
     
     func stopSession(){
@@ -72,7 +71,6 @@ class TimerViewModel: ObservableObject {
         focusStep = 0
         restStep = 0
         sceneState = 0
-        isTimer = false
     }
     
     func startFocus(){
@@ -131,6 +129,7 @@ class TimerViewModel: ObservableObject {
         newFocus!.createdAt = Date()
         newFocus!.type = 0
         newFocus!.duration = Int32(hours * 3600 + minutes * 60 + seconds)
+        newFocus!.session = session
         do {
             try PersistenceController.shared.save()
             self.activity = newFocus
@@ -145,6 +144,7 @@ class TimerViewModel: ObservableObject {
         newRest!.createdAt = Date()
         newRest!.type = 1
         newRest!.duration = Int32(10)
+        newRest!.session = session
         do {
             try PersistenceController.shared.save()
             self.activity = newRest
@@ -152,6 +152,49 @@ class TimerViewModel: ObservableObject {
             print("Error saving")
         }
     }
+    
+    // MARK: Reward
+    func refreshSessionData(){
+        
+        
+        
+//        let fetchRequest: NSFetchRequest<SessionMO> = SessionMO.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "id == %@", session!.id! as CVarArg)
+//                do {
+//                    let results = try PersistenceController.shared.viewContext.fetch(fetchRequest)
+//                    if let specificItem = results.first {
+//                        print(specificItem.getTotalFocusTime())
+//                    }
+//                } catch {
+//                    // Handle the error
+//                    print("Error fetching specific item: \(error)")
+//                }
+    }
+    
+    func getTotalFocus() -> String{
+        var totalFocusTime = 0
+        
+        let fetchRequest: NSFetchRequest<ActivityMO> = ActivityMO.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "session == %@", session!)
+            
+            do {
+                let results = try PersistenceController.shared.viewContext.fetch(fetchRequest)
+                // Handle the activities that have a relationship to a session
+                print("count \(results.count)")
+                for activity in results {
+                    print("-- \(activity.duration)")
+                    if activity.type == 0 {
+                        totalFocusTime += Int(activity.duration)
+                    }
+                }
+            } catch {
+                // Handle the error
+                print("Error fetching activities: \(error)")
+            }
+        
+        return String(totalFocusTime)
+    }
+    
     
     // MARK: TimerController Func
     func startTimer(sec : Int) {
@@ -192,7 +235,7 @@ class TimerViewModel: ObservableObject {
         let formattedHours = String(format: "%02d", (totalSeconds / 3600))
         let formattedMinutes = String(format: "%02d", ((totalSeconds % 3600) / 60))
         let formattedSeconds = String(format: "%02d", ((totalSeconds % 3600) % 60))
-        return "\(formattedHours):\(formattedMinutes):\(formattedSeconds)"
+        return "\(formattedMinutes):\(formattedSeconds)"
     }
     
     

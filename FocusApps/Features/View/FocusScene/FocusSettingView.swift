@@ -68,7 +68,7 @@ struct FocusSettingView: View {
                 .background(.yellow)
                 .cornerRadius(8)
                 .sheet(isPresented: $viewModel.isMusicModalVisible) {
-                        MusicSelection()
+                        MusicSelection(viewModel: viewModel)
                         .environmentObject(appState)
                         .presentationDetents([.height(380)])
                         .presentationDragIndicator(.visible)
@@ -114,7 +114,7 @@ struct FocusSettingView: View {
                
                 //Start Button
                 Button(action: {
-                    viewModel.startSession()
+                    viewModel.startSession(song: appState.song)
                 }) {
                     Text("Start")
                         .font(.custom("PlusJakartaSans-SemiBold", size: 16))
