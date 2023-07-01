@@ -67,13 +67,18 @@ struct FocusView: View {
                 RestStartView(viewModel: viewModel)
                     .toolbar(.hidden, for: .tabBar)
             case 3:
-                StreakView()
+                StreakView(viewModel: viewModel)
+                    .environmentObject(appState)
+                    .toolbar(.hidden, for: .tabBar)
             case 4:
                 RewardView(viewModel: viewModel)
                     .environmentObject(appState)
+                    .toolbar(.hidden, for: .tabBar)
+                    .onAppear(perform: appState.refreshData)
             default:
                 FocusSettingView(viewModel: viewModel)
                     .environmentObject(appState)
+                    .onAppear(perform: appState.refreshData)
                 
             }
         }

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct StreakStamp: View {
+    @StateObject var viewModel: TimerViewModel
     var body: some View {
-        
         VStack{
             HStack{
                 ForEach(0..<6) { index in
                     VStack {
-                        Image(index >= 2 ? "fire_disable" : "fire_enable")
+                        Image(index >= viewModel.streak ? "fire_disable" : "fire_enable")
                             .resizable()
                             .frame(width: 50, height: 50)
 //                            .padding(5)
@@ -42,6 +42,6 @@ struct StreakStamp: View {
 
 struct StreakStamp_Previews: PreviewProvider {
     static var previews: some View {
-        StreakStamp()
+        StreakStamp(viewModel: TimerViewModel())
     }
 }

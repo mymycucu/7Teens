@@ -30,6 +30,10 @@ class TimerViewModel: ObservableObject {
     @Published var sceneState = 0
     @Published var isTimer = false
     
+    @Published var streak = UserDefaults.standard.integer(forKey: "streak")
+    @Published var bonusStreak = false
+    var minStreakMinutes = 1
+    
     // TimerController Var
     var hours = 0
     var minutes = 0
@@ -47,7 +51,7 @@ class TimerViewModel: ObservableObject {
             self.createTask()
         }
         self.createSession()
-        playSound(fileName: "ambient")
+        playSound(fileName: song)
         self.cycleController()
     }
     
@@ -60,7 +64,11 @@ class TimerViewModel: ObservableObject {
             }
         } else {
             self.stopSession()
-            self.sceneState = 4
+            if (isNewStreak()){
+                self.sceneState = 3
+            }else{
+                self.sceneState = 4
+            }
         }
     }
     
@@ -154,45 +162,63 @@ class TimerViewModel: ObservableObject {
     }
     
     // MARK: Reward
-    func refreshSessionData(){
-        
-        
-        
-//        let fetchRequest: NSFetchRequest<SessionMO> = SessionMO.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(format: "id == %@", session!.id! as CVarArg)
-//                do {
-//                    let results = try PersistenceController.shared.viewContext.fetch(fetchRequest)
-//                    if let specificItem = results.first {
-//                        print(specificItem.getTotalFocusTime())
-//                    }
-//                } catch {
-//                    // Handle the error
-//                    print("Error fetching specific item: \(error)")
-//                }
-    }
-    
-    func getTotalFocus() -> String{
+    func getTotalFocusDay() -> Int {
         var totalFocusTime = 0
+        var today = Calendar.current.startOfDay(for: .now)
         
         let fetchRequest: NSFetchRequest<ActivityMO> = ActivityMO.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "session == %@", session!)
+        fetchRequest.predicate = NSPredicate(format: "createdAt >= %@ AND type == 0", today as NSDate)
             
             do {
                 let results = try PersistenceController.shared.viewContext.fetch(fetchRequest)
                 // Handle the activities that have a relationship to a session
-                print("count \(results.count)")
                 for activity in results {
-                    print("-- \(activity.duration)")
-                    if activity.type == 0 {
-                        totalFocusTime += Int(activity.duration)
-                    }
+                    totalFocusTime += Int(activity.duration)
                 }
             } catch {
                 // Handle the error
                 print("Error fetching activities: \(error)")
             }
         
-        return String(totalFocusTime)
+        return totalFocusTime
+    }
+    
+    func getTotalFocusSession() -> Int{
+        var totalFocusTime = 0
+        
+        let fetchRequest: NSFetchRequest<ActivityMO> = ActivityMO.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "session == %@ AND type == 0", session!)
+            
+            do {
+                let results = try PersistenceController.shared.viewContext.fetch(fetchRequest)
+                // Handle the activities that have a relationship to a session
+                print("count \(results.count)")
+                for activity in results {
+                    totalFocusTime += Int(activity.duration)
+                }
+            } catch {
+                // Handle the error
+                print("Error fetching activities: \(error)")
+            }
+        
+        return totalFocusTime
+    }
+    
+    func isNewStreak() -> Bool{
+        var lastStreak = UserDefaults.standard.object(forKey: "lastStreak") as? Date ?? Calendar.current.startOfDay(for: .distantPast)
+        var streak = UserDefaults.standard.integer(forKey: "streak")
+        if (getTotalFocusDay() >= minStreakMinutes*60){
+            if (lastStreak <= Calendar.current.startOfDay(for: .now)){
+                
+                // cek apakah kemarin
+                UserDefaults.standard.setValue(Date(), forKey: "lastStreak")
+                UserDefaults.standard.setValue((streak + 1), forKey: "streak")
+                self.streak = UserDefaults.standard.integer(forKey: "streak")
+                self.bonusStreak = true
+                return true
+            }
+        }
+        return false
     }
     
     
@@ -253,7 +279,7 @@ class TimerViewModel: ObservableObject {
             print("Error playing sound \(error.localizedDescription)")
         }
         
-//        player?.numberOfLoops = -1
+        player?.numberOfLoops = -1
     }
     
     func stopSound(){

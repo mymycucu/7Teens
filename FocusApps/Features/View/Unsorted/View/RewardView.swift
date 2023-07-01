@@ -52,7 +52,7 @@ struct RewardView: View {
                         .foregroundColor(.gray)
                         .padding(.bottom, 2)
                     HStack{
-                        Text("\(viewModel.getTotalFocus()) Minutes")
+                        Text("\(viewModel.getTotalFocusSession()) Minutes")
                             .font(.custom("PlusJakartaSans-Bold", size: 16))
                             .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                             .padding(.bottom, 10)
@@ -64,22 +64,23 @@ struct RewardView: View {
                             .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                         
                     }
-                    
-                    Text("Streak")
-                        .font(.custom("PlusJakartaSans-Medium", size: 14))
-                        .foregroundColor(.gray)
-                        .padding(.bottom, 2)
-                    HStack{
-                        Text("Day 3")
-                            .font(.custom("PlusJakartaSans-Bold", size: 16))
-                            .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
-                        
-                        Spacer()
-                        
-                        Text("+20")
-                            .font(.custom("PlusJakartaSans-Bold", size: 16))
-                            .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
-                        
+                    if (viewModel.bonusStreak){
+                        Text("Streak")
+                            .font(.custom("PlusJakartaSans-Medium", size: 14))
+                            .foregroundColor(.gray)
+                            .padding(.bottom, 2)
+                        HStack{
+                            Text("Day 3")
+                                .font(.custom("PlusJakartaSans-Bold", size: 16))
+                                .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
+                            
+                            Spacer()
+                            
+                            Text("+20")
+                                .font(.custom("PlusJakartaSans-Bold", size: 16))
+                                .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
+                            
+                        }
                     }
                 }
                 .padding()
@@ -127,6 +128,9 @@ struct RewardView: View {
                     let currentCoin = UserDefaults.standard.integer(forKey: "coins") + 20
                     UserDefaults.standard.setValue(currentCoin, forKey: "coins")
                     appState.refreshData()
+                    viewModel.bonusStreak = false
+                    viewModel.sceneState = 0
+                    viewModel.isTimer = false
                 }) {
                     Text("OK")
                         .font(.custom("PlusJakartaSans-SemiBold", size: 16))
@@ -145,6 +149,7 @@ struct RewardView: View {
 
 //struct RewardView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        RewardView()
+//        RewardView(viewModel: TimerViewModel())
+//            .environmentObject(AppState())
 //    }
 //}

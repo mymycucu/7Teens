@@ -16,7 +16,7 @@ class AppState: ObservableObject {
     @Published var hat: String = UserDefaults.standard.string(forKey: "hat") ??  "hat-red"
     @Published var coins: Int = UserDefaults.standard.integer(forKey: "coins")
     @Published var streak: Int = UserDefaults.standard.integer(forKey: "streak")
-    @Published var lastStreak: Date = (UserDefaults.standard.object(forKey: "lastStreak") as? Date) ?? Date()
+    @Published var lastStreak: Date = (UserDefaults.standard.object(forKey: "lastStreak") as? Date ?? Calendar.current.startOfDay(for: .distantPast))
 
     
     var firstRun = true
@@ -47,13 +47,16 @@ class AppState: ObservableObject {
         } catch {
             print("Error saving")
         }
-        UserDefaults.standard.set("bg-forest", forKey: "background")
-        UserDefaults.standard.set("forest-wind", forKey: "song")
-        UserDefaults.standard.set("cat", forKey: "body")
-        UserDefaults.standard.set("hat-red", forKey: "hat")
-        UserDefaults.standard.set(0, forKey: "coins")
-        UserDefaults.standard.set(0, forKey: "streak")
-        UserDefaults.standard.set(Date(), forKey: "lastStreak")
+//        
+//        let defaultDate = Calendar.current.startOfDay(for: .distantPast)
+//        
+//        UserDefaults.standard.set("bg-forest", forKey: "background")
+//        UserDefaults.standard.set("forest-wind", forKey: "song")
+//        UserDefaults.standard.set("cat", forKey: "body")
+//        UserDefaults.standard.set("hat-red", forKey: "hat")
+//        UserDefaults.standard.set(0, forKey: "coins")
+//        UserDefaults.standard.set(0, forKey: "streak")
+//        UserDefaults.standard.set(defaultDate, forKey: "lastStreak")
     }
     
     func refreshData(){
@@ -63,7 +66,7 @@ class AppState: ObservableObject {
         self.hat = UserDefaults.standard.string(forKey: "hat") ??  "hat-red"
         self.coins = UserDefaults.standard.integer(forKey: "coins")
         self.streak = UserDefaults.standard.integer(forKey: "streak")
-        self.lastStreak = UserDefaults.standard.object(forKey: "lastStreak") as! Date
+        self.lastStreak = UserDefaults.standard.object(forKey: "lastStreak") as? Date ?? Calendar.current.startOfDay(for: .distantPast)
     }
     
     func getBg() -> String{
