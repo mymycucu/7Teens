@@ -68,8 +68,8 @@ struct CoreDataTestingView: View {
     }
 }
 
-struct CoreDataTestingView_Previews: PreviewProvider {
-    static var previews: some View {
-        CoreDataTestingView()
-    }
-}
+//struct CoreDataTestingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CoreDataTestingView()
+//    }
+//}

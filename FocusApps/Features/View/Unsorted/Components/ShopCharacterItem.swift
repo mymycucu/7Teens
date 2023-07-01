@@ -79,6 +79,10 @@ struct ShopCharacterItem: View {
                                 .resizable()
                                 .frame(width: 14,height: 14)
                             Text("\(item.price)")
+                                .font(
+                                Font.custom("Plus Jakarta Sans", size: 14)
+                                .weight(.semibold)
+                                )
                                 .foregroundColor(.white)
                         }
                         .padding(.horizontal, 16)

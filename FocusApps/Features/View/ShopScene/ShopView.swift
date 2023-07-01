@@ -35,7 +35,7 @@ struct ShopView: View {
                             .resizable()
                             .frame(width: 34,height: 34)
                         Spacer()
-                        Text(String(200))
+                        Text(String(appState.coins))
                     }
                     .padding(.trailing, 16)
                     .padding(.vertical, 0)
@@ -49,7 +49,8 @@ struct ShopView: View {
                 // MARK: preview
                 VStack {
                     
-                    ShopPreview(bodyName: appState.body, hatName: appState.hat)
+                    ShopPreview()
+                        .environmentObject(appState)
 
                     //character's shadow
                     Ellipse()
@@ -88,16 +89,21 @@ struct ShopView: View {
                                     } else {
                                         HStack{
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatRed, isShowingPopUp: $isShowingPopUp)
+                                                .environmentObject(appState)
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatBlue, isShowingPopUp: $isShowingPopUp)
+                                                .environmentObject(appState)
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatLilac, isShowingPopUp: $isShowingPopUp)
+                                                .environmentObject(appState)
                                             
                                             
                                         }
                                         HStack{
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatBrown, isShowingPopUp: $isShowingPopUp)
-                        
+                                                .environmentObject(appState)
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatNavy, isShowingPopUp: $isShowingPopUp)
+                                                .environmentObject(appState)
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatSage, isShowingPopUp: $isShowingPopUp)
+                                                .environmentObject(appState)
                                         }
                                     }
                                 }.padding(10)
@@ -108,17 +114,18 @@ struct ShopView: View {
                 }
                 
             }
+            // MARK: PopUp Buy Item
             if isShowingPopUp {
-                BuyItemShop(viewModel: viewModel, isShowingPopUp: $isShowingPopUp, item: viewModel.itemToBuy, itemTitle: "Brownies Cap")
+                BuyItemShop(viewModel: viewModel, isShowingPopUp: $isShowingPopUp, item: viewModel.itemToBuy)
                 
             }
         }
         
     }
     
-    struct ShopView_Previews: PreviewProvider {
-        static var previews: some View {
-            ShopView()
-        }
-    }
+//    struct ShopView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            ShopView()
+//        }
+//    }
 }

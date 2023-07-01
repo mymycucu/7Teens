@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct RewardView: View {
+    @EnvironmentObject var appState: AppState
+    @StateObject var viewModel: TimerViewModel
+    
     var body: some View {
         ZStack {
-            Image("CountdownFocusBG")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea(.all)
-                .edgesIgnoringSafeArea(.all)
+//            Image("CountdownFocusBG")
+//                .resizable()
+//                .scaledToFill()
+//                .ignoresSafeArea(.all)
+//                .edgesIgnoringSafeArea(.all)
 
             Color.white.opacity(0.4)
                 .edgesIgnoringSafeArea(.all)
             
             VStack{
-                
                 //Reward Desc
                 Text("Congratulations")
                     .font(.custom("PlusJakartaSans-Bold", size: 26))
@@ -36,7 +38,7 @@ struct RewardView: View {
                     Image("coin")
                         .resizable()
                         .frame(width: 76, height: 76)
-                    Text("+50")
+                    Text("+\(viewModel.reward.totalCoin)")
                         .font(.custom("PlusJakartaSans-Bold", size: 52))
                         .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
 
@@ -50,34 +52,35 @@ struct RewardView: View {
                         .foregroundColor(.gray)
                         .padding(.bottom, 2)
                     HStack{
-                        Text("25 Minutes")
+                        Text("\(viewModel.getTotalFocusSession()/60) Minutes")
                             .font(.custom("PlusJakartaSans-Bold", size: 16))
                             .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                             .padding(.bottom, 10)
                         
                         Spacer()
                         
-                        Text("+30")
+                        Text("+\(viewModel.reward.taskCoin)")
                             .font(.custom("PlusJakartaSans-Bold", size: 16))
                             .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                         
                     }
-                    
-                    Text("Streak")
-                        .font(.custom("PlusJakartaSans-Medium", size: 14))
-                        .foregroundColor(.gray)
-                        .padding(.bottom, 2)
-                    HStack{
-                        Text("Day 3")
-                            .font(.custom("PlusJakartaSans-Bold", size: 16))
-                            .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
-                        
-                        Spacer()
-                        
-                        Text("+20")
-                            .font(.custom("PlusJakartaSans-Bold", size: 16))
-                            .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
-                        
+                    if (viewModel.bonusStreak){
+                        Text("Streak")
+                            .font(.custom("PlusJakartaSans-Medium", size: 14))
+                            .foregroundColor(.gray)
+                            .padding(.bottom, 2)
+                        HStack{
+                            Text("Day \(viewModel.streak)")
+                                .font(.custom("PlusJakartaSans-Bold", size: 16))
+                                .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
+                            
+                            Spacer()
+                            
+                            Text("+25")
+                                .font(.custom("PlusJakartaSans-Bold", size: 16))
+                                .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
+                            
+                        }
                     }
                 }
                 .padding()
@@ -93,7 +96,9 @@ struct RewardView: View {
                         .padding(.top, 30)
                     HStack{
                         
-                        Button(action: {}) {
+                        Button(action: {
+                            
+                        }) {
                             Text("No, Uncompleted")
                                 .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                                 .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
@@ -102,7 +107,10 @@ struct RewardView: View {
                         Spacer()
                         
                         
-                        Button(action: {}) {
+                        Button(action: {
+                            viewModel.task!.isDone = true
+                            viewModel.save()
+                        }) {
                             Text("Yes, Completed")
                                 .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                                 .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
@@ -117,7 +125,12 @@ struct RewardView: View {
                 .cornerRadius(8)
                 .padding(.top, 20)
                 
-                Button(action: {}) {
+                Button(action: {
+                    appState.refreshData()
+                    viewModel.bonusStreak = false
+                    viewModel.sceneState = 0
+                    viewModel.isTimer = false
+                }) {
                     Text("OK")
                         .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                         .foregroundColor(.white)
@@ -133,8 +146,9 @@ struct RewardView: View {
     }
 }
 
-struct RewardView_Previews: PreviewProvider {
-    static var previews: some View {
-        RewardView()
-    }
-}
+//struct RewardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RewardView(viewModel: TimerViewModel())
+//            .environmentObject(AppState())
+//    }
+//}
