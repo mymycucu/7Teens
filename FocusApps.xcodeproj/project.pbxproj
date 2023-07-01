@@ -66,6 +66,7 @@
 		ADECB30D2A3DB567005BA03F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADECB30C2A3DB567005BA03F /* Preview Assets.xcassets */; };
 		ADECB31B2A3DB8FB005BA03F /* FocusData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3192A3DB8FB005BA03F /* FocusData.xcdatamodeld */; };
 		ADECB3262A3DBAD2005BA03F /* PresistanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADECB3252A3DBAD2005BA03F /* PresistanceController.swift */; };
+		ADF688D92A504E0E00F61A79 /* CycleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF688D82A504E0E00F61A79 /* CycleBarView.swift */; };
 		D4545F3C2A4A8F9700887B9C /* ShopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F3B2A4A8F9700887B9C /* ShopButton.swift */; };
 		D4545F3E2A4A90A100887B9C /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F3D2A4A90A100887B9C /* RoundedCorner.swift */; };
 		D4545F402A4A95F600887B9C /* ShopSegmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F3F2A4A95F600887B9C /* ShopSegmented.swift */; };
@@ -144,6 +145,7 @@
 		ADECB30C2A3DB567005BA03F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ADECB31A2A3DB8FB005BA03F /* FocusData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FocusData.xcdatamodel; sourceTree = "<group>"; };
 		ADECB3252A3DBAD2005BA03F /* PresistanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresistanceController.swift; sourceTree = "<group>"; };
+		ADF688D82A504E0E00F61A79 /* CycleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleBarView.swift; sourceTree = "<group>"; };
 		D4545F3B2A4A8F9700887B9C /* ShopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopButton.swift; sourceTree = "<group>"; };
 		D4545F3D2A4A90A100887B9C /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		D4545F3F2A4A95F600887B9C /* ShopSegmented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSegmented.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				056A1CEE2A42A4460029B5B9 /* MusicSelection.swift */,
 				056A1CD92A41A42E0029B5B9 /* TimerPickerView.swift */,
+				ADF688D82A504E0E00F61A79 /* CycleBarView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				056A1CEF2A42A4460029B5B9 /* MusicSelection.swift in Sources */,
 				ADECB3062A3DB566005BA03F /* FocusAppsApp.swift in Sources */,
 				D4545F422A4A9AEF00887B9C /* SegmentedShopEnum.swift in Sources */,
+				ADF688D92A504E0E00F61A79 /* CycleBarView.swift in Sources */,
 				0535890A2A4BD88D0064185D /* CustomAlert.swift in Sources */,
 				05162B902A4C373D0079A1DD /* ContinueConfirmation.swift in Sources */,
 			);
@@ -718,7 +722,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FocusApps/Preview Content\"";
-				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
+				DEVELOPMENT_TEAM = 7UW53Z6Q89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FocusApps/Info.plist;
@@ -748,7 +752,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FocusApps/Preview Content\"";
-				DEVELOPMENT_TEAM = 45ZWLX2CYQ;
+				DEVELOPMENT_TEAM = 7UW53Z6Q89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FocusApps/Info.plist;
