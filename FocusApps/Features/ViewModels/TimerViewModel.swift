@@ -101,7 +101,13 @@ class TimerViewModel: ObservableObject {
     
     
     func forceStopSession(){
-        
+        stopSound()
+        stopTimer()
+        isTimer = false
+        cycle = 0
+        focusStep = 0
+        restStep = 0
+        sceneState = 0
     }
 
     func createTask(){

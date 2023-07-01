@@ -22,7 +22,6 @@ struct RewardView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack{
-                
                 //Reward Desc
                 Text("Congratulations")
                     .font(.custom("PlusJakartaSans-Bold", size: 26))

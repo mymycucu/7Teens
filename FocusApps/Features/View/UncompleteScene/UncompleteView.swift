@@ -31,7 +31,7 @@ struct UncompleteView: View {
                 }.listStyle(PlainListStyle())
             }
             .navigationTitle("Uncomplete Task")
-        }.onAppear(perform: viewModel.refreshData)
+        }
     }
 }
 

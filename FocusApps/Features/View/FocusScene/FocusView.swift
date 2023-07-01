@@ -23,12 +23,13 @@ struct FocusView: View {
                     .mask {
                             Circle()
                                 .frame(
-                                    width: viewModel.isTimer ? 2000 : 300,
-                                    height: viewModel.isTimer ? 2000 : 300)
+                                    width: viewModel.isTimer ? 2000 : 240,
+                                    height: viewModel.isTimer ? 2000 : 240)
                                 .ignoresSafeArea(.all)
                                 .animation(
                                     .interpolatingSpring(stiffness: 200, damping: 20)
                                     .speed(0.2))
+                        Spacer().frame(height: 80)
                     }
             case "bg-rain":
                 LottieView(name: "bg-rain", loopMode: .autoReverse)
@@ -36,12 +37,13 @@ struct FocusView: View {
                     .mask {
                             Circle()
                                 .frame(
-                                    width: viewModel.isTimer ? 2000 : 300,
-                                    height: viewModel.isTimer ? 2000 : 300)
+                                    width: viewModel.isTimer ? 2000 : 240,
+                                    height: viewModel.isTimer ? 2000 : 240)
                                 .ignoresSafeArea(.all)
                                 .animation(
                                     .interpolatingSpring(stiffness: 200, damping: 20)
                                     .speed(0.2))
+                        Spacer().frame(height: 80)
                     }
             default:
                 LottieView(name: "bg-forest", loopMode: .autoReverse)
@@ -49,14 +51,25 @@ struct FocusView: View {
                     .mask {
                             Circle()
                                 .frame(
-                                    width: viewModel.isTimer ? 2000 : 300,
-                                    height: viewModel.isTimer ? 2000 : 300)
+                                    width: viewModel.isTimer ? 2000 : 240,
+                                    height: viewModel.isTimer ? 2000 : 240)
                                 .ignoresSafeArea(.all)
                                 .animation(
                                     .interpolatingSpring(stiffness: 200, damping: 20)
                                     .speed(0.2))
+                        Spacer().frame(height: 80)
                     }
             }
+            LottieView(name: "\(appState.body)-\(appState.hat)", loopMode: .loop)
+                .frame(width: 132, height: 132)
+                .offset(y: viewModel.isTimer ? 90 : 300)
+                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                .mask {
+                    Circle()
+                        .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
+                        .ignoresSafeArea(.all)
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                }
             
             
             switch viewModel.sceneState{
@@ -121,8 +134,9 @@ extension View {
   }
 }
 
-//struct FocusView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FocusView(appState: AppState(), viewModel: FocusViewModel(), timerManager: TimerController())
-//    }
-//}
+struct FocusView_Previews: PreviewProvider {
+    static var previews: some View {
+        FocusView(viewModel: TimerViewModel())
+            .environmentObject(AppState())
+    }
+}

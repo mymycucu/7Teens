@@ -11,10 +11,13 @@ struct ContentView: View {
     @EnvironmentObject var appState: AppState
     @State var activityName: String
     @State var selectedTab = 1
+    @StateObject var viewModel: TimerViewModel = TimerViewModel()
+
     init() {
         UITabBar.appearance().backgroundColor = UIColor.white
         activityName = ""
     }
+    
     var body: some View {
         //        TestView()
         //    }
