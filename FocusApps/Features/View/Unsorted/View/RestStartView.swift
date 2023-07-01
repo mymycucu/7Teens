@@ -49,35 +49,14 @@ struct RestStartView: View {
                 Text("Stretch your body and relax")
                 .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                 .padding(.top, 5)
-                .padding(.bottom, 305)
+                .padding(.bottom, 250)
                 
-                // Stop Button
-                Button(action: {
-                    viewModel.stopSession()
-                }) {
-                    Text("Stop")
-                        .font(.custom("PlusJakartaSans-SemiBold", size: 16))
-                        .foregroundColor(.white)
-                        .frame(width: 358, height: 50)
-                        .background(Color(red: 0.97, green: 0.7, blue: 0.1))
-                        .cornerRadius(40)
-                }
-                .padding(.bottom, 30)
-
-
+                //Character
+                LottieView(name: "cat-hat-blue-rest", loopMode: .loop)
+                    .frame(width: 132, height: 132)
+                    .offset(y: -70)
+//                    .padding(.bottom, 30)
             }
-            
-            //Character
-            LottieView(name: "cat-hat-blue", loopMode: .loop)
-                .frame(width: 132, height: 132)
-                .offset(y: isFull ? 90 : 300)
-                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
-                .mask {
-                    Circle()
-                        .frame(width: isFull ? 2000 : 0, height: isFull ? 2000 : 0)
-                        .ignoresSafeArea(.all)
-                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
-                }
  
         }
     }
