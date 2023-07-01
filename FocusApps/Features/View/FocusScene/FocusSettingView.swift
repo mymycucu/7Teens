@@ -205,13 +205,14 @@ struct FocusSettingView: View {
                         )
                         .font(.custom("PlusJakartaSans-Regular", size: 22))
                         .multilineTextAlignment(.center)
-                        .padding(.top, 40)
+                        .padding(.top, 20)
 
                     
                     //Timer
         //            if !viewModel.timerIsRunning {
                         TimePickerView(viewModel: viewModel)
-                        .padding(.vertical, 140)
+                        .padding(.top, 140)
+                        .padding(.bottom, 120)
                         //Cycle
                         HStack {
                             Text("Cycle: ")
@@ -228,7 +229,7 @@ struct FocusSettingView: View {
                             )
                             
                         }
-                        .padding(.vertical, 20)
+                        .padding(.bottom, 20)
                        
                         //Start Button
                         Button(action: {
