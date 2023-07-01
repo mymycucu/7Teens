@@ -73,7 +73,13 @@ struct RestStartView: View {
                         .offset(y: -70)
                 }
             }
- 
+            
+        //     // MARK: Pop Up Alert
+        //     if isShowingPopUp {
+        //         CustomAlertView()
+                
+        //     }
+            
         }
     }
 }

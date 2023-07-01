@@ -82,6 +82,7 @@
 		D4D8047C2A4C350D00CC9894 /* ShopHatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8047B2A4C350D00CC9894 /* ShopHatItem.swift */; };
 		D4D804862A4C7B4B00CC9894 /* ShopCharacterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D804852A4C7B4B00CC9894 /* ShopCharacterItem.swift */; };
 		D4D804882A4C801D00CC9894 /* ShopPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D804872A4C801D00CC9894 /* ShopPreview.swift */; };
+		D4B0F9B32A4ED7D600B45ED6 /* StopFocusConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B0F9B22A4ED7D600B45ED6 /* StopFocusConfirmation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +162,7 @@
 		D4D8047B2A4C350D00CC9894 /* ShopHatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopHatItem.swift; sourceTree = "<group>"; };
 		D4D804852A4C7B4B00CC9894 /* ShopCharacterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterItem.swift; sourceTree = "<group>"; };
 		D4D804872A4C801D00CC9894 /* ShopPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPreview.swift; sourceTree = "<group>"; };
+		D4B0F9B22A4ED7D600B45ED6 /* StopFocusConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopFocusConfirmation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				D4545F412A4A9AEF00887B9C /* SegmentedShopEnum.swift */,
 				05A211412A498F9700A3F9D0 /* FaqAccordion.swift */,
 				053589092A4BD88D0064185D /* CustomAlert.swift */,
+				D4B0F9B22A4ED7D600B45ED6 /* StopFocusConfirmation.swift */,
 				053589052A4BD8860064185D /* StreakStamp.swift */,
 				0535890B2A4BDEEF0064185D /* BadgesGrid.swift */,
 				0535890F2A4BEAB80064185D /* Statistics.swift */,
@@ -575,6 +578,7 @@
 				056A1CDC2A41A42E0029B5B9 /* FocusView.swift in Sources */,
 				AD66531C2A4E0046007A1C3E /* TestView.swift in Sources */,
 				D4545F402A4A95F600887B9C /* ShopSegmented.swift in Sources */,
+				D4B0F9B32A4ED7D600B45ED6 /* StopFocusConfirmation.swift in Sources */,
 				056A1CDB2A41A42E0029B5B9 /* TimerPickerView.swift in Sources */,
 				053589082A4BD8860064185D /* StreakStamp.swift in Sources */,
 				056A1CDE2A41A43E0029B5B9 /* TaskView.swift in Sources */,
