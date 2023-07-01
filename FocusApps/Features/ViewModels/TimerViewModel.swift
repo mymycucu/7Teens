@@ -192,7 +192,7 @@ class TimerViewModel: ObservableObject {
         let formattedHours = String(format: "%02d", (totalSeconds / 3600))
         let formattedMinutes = String(format: "%02d", ((totalSeconds % 3600) / 60))
         let formattedSeconds = String(format: "%02d", ((totalSeconds % 3600) % 60))
-        return "\(formattedHours):\(formattedMinutes):\(formattedSeconds)"
+        return "\(formattedMinutes):\(formattedSeconds)"
     }
     
     

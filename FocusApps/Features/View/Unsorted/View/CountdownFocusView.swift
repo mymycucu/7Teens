@@ -47,7 +47,7 @@ struct CountdownFocusView: View {
                     //               Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
                     Text("24:50")
                         .font(.custom("PlusJakartaSans-Bold", size: 48))
-                        .padding(.bottom, 330)
+                        .padding(.bottom, 360)
                     
                     // Stop Button
                     Button(action: {
@@ -60,6 +60,7 @@ struct CountdownFocusView: View {
                             .background(Color(red: 0.97, green: 0.7, blue: 0.1))
                             .cornerRadius(40)
                     }
+                    .padding(.bottom, 30)
 
 
                 }

@@ -9,67 +9,83 @@ import SwiftUI
 
 struct RestStartView: View {
     @StateObject var viewModel: TimerViewModel
-    @State var background = "CountdownFocusBG"
+    @State var isFull = false
 //    @ObservedObject var timerManager: TimerManager
     
     var body: some View {
+        
         ZStack{
-//            Image(background)
-//                .resizable()
-//                .scaledToFill()
-//                .ignoresSafeArea(.all)
-//                .edgesIgnoringSafeArea(.all)
+            // Background
+            LottieView(name: "bg-forest", loopMode: .loop )
+                .ignoresSafeArea(.all)
             
             VStack {
                 
-                Spacer()
-                    .frame(height: 100)
-                
-                Text("You are on cycle")
+                //Cycle
+                Text("You are on rest")
                     .font(.custom("PlusJakartaSans-SemiBold", size: 11))
+                    .padding(.top, 40)
                 
                 CycleBarView(viewModel: viewModel)
-                
-               
+                    .padding(.bottom, 30)
+
                 Text("Take a rest before continue on")
                     .font(.custom("PlusJakartaSans-Medium", size: 16))
                     .foregroundColor(.gray)
-                    .padding(.top, 50)
-                Text("\(viewModel.taskName)")
+
+                //Task Name
+                Text("Thesis")
                     .font(.custom("PlusJakartaSans-Bold", size: 26))
                     .foregroundColor(.gray)
                     .padding(.top,-7)
-                
-//                Text("Take a rest before continue on")
-//                    .font(.system(size: 16, weight: .medium))
-//                    .padding(.top, 50)
-//                Text("Finishing Thesis")
-//                    .font(.system(size: 26, weight: .bold))
-//                    .padding(.vertical, 25)
-                    
-
-                
-                Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
+                    .padding(.bottom, 40)
+                      
+                // Timer Countdown
+                //         Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
+                Text("24:50")
                     .font(.custom("PlusJakartaSans-Bold", size: 48))
-                    .padding(.top, 50)
-//                    .padding(.bottom, 150)
-                 
+//                    .padding(.bottom, 360)
+                
                 Text("Stretch your body and relax")
-                    .font(.custom("PlusJakartaSans-SemiBold", size: 16))
-                    .padding(.vertical, 10)
+                .font(.custom("PlusJakartaSans-SemiBold", size: 16))
+                .padding(.top, 5)
+                .padding(.bottom, 305)
                 
-                
-                Spacer()
-            
-    
-                
+                // Stop Button
+                Button(action: {
+                    viewModel.stopSession()
+                }) {
+                    Text("Stop")
+                        .font(.custom("PlusJakartaSans-SemiBold", size: 16))
+                        .foregroundColor(.white)
+                        .frame(width: 358, height: 50)
+                        .background(Color(red: 0.97, green: 0.7, blue: 0.1))
+                        .cornerRadius(40)
+                }
+                .padding(.bottom, 30)
+
+
             }
+            
+            //Character
+            LottieView(name: "cat-hat-blue", loopMode: .loop)
+                .frame(width: 132, height: 132)
+                .offset(y: isFull ? 90 : 300)
+                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                .mask {
+                    Circle()
+                        .frame(width: isFull ? 2000 : 0, height: isFull ? 2000 : 0)
+                        .ignoresSafeArea(.all)
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                }
+ 
         }
     }
 }
 
-//struct RestStartView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RestStartView()
-//    }
-//}
+struct RestStartView_Previews: PreviewProvider {
+    static var previews: some View {
+        RestStartView(viewModel: TimerViewModel())
+            .environmentObject(AppState())
+    }
+}

@@ -19,12 +19,13 @@ struct FocusView: View {
                 .mask {
                         Circle()
                             .frame(
-                                width: viewModel.isTimer ? 2000 : 300,
-                                height: viewModel.isTimer ? 2000 : 300)
+                                width: viewModel.isTimer ? 2000 : 240,
+                                height: viewModel.isTimer ? 2000 : 240)
                             .ignoresSafeArea(.all)
                             .animation(
                                 .interpolatingSpring(stiffness: 200, damping: 20)
                                 .speed(0.2))
+                    Spacer().frame(height: 80)
                 }
             
             switch viewModel.sceneState{
@@ -79,8 +80,9 @@ extension View {
   }
 }
 
-//struct FocusView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FocusView(appState: AppState(), viewModel: FocusViewModel(), timerManager: TimerController())
-//    }
-//}
+struct FocusView_Previews: PreviewProvider {
+    static var previews: some View {
+        FocusView(viewModel: TimerViewModel())
+            .environmentObject(AppState())
+    }
+}

@@ -88,12 +88,13 @@ struct FocusSettingView: View {
                 )
                 .font(.custom("PlusJakartaSans-Regular", size: 22))
                 .multilineTextAlignment(.center)
-                .padding(.vertical, 50)
+                .padding(.top, 40)
 
             
             //Timer
 //            if !viewModel.timerIsRunning {
                 TimePickerView(viewModel: viewModel)
+                .padding(.vertical, 140)
                 //Cycle
                 HStack {
                     Text("Cycle: ")
@@ -124,12 +125,15 @@ struct FocusSettingView: View {
                         .cornerRadius(40)
                 }
                 .padding()
+            
+            Spacer()
         }
     }
 }
 
-//struct FocusSettingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FocusSettingView()
-//    }
-//}
+struct FocusSettingView_Previews: PreviewProvider {
+    static var previews: some View {
+        FocusSettingView(viewModel: TimerViewModel())
+            .environmentObject(AppState())
+    }
+}
