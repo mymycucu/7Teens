@@ -14,23 +14,12 @@ struct Constant {
     static let containerName = "AppModel"
     static let standardDateFormat = "dd/MM/yyyy HH:mm"
     
-<<<<<<< HEAD
-    static let catItem = ShopItem(itemName: "cat", price: 0)
-    static let dogItem = ShopItem(itemName: "dog", price: 1000)
-    static let koalaItem = ShopItem(itemName: "koala", price: 2000)
-    static let hatRed = ShopItem(itemName: "hat-red", price: 0)
-    static let hatBlue = ShopItem(itemName: "hat-blue", price: 45)
-    static let hatLilac = ShopItem(itemName: "hat-lilac", price: 85)
-    static let hatBrown = ShopItem(itemName: "hat-brown", price: 125)
-    static let hatNavy = ShopItem(itemName: "hat-navy", price: 165)
-    static let hatSage = ShopItem(itemName: "hat-sage", price: 205)
-    
     static let cycleOptions = ["One", "Two", "Three", "Four"]
-=======
+
     // MARK: shop's items
     static let catItem = ShopItem(itemName: "cat", price: 0, itemTitle: "Olen the Cat")
-    static let dogItem = ShopItem(itemName: "dog", price: 1000, itemTitle: "Goldie the Dog")
-    static let koalaItem = ShopItem(itemName: "koala", price: 2000, itemTitle: "Kai the Koala")
+    static let dogItem = ShopItem(itemName: "dog", price: 2500, itemTitle: "Goldie the Dog")
+    static let koalaItem = ShopItem(itemName: "koala", price: 5000, itemTitle: "Kai the Koala")
     static let hatRed = ShopItem(itemName: "hat-red", price: 0, itemTitle: "RedBull Cap")
     static let hatBlue = ShopItem(itemName: "hat-blue", price: 45, itemTitle: "Blueming Cap")
     static let hatLilac = ShopItem(itemName: "hat-lilac", price: 85, itemTitle: "Lilavender Cap")
@@ -45,8 +34,6 @@ struct Constant {
     static let characterCollector = BadgeItem(badgeImage: "character-collector", badgeTitle: "Character Collector")
     static let streakMaster = BadgeItem(badgeImage: "streak-master", badgeTitle: "Streak Master")
     static let zenMaster = BadgeItem(badgeImage: "zen-master", badgeTitle: "Zen Master")
-    
->>>>>>> b849ddf4f5aefa64e2dc5ee4f1f077796bea8e8b
 
 }
 

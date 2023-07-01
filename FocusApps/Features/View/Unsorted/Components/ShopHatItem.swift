@@ -19,7 +19,8 @@ struct ShopHatItem: View {
             if viewModel.isBought(name: item.itemName){
                 isShowingPopUp = false
                 if (appState.hat != item.itemName){
-                    appState.hat = item.itemName
+                    UserDefaults.standard.set(item.itemName, forKey: "hat")
+                    appState.refreshData()
                 }
             }else{
                 viewModel.itemToBuy = item

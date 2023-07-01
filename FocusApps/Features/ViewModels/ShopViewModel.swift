@@ -49,6 +49,8 @@ class ShopViewModel: ObservableObject {
         } catch {
             print("Error saving")
         }
+        let oldCoin = UserDefaults.standard.integer(forKey: "coins")
+        UserDefaults.standard.setValue((oldCoin - item.price), forKey: "coins")
     }
     
 }

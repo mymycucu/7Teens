@@ -49,7 +49,8 @@ struct ShopView: View {
                 // MARK: preview
                 VStack {
                     
-                    ShopPreview(bodyName: appState.body, hatName: appState.hat)
+                    ShopPreview()
+                        .environmentObject(appState)
 
                     //character's shadow
                     Ellipse()
@@ -88,16 +89,21 @@ struct ShopView: View {
                                     } else {
                                         HStack{
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatRed, isShowingPopUp: $isShowingPopUp)
+                                                .environmentObject(appState)
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatBlue, isShowingPopUp: $isShowingPopUp)
+                                                .environmentObject(appState)
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatLilac, isShowingPopUp: $isShowingPopUp)
+                                                .environmentObject(appState)
                                             
                                             
                                         }
                                         HStack{
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatBrown, isShowingPopUp: $isShowingPopUp)
-                        
+                                                .environmentObject(appState)
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatNavy, isShowingPopUp: $isShowingPopUp)
+                                                .environmentObject(appState)
                                             ShopHatItem(viewModel: viewModel, item: Constant.hatSage, isShowingPopUp: $isShowingPopUp)
+                                                .environmentObject(appState)
                                         }
                                     }
                                 }.padding(10)
@@ -117,9 +123,9 @@ struct ShopView: View {
         
     }
     
-    struct ShopView_Previews: PreviewProvider {
-        static var previews: some View {
-            ShopView()
-        }
-    }
+//    struct ShopView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            ShopView()
+//        }
+//    }
 }
