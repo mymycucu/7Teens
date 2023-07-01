@@ -211,7 +211,7 @@ struct FocusSettingView: View {
                     //Timer
         //            if !viewModel.timerIsRunning {
                         TimePickerView(viewModel: viewModel)
-                        .padding(.top, 140)
+                        .padding(.top, 135)
                         .padding(.bottom, 120)
                         //Cycle
                         HStack {

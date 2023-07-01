@@ -34,6 +34,8 @@ class TimerViewModel: ObservableObject {
     @Published var bonusStreak = false
     var minStreakMinutes = 1
     
+    @Published var reward = RewardModel()
+    
     // TimerController Var
     var hours = 0
     var minutes = 0
@@ -67,6 +69,7 @@ class TimerViewModel: ObservableObject {
             if (isNewStreak()){
                 self.sceneState = 3
             }else{
+                self.reward = calculateReward()
                 self.sceneState = 4
             }
         }
@@ -103,11 +106,12 @@ class TimerViewModel: ObservableObject {
     func forceStopSession(){
         stopSound()
         stopTimer()
-        isTimer = false
-        cycle = 0
-        focusStep = 0
-        restStep = 0
-        sceneState = 0
+        self.activity!.duration = self.activity!.duration - Int32(totalSeconds)
+        self.save()
+        self.cycle = 0
+        self.focusStep = 1
+        self.restStep = 0
+        cycleController()
     }
 
     func createTask(){
@@ -157,11 +161,19 @@ class TimerViewModel: ObservableObject {
         newRest!.id = UUID()
         newRest!.createdAt = Date()
         newRest!.type = 1
-        newRest!.duration = Int32(10)
+        newRest!.duration = Int32(0.2*60)
         newRest!.session = session
         do {
             try PersistenceController.shared.save()
             self.activity = newRest
+        } catch {
+            print("Error saving")
+        }
+    }
+    
+    func save(){
+        do {
+            try PersistenceController.shared.save()
         } catch {
             print("Error saving")
         }
@@ -227,6 +239,38 @@ class TimerViewModel: ObservableObject {
         return false
     }
     
+    func calculateReward() -> RewardModel{
+        var totalCoin = 0
+        var taskCoin = 0
+        var streakCoin = 0
+        
+        var totalFocusTime = getTotalFocusSession()
+        if totalFocusTime >= 25*60{
+            totalCoin = 25
+            taskCoin = 25
+        }else if totalFocusTime >= 20*60{
+            totalCoin = 20
+            taskCoin = 20
+        }else if totalFocusTime >= 15*60{
+            totalCoin = 15
+            taskCoin = 15
+        }else if totalFocusTime >= 10*60{
+            totalCoin = 10
+            taskCoin = 10
+        }else if totalFocusTime >= 5*60{
+            totalCoin = 5
+            taskCoin = 5
+        }
+        
+        if isNewStreak(){
+            totalCoin += 25
+            streakCoin = 25
+        }
+        var oldCoin = UserDefaults.standard.integer(forKey: "coins")
+        UserDefaults.standard.setValue((oldCoin+totalCoin), forKey: "coins")
+        
+        return RewardModel(totalCoin: totalCoin, taskCoin: taskCoin, streakCoin: streakCoin)
+    }
     
     // MARK: TimerController Func
     func startTimer(sec : Int) {

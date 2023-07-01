@@ -10,6 +10,7 @@ import SwiftUI
 struct RewardView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var viewModel: TimerViewModel
+    
     var body: some View {
         ZStack {
 //            Image("CountdownFocusBG")
@@ -37,7 +38,7 @@ struct RewardView: View {
                     Image("coin")
                         .resizable()
                         .frame(width: 76, height: 76)
-                    Text("+50")
+                    Text("+\(viewModel.reward.totalCoin)")
                         .font(.custom("PlusJakartaSans-Bold", size: 52))
                         .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
 
@@ -51,14 +52,14 @@ struct RewardView: View {
                         .foregroundColor(.gray)
                         .padding(.bottom, 2)
                     HStack{
-                        Text("\(viewModel.getTotalFocusSession()) Minutes")
+                        Text("\(viewModel.getTotalFocusSession()/60) Minutes")
                             .font(.custom("PlusJakartaSans-Bold", size: 16))
                             .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                             .padding(.bottom, 10)
                         
                         Spacer()
                         
-                        Text("+30")
+                        Text("+\(viewModel.reward.taskCoin)")
                             .font(.custom("PlusJakartaSans-Bold", size: 16))
                             .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                         
@@ -69,13 +70,13 @@ struct RewardView: View {
                             .foregroundColor(.gray)
                             .padding(.bottom, 2)
                         HStack{
-                            Text("Day 3")
+                            Text("Day \(viewModel.streak)")
                                 .font(.custom("PlusJakartaSans-Bold", size: 16))
                                 .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                             
                             Spacer()
                             
-                            Text("+20")
+                            Text("+25")
                                 .font(.custom("PlusJakartaSans-Bold", size: 16))
                                 .foregroundColor(Color(red: 0.05, green: 0.27, blue: 0.29))
                             
@@ -107,7 +108,8 @@ struct RewardView: View {
                         
                         
                         Button(action: {
-                            
+                            viewModel.task!.isDone = true
+                            viewModel.save()
                         }) {
                             Text("Yes, Completed")
                                 .font(.custom("PlusJakartaSans-SemiBold", size: 16))
@@ -124,8 +126,6 @@ struct RewardView: View {
                 .padding(.top, 20)
                 
                 Button(action: {
-                    let currentCoin = UserDefaults.standard.integer(forKey: "coins") + 20
-                    UserDefaults.standard.setValue(currentCoin, forKey: "coins")
                     appState.refreshData()
                     viewModel.bonusStreak = false
                     viewModel.sceneState = 0

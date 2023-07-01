@@ -36,7 +36,7 @@ struct CountdownFocusView: View {
                         .font(.custom("PlusJakartaSans-Medium", size: 16))
                         .foregroundColor(.gray)
 
-                    Text("Thesis")
+                    Text("\(viewModel.taskName)")
                         .font(.custom("PlusJakartaSans-Bold", size: 26))
                         .foregroundColor(.gray)
                         .padding(.top,-7)
@@ -49,7 +49,7 @@ struct CountdownFocusView: View {
                     
                     // Stop Button
                     Button(action: {
-                        viewModel.stopSession()
+                        viewModel.forceStopSession()
                     }) {
                         Text("Stop")
                             .font(.custom("PlusJakartaSans-SemiBold", size: 16))

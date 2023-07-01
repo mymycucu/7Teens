@@ -21,55 +21,122 @@ struct FocusView: View {
                 LottieView(name: "bg-beach", loopMode: .autoReverse)
                     .ignoresSafeArea(.all)
                     .mask {
-                            Circle()
-                                .frame(
-                                    width: viewModel.isTimer ? 2000 : 240,
-                                    height: viewModel.isTimer ? 2000 : 240)
-                                .ignoresSafeArea(.all)
-                                .animation(
-                                    .interpolatingSpring(stiffness: 200, damping: 20)
-                                    .speed(0.2))
+                        Circle()
+                            .frame(
+                                width: viewModel.isTimer ? 2000 : 240,
+                                height: viewModel.isTimer ? 2000 : 240)
+                            .ignoresSafeArea(.all)
+                            .animation(
+                                .interpolatingSpring(stiffness: 200, damping: 20)
+                                .speed(0.2))
                         Spacer().frame(height: 80)
                     }
             case "bg-rain":
                 LottieView(name: "bg-rain", loopMode: .autoReverse)
                     .ignoresSafeArea(.all)
                     .mask {
-                            Circle()
-                                .frame(
-                                    width: viewModel.isTimer ? 2000 : 240,
-                                    height: viewModel.isTimer ? 2000 : 240)
-                                .ignoresSafeArea(.all)
-                                .animation(
-                                    .interpolatingSpring(stiffness: 200, damping: 20)
-                                    .speed(0.2))
+                        Circle()
+                            .frame(
+                                width: viewModel.isTimer ? 2000 : 240,
+                                height: viewModel.isTimer ? 2000 : 240)
+                            .ignoresSafeArea(.all)
+                            .animation(
+                                .interpolatingSpring(stiffness: 200, damping: 20)
+                                .speed(0.2))
                         Spacer().frame(height: 80)
                     }
             default:
                 LottieView(name: "bg-forest", loopMode: .autoReverse)
                     .ignoresSafeArea(.all)
                     .mask {
-                            Circle()
-                                .frame(
-                                    width: viewModel.isTimer ? 2000 : 240,
-                                    height: viewModel.isTimer ? 2000 : 240)
-                                .ignoresSafeArea(.all)
-                                .animation(
-                                    .interpolatingSpring(stiffness: 200, damping: 20)
-                                    .speed(0.2))
+                        Circle()
+                            .frame(
+                                width: viewModel.isTimer ? 2000 : 240,
+                                height: viewModel.isTimer ? 2000 : 240)
+                            .ignoresSafeArea(.all)
+                            .animation(
+                                .interpolatingSpring(stiffness: 200, damping: 20)
+                                .speed(0.2))
                         Spacer().frame(height: 80)
                     }
             }
-            LottieView(name: "\(appState.body)-\(appState.hat)", loopMode: .loop)
-                .frame(width: 132, height: 132)
-                .offset(y: viewModel.isTimer ? 90 : 300)
-                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
-                .mask {
-                    Circle()
-                        .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
-                        .ignoresSafeArea(.all)
-                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+            
+            if viewModel.sceneState != 2{
+                switch ("\(appState.body)-\(appState.hat)"){
+                case "cat-hat-blue":
+                    LottieView(name: "cat-hat-blue", loopMode: .loop)
+                        .frame(width: 132, height: 132)
+                        .offset(y: viewModel.isTimer ? 90 : 300)
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .mask {
+                            Circle()
+                                .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
+                                .ignoresSafeArea(.all)
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                        }
+                case "cat-hat-brown":
+                    LottieView(name: "cat-hat-brown", loopMode: .loop)
+                        .frame(width: 132, height: 132)
+                        .offset(y: viewModel.isTimer ? 90 : 300)
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .mask {
+                            Circle()
+                                .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
+                                .ignoresSafeArea(.all)
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                        }
+                case "cat-hat-lilac":
+                    LottieView(name: "cat-hat-lilac", loopMode: .loop)
+                        .frame(width: 132, height: 132)
+                        .offset(y: viewModel.isTimer ? 90 : 300)
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .mask {
+                            Circle()
+                                .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
+                                .ignoresSafeArea(.all)
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                        }
+                case "cat-hat-navy":
+                    LottieView(name: "cat-hat-navy", loopMode: .loop)
+                        .frame(width: 132, height: 132)
+                        .offset(y: viewModel.isTimer ? 90 : 300)
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .mask {
+                            Circle()
+                                .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
+                                .ignoresSafeArea(.all)
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                        }
+                case "cat-hat-sage":
+                    LottieView(name: "cat-hat-sage", loopMode: .loop)
+                        .frame(width: 132, height: 132)
+                        .offset(y: viewModel.isTimer ? 90 : 300)
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .mask {
+                            Circle()
+                                .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
+                                .ignoresSafeArea(.all)
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                        }
+                   
+                default:
+                    LottieView(name: "cat-hat-red", loopMode: .loop)
+                        .frame(width: 132, height: 132)
+                        .offset(y: viewModel.isTimer ? 90 : 300)
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .mask {
+                            Circle()
+                                .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
+                                .ignoresSafeArea(.all)
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                        }
                 }
+            }
+        
+            
+            
+            
+            
             
             
             switch viewModel.sceneState{
