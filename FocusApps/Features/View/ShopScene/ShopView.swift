@@ -108,8 +108,9 @@ struct ShopView: View {
                 }
                 
             }
+            // MARK: PopUp Buy Item
             if isShowingPopUp {
-                BuyItemShop(viewModel: viewModel, isShowingPopUp: $isShowingPopUp, item: viewModel.itemToBuy, itemTitle: "Brownies Cap")
+                BuyItemShop(viewModel: viewModel, isShowingPopUp: $isShowingPopUp, item: viewModel.itemToBuy)
                 
             }
         }

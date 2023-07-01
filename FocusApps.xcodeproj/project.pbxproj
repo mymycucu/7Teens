@@ -74,6 +74,7 @@
 		D4545F422A4A9AEF00887B9C /* SegmentedShopEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F412A4A9AEF00887B9C /* SegmentedShopEnum.swift */; };
 		D4545F472A4AD4B400887B9C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D4545F462A4AD4B400887B9C /* Lottie */; };
 		D4545F492A4AD57C00887B9C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F482A4AD57C00887B9C /* LottieView.swift */; };
+		D4B0F9B52A4EDAAC00B45ED6 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B0F9B42A4EDAAC00B45ED6 /* ShopView.swift */; };
 		D4D804502A4BEFAA00CC9894 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8044F2A4BEFAA00CC9894 /* ShopViewModel.swift */; };
 		D4D804602A4C24E200CC9894 /* BuyItemShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8045F2A4C24E200CC9894 /* BuyItemShop.swift */; };
 		D4D804642A4C2BB400CC9894 /* forest-wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4D804612A4C2BB400CC9894 /* forest-wind.mp3 */; };
@@ -154,6 +155,7 @@
 		D4545F3F2A4A95F600887B9C /* ShopSegmented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSegmented.swift; sourceTree = "<group>"; };
 		D4545F412A4A9AEF00887B9C /* SegmentedShopEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedShopEnum.swift; sourceTree = "<group>"; };
 		D4545F482A4AD57C00887B9C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		D4B0F9B42A4EDAAC00B45ED6 /* ShopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		D4D8044F2A4BEFAA00CC9894 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		D4D8045F2A4C24E200CC9894 /* BuyItemShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemShop.swift; sourceTree = "<group>"; };
 		D4D804612A4C2BB400CC9894 /* forest-wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "forest-wind.mp3"; sourceTree = "<group>"; };

@@ -12,25 +12,36 @@ struct BuyItemShop: View {
     @StateObject var viewModel: ShopViewModel
     @Binding var isShowingPopUp: Bool
     var item : ShopItem
-    var itemTitle : String
     var body: some View {
         ZStack{
             VStack{
-                Text(itemTitle)
+                // MARK: Item Title
+                Text(item.itemTitle)
                     .font(
                         Font.custom("Plus Jakarta Sans", size: 18)
                             .weight(.bold)
                     )
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(red: 0.07, green: 0.34, blue: 0.35))
-                
+                // MARK: Item Image
                 Image(item.itemName)
                     .resizable()
                     .frame(width: 150,height: 150)
-                    .padding(10)
                 
+                // MARK: Item Price
+                HStack(alignment:.center){
+                    Image("coin")
+                        .resizable()
+                        .frame(width: 24,height: 24)
+                    Text("\(item.price)")
+                        .font(
+                        Font.custom("Plus Jakarta Sans", size: 16)
+                        .weight(.semibold)
+                        )
+                        .foregroundColor(.black)
+                }
+                // MARK: Buy Button
                 HStack(alignment: .center, spacing: 22){
-                    
                     Button{
                         viewModel.buyItem(item: item)
                         viewModel.refreshData()
@@ -44,10 +55,11 @@ struct BuyItemShop: View {
                     }
                 }
             }
+            .padding(15)
             .frame(width: 290, height: 305, alignment: .center)
-            
             .background(Color("GreyL-6"))
             .cornerRadius(12)
+            // MARK: X button
             VStack{
                 HStack{
                     Spacer()
