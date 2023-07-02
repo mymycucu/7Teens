@@ -11,7 +11,6 @@ struct FocusView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var viewModel = TimerViewModel()
     @Environment(\.scenePhase) var scenePhase
-    @State var lottieName = "bg-forest"
     
     var body: some View {
         ZStack{

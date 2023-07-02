@@ -30,19 +30,12 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-            UncompleteTaskView()
+            UncompleteView()
                 .environmentObject(appState)
                 .tabItem {
                     Image(systemName: "note.text")
                     Text("Uncomplete")
                 }.tag(2)
-            
-            UncompleteView()
-                .environmentObject(appState)
-                .tabItem {
-                    Image(systemName: "note.text")
-                    Text("Hilmy Uncomplete")
-                }.tag(5)
             
             // Uncompleted Task
             SummaryView()

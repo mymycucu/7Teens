@@ -42,6 +42,7 @@
 		056A1D112A458A770029B5B9 /* CountdownFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A1D102A458A770029B5B9 /* CountdownFocusView.swift */; };
 		05A211422A498F9700A3F9D0 /* FaqAccordion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A211412A498F9700A3F9D0 /* FaqAccordion.swift */; };
 		05EF44F32A48833C00765C0B /* RestStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF44F22A48833C00765C0B /* RestStartView.swift */; };
+		AD07F3D52A52157B00393A40 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AD07F3D42A52157B00393A40 /* Lottie */; };
 		AD25B5682A487E3600C56931 /* InsightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B5672A487E3600C56931 /* InsightViewModel.swift */; };
 		AD25B56B2A48937800C56931 /* UncompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B56A2A48937800C56931 /* UncompleteView.swift */; };
 		AD25B56D2A4893A600C56931 /* UncompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B56C2A4893A600C56931 /* UncompleteViewModel.swift */; };
@@ -74,7 +75,6 @@
 		D4545F3E2A4A90A100887B9C /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F3D2A4A90A100887B9C /* RoundedCorner.swift */; };
 		D4545F402A4A95F600887B9C /* ShopSegmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F3F2A4A95F600887B9C /* ShopSegmented.swift */; };
 		D4545F422A4A9AEF00887B9C /* SegmentedShopEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F412A4A9AEF00887B9C /* SegmentedShopEnum.swift */; };
-		D4545F472A4AD4B400887B9C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D4545F462A4AD4B400887B9C /* Lottie */; };
 		D4545F492A4AD57C00887B9C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4545F482A4AD57C00887B9C /* LottieView.swift */; };
 		D4B0F9B32A4ED7D600B45ED6 /* StopFocusConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B0F9B22A4ED7D600B45ED6 /* StopFocusConfirmation.swift */; };
 		D4D804502A4BEFAA00CC9894 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8044F2A4BEFAA00CC9894 /* ShopViewModel.swift */; };
@@ -174,7 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4545F472A4AD4B400887B9C /* Lottie in Frameworks */,
+				AD07F3D52A52157B00393A40 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +252,13 @@
 				056A1CE42A41A4750029B5B9 /* ambient.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		AD07F3D32A52157B00393A40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AD25B5692A48935200C56931 /* UncompleteScene */ = {
@@ -346,6 +353,7 @@
 			children = (
 				ADECB3042A3DB566005BA03F /* FocusApps */,
 				ADECB3032A3DB566005BA03F /* Products */,
+				AD07F3D32A52157B00393A40 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -475,7 +483,7 @@
 			);
 			name = Timee;
 			packageProductDependencies = (
-				D4545F462A4AD4B400887B9C /* Lottie */,
+				AD07F3D42A52157B00393A40 /* Lottie */,
 			);
 			productName = FocusApps;
 			productReference = ADECB3022A3DB566005BA03F /* Timee.app */;
@@ -790,7 +798,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.7Teens.FocusApps;
+				PRODUCT_BUNDLE_IDENTIFIER = com.7Teens.Timee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -837,7 +845,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D4545F462A4AD4B400887B9C /* Lottie */ = {
+		AD07F3D42A52157B00393A40 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D4545F452A4AD4B400887B9C /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;

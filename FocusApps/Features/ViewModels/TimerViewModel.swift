@@ -43,7 +43,7 @@ class TimerViewModel: ObservableObject {
     
     // TimerController Var
     var hours = 0
-    var minutes = 0
+    var minutes = 25
     var seconds = 0
     @Published var totalSeconds = 0
     @Published var timerIsRunning = false
