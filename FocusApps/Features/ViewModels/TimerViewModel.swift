@@ -269,6 +269,9 @@ class TimerViewModel: ObservableObject {
         var oldCoin = UserDefaults.standard.integer(forKey: "coins")
         UserDefaults.standard.setValue((oldCoin+totalCoin), forKey: "coins")
         
+        session!.coin = Int32(totalCoin)
+        self.save()
+        
         return RewardModel(totalCoin: totalCoin, taskCoin: taskCoin, streakCoin: streakCoin)
     }
     
