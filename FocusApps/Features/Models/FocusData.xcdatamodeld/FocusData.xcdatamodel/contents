@@ -16,6 +16,7 @@
         <attribute name="coin" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isTaskDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityMO" inverseName="session" inverseEntity="ActivityMO"/>
         <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskMO" inverseName="sessions" inverseEntity="TaskMO"/>
     </entity>

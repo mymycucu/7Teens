@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class AppState: ObservableObject {
+    @Published var selectedTab = 1
     
     @Published var background: String = UserDefaults.standard.string(forKey: "background") ??  "bg-forest"
     @Published var song: String = UserDefaults.standard.string(forKey: "song") ??  "forest-wind"
@@ -18,6 +19,7 @@ class AppState: ObservableObject {
     @Published var streak: Int = UserDefaults.standard.integer(forKey: "streak")
     @Published var lastStreak: Date = (UserDefaults.standard.object(forKey: "lastStreak") as? Date ?? Calendar.current.startOfDay(for: .distantPast))
 
+    @Published var task: TaskMO? = nil
     
     var firstRun = true
     let preview: Bool

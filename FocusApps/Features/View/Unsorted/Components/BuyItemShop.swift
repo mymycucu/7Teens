@@ -50,9 +50,10 @@ struct BuyItemShop: View {
                         Text("Buy")
                             .foregroundColor(.white)
                             .frame(width: 260, height: 44, alignment: .center)
-                            .background(Color(red: 0.97, green: 0.7, blue: 0.1))
+                            .background(UserDefaults.standard.integer(forKey: "coins") >= item.price ? Color("SY-500") : Color("GreyL-4"))
                             .cornerRadius(22)
                     }
+                    .disabled(appState.coins < item.price)
                 }
             }
             .padding(15)

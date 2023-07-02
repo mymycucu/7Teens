@@ -35,7 +35,7 @@ struct ShopView: View {
                             .resizable()
                             .frame(width: 34,height: 34)
                         Spacer()
-                        Text(String(appState.coins))
+                        Text(String(UserDefaults.standard.integer(forKey: "coins")))
                     }
                     .padding(.trailing, 16)
                     .padding(.vertical, 0)

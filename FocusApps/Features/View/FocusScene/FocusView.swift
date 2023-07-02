@@ -26,9 +26,7 @@ struct FocusView: View {
                                 width: viewModel.isTimer ? 2000 : 240,
                                 height: viewModel.isTimer ? 2000 : 240)
                             .ignoresSafeArea(.all)
-                            .animation(
-                                .interpolatingSpring(stiffness: 200, damping: 20)
-                                .speed(0.2))
+                            .animation(.interpolatingSpring(stiffness: 200, damping: 80).speed(0.2), value: viewModel.isTimer)
                         Spacer().frame(height: 80)
                     }
             case "bg-rain":
@@ -40,9 +38,7 @@ struct FocusView: View {
                                 width: viewModel.isTimer ? 2000 : 240,
                                 height: viewModel.isTimer ? 2000 : 240)
                             .ignoresSafeArea(.all)
-                            .animation(
-                                .interpolatingSpring(stiffness: 200, damping: 20)
-                                .speed(0.2))
+                            .animation(.interpolatingSpring(stiffness: 200, damping: 80).speed(0.2), value: viewModel.isTimer)
                         Spacer().frame(height: 80)
                     }
             default:
@@ -54,9 +50,7 @@ struct FocusView: View {
                                 width: viewModel.isTimer ? 2000 : 240,
                                 height: viewModel.isTimer ? 2000 : 240)
                             .ignoresSafeArea(.all)
-                            .animation(
-                                .interpolatingSpring(stiffness: 200, damping: 20)
-                                .speed(0.2))
+                            .animation(.interpolatingSpring(stiffness: 200, damping: 80).speed(0.2), value: viewModel.isTimer)
                         Spacer().frame(height: 80)
                     }
             }
@@ -67,76 +61,71 @@ struct FocusView: View {
                     LottieView(name: "cat-hat-blue", loopMode: .loop)
                         .frame(width: 132, height: 132)
                         .offset(y: viewModel.isTimer ? 90 : 300)
-                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4),value: viewModel.isTimer)
                         .mask {
                             Circle()
                                 .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
                                 .ignoresSafeArea(.all)
-                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1), value: viewModel.isTimer)
                         }
                 case "cat-hat-brown":
                     LottieView(name: "cat-hat-brown", loopMode: .loop)
                         .frame(width: 132, height: 132)
                         .offset(y: viewModel.isTimer ? 90 : 300)
-                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4),value: viewModel.isTimer)
                         .mask {
                             Circle()
                                 .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
                                 .ignoresSafeArea(.all)
-                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1), value: viewModel.isTimer)
                         }
                 case "cat-hat-lilac":
                     LottieView(name: "cat-hat-lilac", loopMode: .loop)
                         .frame(width: 132, height: 132)
                         .offset(y: viewModel.isTimer ? 90 : 300)
-                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4),value: viewModel.isTimer)
                         .mask {
                             Circle()
                                 .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
                                 .ignoresSafeArea(.all)
-                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1), value: viewModel.isTimer)
                         }
                 case "cat-hat-navy":
                     LottieView(name: "cat-hat-navy", loopMode: .loop)
                         .frame(width: 132, height: 132)
                         .offset(y: viewModel.isTimer ? 90 : 300)
-                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4),value: viewModel.isTimer)
                         .mask {
                             Circle()
                                 .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
                                 .ignoresSafeArea(.all)
-                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1), value: viewModel.isTimer)
                         }
                 case "cat-hat-sage":
                     LottieView(name: "cat-hat-sage", loopMode: .loop)
                         .frame(width: 132, height: 132)
                         .offset(y: viewModel.isTimer ? 90 : 300)
-                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4),value: viewModel.isTimer)
                         .mask {
                             Circle()
                                 .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
                                 .ignoresSafeArea(.all)
-                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1), value: viewModel.isTimer)
                         }
                    
                 default:
                     LottieView(name: "cat-hat-red", loopMode: .loop)
                         .frame(width: 132, height: 132)
                         .offset(y: viewModel.isTimer ? 90 : 300)
-                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4))
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(0.4),value: viewModel.isTimer)
                         .mask {
                             Circle()
                                 .frame(width: viewModel.isTimer ? 2000 : 0, height: viewModel.isTimer ? 2000 : 0)
                                 .ignoresSafeArea(.all)
-                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1))
+                                .animation(.interpolatingSpring(stiffness: 200, damping: 20).speed(1), value: viewModel.isTimer)
                         }
                 }
             }
-        
-            
-            
-            
-            
             
             
             switch viewModel.sceneState{
@@ -159,6 +148,19 @@ struct FocusView: View {
                 FocusSettingView(viewModel: viewModel)
                     .environmentObject(appState)
                     .onAppear(perform: appState.refreshData)
+                    .onChange(of: appState.task) { newTask in
+                        if newTask != nil{
+                            viewModel.task = newTask
+                            viewModel.taskName = newTask!.name!
+                            viewModel.isNewTask = false
+                        } else {
+                            viewModel.task = nil
+                            viewModel.taskName = ""
+                            viewModel.isNewTask = true
+                        }
+                        
+                    }
+
                 
             }
         }

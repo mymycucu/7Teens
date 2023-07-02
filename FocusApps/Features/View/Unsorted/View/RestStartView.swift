@@ -10,7 +10,6 @@ import SwiftUI
 struct RestStartView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var viewModel: TimerViewModel
-//    @ObservedObject var timerManager: TimerManager
     
     var body: some View {
         
@@ -37,7 +36,7 @@ struct RestStartView: View {
                     .padding(.bottom, 40)
                       
                 // Timer Countdown
-                Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
+                Text(viewModel.isRestConfirmationPopup ? "00:00" : viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
                     .font(.custom("PlusJakartaSans-Bold", size: 48))
                 
                 Text("Stretch your body and relax")
@@ -74,11 +73,11 @@ struct RestStartView: View {
                 }
             }
             
-        //     // MARK: Pop Up Alert
-        //     if isShowingPopUp {
-        //         CustomAlertView()
+             // MARK: Pop Up Alert
+            if viewModel.isRestConfirmationPopup {
+                RestConfirmationModule(viewModel: viewModel)
                 
-        //     }
+             }
             
         }
     }

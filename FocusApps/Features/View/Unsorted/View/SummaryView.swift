@@ -9,18 +9,17 @@ import SwiftUI
 
 
 struct SummaryView: View {
+    @StateObject var viewModel = InsightViewModel()
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(red: 0.97, green: 0.7, blue: 0.1, alpha: 1.0)
         UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
     }
 
-    @State private var selectedSegment = 0
-    @State private var selectedTimeSegment = 0
     var body: some View {
         NavigationView {
             VStack {
-                Picker(selection: $selectedSegment, label: Text("Select a segment")) {
+                Picker(selection: $viewModel.selectedSegment, label: Text("Select a segment")) {
                     Text("Focus History").tag(0)
                     Text("Achievements").tag(1)
                 }
@@ -28,11 +27,11 @@ struct SummaryView: View {
                 .padding()
 
                 // Focus History
-                if selectedSegment == 0 {
+                if viewModel.selectedSegment == 0 {
                     
                     VStack {
                         // Statistic Container
-                        Statistics(selectedTimeSegment: $selectedTimeSegment)
+                        Statistics(viewModel: viewModel)
                         
                         Text("Task Data")
                             .font(.custom("PlusJakartaSans-Bold", size: 14))
@@ -42,12 +41,9 @@ struct SummaryView: View {
                             .padding(.horizontal)
                         
                         // Task Data
-                        if selectedTimeSegment == 2 {
-                            ScrollView {
-                                Task(selectedTimeSegment: $selectedTimeSegment)
-                            }
-                        } else {
-                            Task(selectedTimeSegment: $selectedTimeSegment)
+                        ScrollView {
+                            TaskListView(viewModel: viewModel)
+                                .padding(.horizontal, 16)
                         }
                     }
 
@@ -59,6 +55,10 @@ struct SummaryView: View {
                 }
                 Spacer()
             }
+            .onAppear(perform: viewModel.initData)
+            .onChange(of: viewModel.selectedTimeSegment){
+                newValue in viewModel.refreshData(time: newValue)
+            }
             .navigationBarTitle("Summary")
         }
 
@@ -66,8 +66,8 @@ struct SummaryView: View {
     }
 }
 
-struct SummaryView_Previews: PreviewProvider {
-    static var previews: some View {
-        SummaryView()
-    }
-}
+//struct SummaryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SummaryView()
+//    }
+//}

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension TaskMO {
+extension TaskMO{
     
     var sessionMOList: [SessionMO] {
         ((sessions?.allObjects as? [SessionMO]) ?? [SessionMO]()).sorted (by: {$0.createdAt! < $1.createdAt!})

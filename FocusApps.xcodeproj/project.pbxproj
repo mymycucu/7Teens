@@ -27,7 +27,7 @@
 		053589002A4BD76F0064185D /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053588FF2A4BD76F0064185D /* StreakView.swift */; };
 		053589022A4BD77D0064185D /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589012A4BD77D0064185D /* RewardView.swift */; };
 		053589082A4BD8860064185D /* StreakStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589052A4BD8860064185D /* StreakStamp.swift */; };
-		0535890A2A4BD88D0064185D /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589092A4BD88D0064185D /* CustomAlert.swift */; };
+		0535890A2A4BD88D0064185D /* RestConfirmationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589092A4BD88D0064185D /* RestConfirmationModule.swift */; };
 		0535890C2A4BDEEF0064185D /* BadgesGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535890B2A4BDEEF0064185D /* BadgesGrid.swift */; };
 		0535890E2A4BE80F0064185D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535890D2A4BE80F0064185D /* Task.swift */; };
 		053589102A4BEAB80064185D /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535890F2A4BEAB80064185D /* Statistics.swift */; };
@@ -47,6 +47,8 @@
 		AD25B56D2A4893A600C56931 /* UncompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B56C2A4893A600C56931 /* UncompleteViewModel.swift */; };
 		AD25B5712A4A916000C56931 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B5702A4A916000C56931 /* TimerViewModel.swift */; };
 		AD25B5AF2A4DF55800C56931 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B5AE2A4DF55800C56931 /* ShopView.swift */; };
+		AD28D0452A519BFF000ED6D9 /* InsightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28D0442A519BFF000ED6D9 /* InsightModel.swift */; };
+		AD28D0472A51B087000ED6D9 /* InsightSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28D0462A51B087000ED6D9 /* InsightSessionModel.swift */; };
 		AD4ACDA32A45828900E7691E /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACDA12A45828900E7691E /* Items.swift */; };
 		AD66531A2A4DF84C007A1C3E /* FocusSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6653192A4DF84C007A1C3E /* FocusSettingView.swift */; };
 		AD66531C2A4E0046007A1C3E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66531B2A4E0046007A1C3E /* TestView.swift */; };
@@ -107,7 +109,7 @@
 		053588FF2A4BD76F0064185D /* StreakView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
 		053589012A4BD77D0064185D /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
 		053589052A4BD8860064185D /* StreakStamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreakStamp.swift; sourceTree = "<group>"; };
-		053589092A4BD88D0064185D /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		053589092A4BD88D0064185D /* RestConfirmationModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestConfirmationModule.swift; sourceTree = "<group>"; };
 		0535890B2A4BDEEF0064185D /* BadgesGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesGrid.swift; sourceTree = "<group>"; };
 		0535890D2A4BE80F0064185D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		0535890F2A4BEAB80064185D /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
@@ -127,6 +129,8 @@
 		AD25B56C2A4893A600C56931 /* UncompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncompleteViewModel.swift; sourceTree = "<group>"; };
 		AD25B5702A4A916000C56931 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		AD25B5AE2A4DF55800C56931 /* ShopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		AD28D0442A519BFF000ED6D9 /* InsightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightModel.swift; sourceTree = "<group>"; };
+		AD28D0462A51B087000ED6D9 /* InsightSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightSessionModel.swift; sourceTree = "<group>"; };
 		AD4ACDA12A45828900E7691E /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		AD6653192A4DF84C007A1C3E /* FocusSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSettingView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		AD66531B2A4E0046007A1C3E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -227,7 +231,7 @@
 				D4D8047B2A4C350D00CC9894 /* ShopHatItem.swift */,
 				D4545F412A4A9AEF00887B9C /* SegmentedShopEnum.swift */,
 				05A211412A498F9700A3F9D0 /* FaqAccordion.swift */,
-				053589092A4BD88D0064185D /* CustomAlert.swift */,
+				053589092A4BD88D0064185D /* RestConfirmationModule.swift */,
 				D4B0F9B22A4ED7D600B45ED6 /* StopFocusConfirmation.swift */,
 				053589052A4BD8860064185D /* StreakStamp.swift */,
 				0535890B2A4BDEEF0064185D /* BadgesGrid.swift */,
@@ -429,6 +433,8 @@
 				ADD5E4EB2A42E9AE00624B0F /* TaskMO+Extention.swift */,
 				ADD5E4ED2A42ECC500624B0F /* SessionMO+Extention.swift */,
 				ADF688DA2A508F2200F61A79 /* RewardModel.swift */,
+				AD28D0442A519BFF000ED6D9 /* InsightModel.swift */,
+				AD28D0462A51B087000ED6D9 /* InsightSessionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -563,7 +569,9 @@
 				056A1D112A458A770029B5B9 /* CountdownFocusView.swift in Sources */,
 				D4545F3E2A4A90A100887B9C /* RoundedCorner.swift in Sources */,
 				D4D804862A4C7B4B00CC9894 /* ShopCharacterItem.swift in Sources */,
+				AD28D0472A51B087000ED6D9 /* InsightSessionModel.swift in Sources */,
 				D4D804882A4C801D00CC9894 /* ShopPreview.swift in Sources */,
+				AD28D0452A519BFF000ED6D9 /* InsightModel.swift in Sources */,
 				05162B8E2A4C09A10079A1DD /* UncompleteTaskView.swift in Sources */,
 				053589022A4BD77D0064185D /* RewardView.swift in Sources */,
 				AD25B5682A487E3600C56931 /* InsightViewModel.swift in Sources */,
@@ -600,7 +608,7 @@
 				ADECB3062A3DB566005BA03F /* FocusAppsApp.swift in Sources */,
 				D4545F422A4A9AEF00887B9C /* SegmentedShopEnum.swift in Sources */,
 				ADF688D92A504E0E00F61A79 /* CycleBarView.swift in Sources */,
-				0535890A2A4BD88D0064185D /* CustomAlert.swift in Sources */,
+				0535890A2A4BD88D0064185D /* RestConfirmationModule.swift in Sources */,
 				05162B902A4C373D0079A1DD /* ContinueConfirmation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -734,10 +742,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FocusApps/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Timee;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -764,10 +775,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FocusApps/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Timee;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

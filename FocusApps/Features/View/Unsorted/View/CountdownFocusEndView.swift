@@ -8,76 +8,36 @@
 import SwiftUI
 
 struct CountdownFocusEndView: View {
-    @State var background = "CountdownFocusBG"
+    @EnvironmentObject var appState: AppState
     @StateObject var viewModel: TimerViewModel
+    
     var body: some View {
         ZStack{
-            Image(background)
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea(.all)
-                .edgesIgnoringSafeArea(.all)
             
             VStack {
-                
-                Spacer()
-                    .frame(height: 30)
-                
                 Text("You are on cycle")
                     .font(.custom("PlusJakartaSans-SemiBold", size: 11))
+                    .padding(.top, 40)
                 
-                HStack {
-                    ForEach(1...4, id: \.self) { index in
-                        ZStack {
-                            Circle()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(index > 3 ? .gray : Color(red: 0.25, green: 0.6, blue: 0.58))
-                            
-                            Text("\(index)")
-                                .font(.system(size: 12, weight: .semibold))
-                                .foregroundColor(.white)
-                        }
-                        .padding(.horizontal, -2)
-                        
-                        if index != 4 {
-                            ZStack {
-                                Circle()
-                                    .frame(width: 10, height: 10)
-                                    .foregroundColor(index > 3 ? .gray : Color(red: 0.25, green: 0.6, blue: 0.58))
-                            }
-                            .padding(.horizontal, -2)
-                        }
-                    }
-                }
+                CycleBarView(viewModel: viewModel)
+                    .padding(.bottom, 30)
                 
                 Text("Let’s focus on")
                     .font(.custom("PlusJakartaSans-Medium", size: 16))
                     .foregroundColor(.gray)
-                    .padding(.top, 50)
-                Text("Thesis")
+                
+                Text("\(viewModel.taskName)")
                     .font(.custom("PlusJakartaSans-Bold", size: 26))
                     .foregroundColor(.gray)
                     .padding(.top,-7)
+                    .padding(.bottom, 40)
                 
-                    
-                
-//                Spacer()
-//
+                // Timer Countdown
                 Text(viewModel.formattedTime(totalSecond: viewModel.totalSeconds))
                     .font(.custom("PlusJakartaSans-Bold", size: 48))
-                    .padding(.top, 5)
+                    .padding(.bottom, 360)
                 
-                
-                Image("kucingTerbang")
-                    .resizable()
-                    .frame(width: 132, height: 132)
-                    .padding(.vertical, 70)
-//                
-                Spacer()
-                    .frame(height: 20)
-            
-                
-                //Add Another Cycle Button
+                // Stop Button
                 Button(action: {
 
                 }) {
@@ -103,32 +63,15 @@ struct CountdownFocusEndView: View {
                         )
                         .cornerRadius(40)
                 }
-                
-                
-                
-                
-                
-//                Button(action: {
-//                    // Handle "End Focus" button action here
-//                }) {
-//                    Text("End Focus")
-//                        .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
-//                        .frame(width: 138, height: 32)
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 40)
-//                                .stroke(Color(red: 0.97, green: 0.7, blue: 0.1), lineWidth: 2)
-//                        )
-//                        .cornerRadius(22)
-//                }
-                
+                .padding(.bottom, 30)
             }
-            
         }
     }
 }
 
 struct CountdownFocusEndView_Previews: PreviewProvider {
     static var previews: some View {
-        CountdownFocusEndView( viewModel: TimerViewModel())
+        CountdownFocusEndView(viewModel: TimerViewModel())
+            .environmentObject(AppState())
     }
 }
