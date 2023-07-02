@@ -144,7 +144,7 @@
 		ADD5E4F42A43EDA300624B0F /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		ADD5E4F62A43EDF900624B0F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		ADDA4C262A41B4C400A97160 /* CoreDataTestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestingView.swift; sourceTree = "<group>"; };
-		ADECB3022A3DB566005BA03F /* FocusApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADECB3022A3DB566005BA03F /* Timee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADECB3052A3DB566005BA03F /* FocusAppsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusAppsApp.swift; sourceTree = "<group>"; };
 		ADECB3072A3DB566005BA03F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ADECB3092A3DB567005BA03F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -352,7 +352,7 @@
 		ADECB3032A3DB566005BA03F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ADECB3022A3DB566005BA03F /* FocusApps.app */,
+				ADECB3022A3DB566005BA03F /* Timee.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -461,9 +461,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ADECB3012A3DB566005BA03F /* FocusApps */ = {
+		ADECB3012A3DB566005BA03F /* Timee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ADECB3102A3DB567005BA03F /* Build configuration list for PBXNativeTarget "FocusApps" */;
+			buildConfigurationList = ADECB3102A3DB567005BA03F /* Build configuration list for PBXNativeTarget "Timee" */;
 			buildPhases = (
 				ADECB2FE2A3DB566005BA03F /* Sources */,
 				ADECB2FF2A3DB566005BA03F /* Frameworks */,
@@ -473,12 +473,12 @@
 			);
 			dependencies = (
 			);
-			name = FocusApps;
+			name = Timee;
 			packageProductDependencies = (
 				D4545F462A4AD4B400887B9C /* Lottie */,
 			);
 			productName = FocusApps;
-			productReference = ADECB3022A3DB566005BA03F /* FocusApps.app */;
+			productReference = ADECB3022A3DB566005BA03F /* Timee.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -512,7 +512,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ADECB3012A3DB566005BA03F /* FocusApps */,
+				ADECB3012A3DB566005BA03F /* Timee */,
 			);
 		};
 /* End PBXProject section */
@@ -814,7 +814,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ADECB3102A3DB567005BA03F /* Build configuration list for PBXNativeTarget "FocusApps" */ = {
+		ADECB3102A3DB567005BA03F /* Build configuration list for PBXNativeTarget "Timee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ADECB3112A3DB567005BA03F /* Debug */,
