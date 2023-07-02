@@ -118,6 +118,7 @@ struct RewardView: View {
                         Button(action: {
                             isDone = 1
                             viewModel.task!.isDone = true
+                            viewModel.session!.isTaskDone = true
                             viewModel.save()
                         }) {
                             Text("Yes, Completed")
@@ -145,6 +146,10 @@ struct RewardView: View {
                     viewModel.bonusStreak = false
                     viewModel.sceneState = 0
                     viewModel.isTimer = false
+                    if isDone == 1 {
+                        viewModel.task = nil
+                        viewModel.isNewTask = true
+                    }
                 }) {
                     Text("OK")
                         .font(.custom("PlusJakartaSans-SemiBold", size: 16))

@@ -7,47 +7,39 @@
 
 import SwiftUI
 
-struct Task: View {
+struct TaskListView: View {
     
-    @Binding var selectedTimeSegment: Int
+    @StateObject var viewModel : InsightViewModel
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 13) {
-            
             // Monthly
-            if selectedTimeSegment == 2 {
-                
-                Text("June")
-                    .font(.custom("PlusJakartaSans-Bold", size: 18))
-            }
-            
             ScrollView{
-                ForEach(0..<3) { _ in
+                ForEach(viewModel.data.sessionList) {session in
                     VStack(alignment: .leading, spacing: 5) {
                         // Task Name
                         HStack {
-                            Text("Beta test")
+                            Text(session.taskName)
                                 .font(.custom("PlusJakartaSans-SemiBold", size: 14))
                             
                             Spacer()
-                                .frame(width: 155)
                             
-                            Text("Uncompleted")
+                            Text(session.completion)
                                 .font(.custom("PlusJakartaSans-Medium", size: 12))
-                                .foregroundColor(Color(red: 1, green: 0.23, blue: 0.19))
+                                .foregroundColor(session.completion == "Completed" ? Color(red: 0.2, green: 0.78, blue: 0.35) : Color(red: 1, green: 0.23, blue: 0.19))
                         }
                         
                         // Focus Duration
                         HStack {
-                            Text("Focus duration: 35 mins")
+                            Text("Focus duration: \(session.duration) mins")
                                 .font(.custom("PlusJakartaSans-Medium", size: 12))
                                 .foregroundColor(Color(red: 0.39, green: 0.39, blue: 0.4))
                         }
                         
                         // Focus Starts
                         HStack {
-                            Text("07.00 PM")
+                            Text(session.time)
                                 .font(.custom("PlusJakartaSans-Medium", size: 12))
                                 .foregroundColor(Color(red: 0.39, green: 0.39, blue: 0.4))
                         }
@@ -67,8 +59,8 @@ struct Task: View {
     }
 }
 
-struct Task_Previews: PreviewProvider {
-    static var previews: some View {
-        Task(selectedTimeSegment: .constant(2))
-    }
-}
+//struct Task_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Task(selectedTimeSegment: .constant(2))
+//    }
+//}

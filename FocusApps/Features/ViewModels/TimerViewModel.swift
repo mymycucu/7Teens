@@ -85,7 +85,6 @@ class TimerViewModel: ObservableObject {
     }
     
     func startFocus(){
-        print("focus")
         self.createFocus()
         startTimer(sec: hours * 3600 + minutes * 60 + seconds)
         self.focusStep += 1
@@ -94,7 +93,6 @@ class TimerViewModel: ObservableObject {
     }
     
     func startRest(){
-        print("rest")
         self.createRest()
         startTimer(sec: 10)
         self.restStep += 1
@@ -214,7 +212,6 @@ class TimerViewModel: ObservableObject {
             do {
                 let results = try PersistenceController.shared.viewContext.fetch(fetchRequest)
                 // Handle the activities that have a relationship to a session
-                print("count \(results.count)")
                 for activity in results {
                     totalFocusTime += Int(activity.duration)
                 }
@@ -284,7 +281,6 @@ class TimerViewModel: ObservableObject {
         self.totalSeconds = sec
         self.timerIsRunning = true
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [self] timer in
-            print("\(totalSeconds)")
             if self.totalSeconds > 0 {
                 self.totalSeconds -= 1
             } else {
@@ -315,7 +311,6 @@ class TimerViewModel: ObservableObject {
     }
     
     func formattedTime(totalSecond: Int) -> String {
-        let formattedHours = String(format: "%02d", (totalSeconds / 3600))
         let formattedMinutes = String(format: "%02d", ((totalSeconds % 3600) / 60))
         let formattedSeconds = String(format: "%02d", ((totalSeconds % 3600) % 60))
         return "\(formattedMinutes):\(formattedSeconds)"

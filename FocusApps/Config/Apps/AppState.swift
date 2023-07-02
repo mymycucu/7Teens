@@ -18,6 +18,7 @@ class AppState: ObservableObject {
     @Published var streak: Int = UserDefaults.standard.integer(forKey: "streak")
     @Published var lastStreak: Date = (UserDefaults.standard.object(forKey: "lastStreak") as? Date ?? Calendar.current.startOfDay(for: .distantPast))
 
+    @Published var task: TaskMO? = nil
     
     var firstRun = true
     let preview: Bool

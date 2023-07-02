@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct Statistics: View {
-    
-    @Binding var selectedTimeSegment: Int
+    @StateObject var viewModel: InsightViewModel
+    var todayData: InsightModel = InsightModel(totalFocusTime: 0, totalTask: 0, totalCoin: 0, sessionList: [])
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 15) {
-            Picker(selection: $selectedTimeSegment, label: Text("Select a segment")) {
+            Picker(selection: $viewModel.selectedTimeSegment, label: Text("Select a segment")) {
                 Text("Daily").tag(0)
                 Text("Weekly").tag(1)
                 Text("Monthly").tag(2)
@@ -28,42 +28,18 @@ struct Statistics: View {
                         .font(.custom("PlusJakartaSans-SemiBold", size: 14))
                         .foregroundColor(.white)
                     Spacer()
-                    Text("136 hrs")
+                    Text("\(viewModel.data.totalFocusTime / 60) min")
                         .font(.custom("PlusJakartaSans-SemiBold", size: 14))
                         .foregroundColor(.white)
                 }
-                
-                if selectedTimeSegment == 1 || selectedTimeSegment == 2 {
-                    HStack{
-                        Text("Average focus time")
-                            .font(.custom("PlusJakartaSans-SemiBold", size: 14))
-                            .foregroundColor(.white)
-                            .padding(.vertical, 3)
-                        Spacer()
-                        Text("13 hours")
-                            .font(.custom("PlusJakartaSans-SemiBold", size: 14))
-                            .foregroundColor(.white)
-                    }
-                    
-                    HStack{
-                        Text("Highest streak")
-                            .font(.custom("PlusJakartaSans-SemiBold", size: 14))
-                            .foregroundColor(.white)
-                            .padding(.vertical, 3)
-                        Spacer()
-                        Text("7 days")
-                            .font(.custom("PlusJakartaSans-SemiBold", size: 14))
-                            .foregroundColor(.white)
-                    }
-                }
-                
+                                
                 HStack{
                     Text("Total task")
                         .font(.custom("PlusJakartaSans-SemiBold", size: 14))
                         .foregroundColor(.white)
                         .padding(.vertical, 3)
                     Spacer()
-                    Text("7 tasks")
+                    Text("\(viewModel.data.totalTask) tasks")
                         .font(.custom("PlusJakartaSans-SemiBold", size: 14))
                         .foregroundColor(.white)
                 }
@@ -75,7 +51,7 @@ struct Statistics: View {
                     Image("coin")
                         .resizable()
                         .frame(width: 18, height: 18)
-                    Text("+700")
+                    Text("+\(viewModel.data.totalCoin)")
                         .font(.custom("PlusJakartaSans-SemiBold", size: 14))
                         .foregroundColor(.white)
                 }
@@ -93,8 +69,8 @@ struct Statistics: View {
     }
 }
 
-struct Statistics_Previews: PreviewProvider {
-    static var previews: some View {
-        Statistics(selectedTimeSegment: .constant(1))
-    }
-}
+//struct Statistics_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Statistics(selectedTimeSegment: .constant(1))
+//    }
+//}
