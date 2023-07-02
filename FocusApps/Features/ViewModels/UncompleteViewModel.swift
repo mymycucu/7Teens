@@ -13,16 +13,21 @@ import SwiftUI
 class UncompleteViewModel: ObservableObject {
     @Published var taskMOList: [TaskMO] = []
     @Published var taskSelected: TaskMO? = nil
+    @Published var deletedPointer = false
     
-    func refreshData(){
-        self.taskMOList = getTaskUncompleteData()
+    func refreshData() -> Void{
+        taskMOList = getTaskUncompleteData()
+    }
+    
+    func initData() -> Void {
+        taskMOList = getTaskUncompleteData()
     }
     
     func getTaskUncompleteData() ->[TaskMO]  {
         var taskList: [TaskMO] = []
         let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "isDone == 0")
-        let sort = NSSortDescriptor(key: #keyPath(SessionMO.createdAt), ascending: false)
+        fetchRequest.predicate = NSPredicate(format: "isDone == 0 && isRemoved == 0")
+        let sort = NSSortDescriptor(key: #keyPath(TaskMO.createdAt), ascending: false)
         fetchRequest.sortDescriptors = [sort]
         
         if let taskMOs = try? PersistenceController.shared.viewContext.fetch(fetchRequest){
@@ -39,6 +44,12 @@ class UncompleteViewModel: ObservableObject {
         }
     }
     
+    func deleteTask(task: TaskMO){
+        task.isRemoved = true
+        self.save()
+    }
+    
+    
     var sortOption: SortOption = .latestFirst // Default sort option
 
     enum SortOption: String, CaseIterable, Identifiable {
@@ -47,10 +58,6 @@ class UncompleteViewModel: ObservableObject {
 
         var id: SortOption { self }
     }
-
-//    func deleteItem(at index: IndexSet) {
-//        .remove(atOffsets: index)
-//    }
 
     func togglePin(for item: TaskList) {
         if let index = taskMOList.firstIndex(where: { $0.id == item.id }) {
@@ -61,24 +68,4 @@ class UncompleteViewModel: ObservableObject {
         }
     }
 
-//    func sortItems() {
-//        switch sortOption {
-//        case .oldestFirst:
-//            taskMOList.sort { (item1, item2) in
-//                if item1.isPinned == item2.isPinned {
-//                    return item1.title < item2.title
-//                } else {
-//                    return item1.isPinned && !item2.isPinned
-//                }
-//            }
-//        case .latestFirst:
-//            taskMOList.sort { (item1, item2) in
-//                if item1.isPinned == item2.isPinned {
-//                    return item1.title > item2.title
-//                } else {
-//                    return item1.isPinned && !item2.isPinned
-//                }
-//            }
-//        }
-//    }
 }

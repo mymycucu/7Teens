@@ -24,9 +24,9 @@ struct UncompleteView: View {
                         }) {
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text(task.name!)
+                                    Text(task.name ?? "No Data")
                                         .font(.custom("PlusJakartaSans-Bold", size: 18))
-                                    Text(getDate(date:task.createdAt!))
+                                    Text(getDate(date:(task.createdAt ?? Date())))
                                         .font(.custom("PlusJakartaSans-Regular", size: 10))
                                 }
                                 .padding(.vertical, 5)
@@ -34,9 +34,23 @@ struct UncompleteView: View {
                         }
                         //Pop Up Modal
                         .listRowSeparatorTint(Color(red: 0.25, green: 0.6, blue: 0.58))
+                        
+                        // Delete action
+                        .swipeActions(edge: .trailing) {
+                            Button(action: {
+                                viewModel.deleteTask(task: task)
+                                appState.allTaskChange.toggle()
+                            }) {
+                                Label("Delete", systemImage: "trash")
+                            }
+                            .tint(.red)
+                        }
 
                     }
                 }.listStyle(PlainListStyle())
+                    .refreshable {
+                        viewModel.refreshData()
+                    }
                 //Pop Up Modal
                     .sheet(isPresented: $isContinueModalVisible) {
                         ContinueConfirmation(task: viewModel.taskSelected!)
@@ -45,10 +59,15 @@ struct UncompleteView: View {
                         .presentationDetents([.height(277)])
                         .presentationDragIndicator(.visible)
                     }
-                
+                    
             }
             .navigationTitle("Uncomplete Task")
+            .onAppear(perform: viewModel.initData)
+            .onChange(of: appState.allTaskChange){
+                newValue in viewModel.refreshData()
+            }
         }
+        
     }
 }
 

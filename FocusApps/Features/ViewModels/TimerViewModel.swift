@@ -149,6 +149,7 @@ class TimerViewModel: ObservableObject {
         newTask!.name = self.taskName
         newTask!.isDone = false
         newTask!.createdAt = Date()
+        newTask!.isRemoved = false
         do {
             try PersistenceController.shared.save()
             self.task = newTask

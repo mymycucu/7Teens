@@ -30,6 +30,7 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isPinned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRemoved" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SessionMO" inverseName="task" inverseEntity="SessionMO"/>
     </entity>

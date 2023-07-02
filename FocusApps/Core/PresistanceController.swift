@@ -52,6 +52,10 @@ struct PersistenceController {
         container.viewContext.delete(object)
     }
     
+    func deleteTask(_ task: TaskMO){
+        container.viewContext.delete(task)
+    }
+    
     func createSampleData(){
         let viewContext = container.viewContext
         

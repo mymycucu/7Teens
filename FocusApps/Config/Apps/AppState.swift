@@ -21,6 +21,8 @@ class AppState: ObservableObject {
 
     @Published var task: TaskMO? = nil
     
+    @Published var allTaskChange = true
+    
     var firstRun = true
     let preview: Bool
     
