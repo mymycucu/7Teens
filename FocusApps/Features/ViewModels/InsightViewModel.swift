@@ -20,6 +20,8 @@ class InsightViewModel: ObservableObject {
             self.data = getWeeklyData()
         } else if time == 2 {
             self.data = getMontlyData()
+        } else if time == 3 {
+            self.data = getAllData()
         }else{
             self.data = getTodayData()
         }
@@ -36,6 +38,8 @@ class InsightViewModel: ObservableObject {
         
         let fetchRequest: NSFetchRequest<SessionMO> = SessionMO.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "createdAt >= %@", today as NSDate)
+        let sort = NSSortDescriptor(key: #keyPath(SessionMO.createdAt), ascending: false)
+        fetchRequest.sortDescriptors = [sort]
         
         if let sessionMOs = try? PersistenceController.shared.viewContext.fetch(fetchRequest){
             for session in sessionMOs{
@@ -68,6 +72,8 @@ class InsightViewModel: ObservableObject {
         
         let fetchRequest: NSFetchRequest<SessionMO> = SessionMO.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "createdAt >= %@ && createdAt <= %@",startDateOfMonth! as NSDate, endDateOfMonth! as NSDate)
+        let sort = NSSortDescriptor(key: #keyPath(SessionMO.createdAt), ascending: false)
+        fetchRequest.sortDescriptors = [sort]
         
         if let sessionMOs = try? PersistenceController.shared.viewContext.fetch(fetchRequest){
             for session in sessionMOs{
@@ -101,6 +107,8 @@ class InsightViewModel: ObservableObject {
         
         let fetchRequest: NSFetchRequest<SessionMO> = SessionMO.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "createdAt >= %@ && createdAt <= %@",startDateOfMonth! as NSDate, endDateOfMonth! as NSDate)
+        let sort = NSSortDescriptor(key: #keyPath(SessionMO.createdAt), ascending: false)
+        fetchRequest.sortDescriptors = [sort]
 
         
         if let sessionMOs = try? PersistenceController.shared.viewContext.fetch(fetchRequest){
@@ -118,6 +126,29 @@ class InsightViewModel: ObservableObject {
         }
         return data
 //        return InsightModel(totalFocusTime: 2, totalTask: 2, totalCoin: 2, sessionList: [])
+    }
+    
+    func getAllData() -> InsightModel {
+        var data = InsightModel(totalFocusTime: 0, totalTask: 0, totalCoin: 0, sessionList: [])
+        var taskList: [TaskMO] = []
+        
+        let fetchRequest: NSFetchRequest<SessionMO> = SessionMO.fetchRequest()
+        let sort = NSSortDescriptor(key: #keyPath(SessionMO.createdAt), ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+        
+        if let sessionMOs = try? PersistenceController.shared.viewContext.fetch(fetchRequest){
+            for session in sessionMOs{
+                if !taskList.contains(session.task!){
+                    taskList.append(session.task!)
+                    data.totalTask += 1
+                }
+                data.totalCoin += Int(session.coin)
+                data.totalFocusTime += session.getTotalFocusTime()
+                data.sessionList.append(createInsightSessionModel(session: session))
+            }
+            
+        }
+        return data
     }
     
     func createInsightSessionModel(session: SessionMO) -> InsightSessionModel{

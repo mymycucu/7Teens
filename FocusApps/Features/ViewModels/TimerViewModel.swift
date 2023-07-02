@@ -36,6 +36,11 @@ class TimerViewModel: ObservableObject {
     
     @Published var reward = RewardModel()
     
+    
+    // Confirmation
+    var isContinueFocus = true
+    var isRestConfirmationPopup = false
+    
     // TimerController Var
     var hours = 0
     var minutes = 0
@@ -57,15 +62,40 @@ class TimerViewModel: ObservableObject {
         self.cycleController()
     }
     
+    func continueFocus(){
+        self.isContinueFocus = true
+        self.isRestConfirmationPopup = false
+        self.resetTimer()
+        self.cycleController()
+    }
+    
+    func stopFocus(){
+        self.focusStep = 5
+        self.isContinueFocus = true
+        self.isRestConfirmationPopup = false
+        self.resetTimer()
+        self.cycleController()
+    }
+    
+    func restConfirmation(){
+        self.isRestConfirmationPopup = true
+        startConfirmationTimer(sec: 20)
+    }
+    
     func cycleController(){
         if (focusStep <= cycle){
             if (focusStep == restStep){
-                self.startFocus()
+                if isContinueFocus {
+                    self.startFocus()
+                } else {
+                    self.restConfirmation()
+                }
             }else{
                 self.startRest()
             }
         } else {
             self.stopSession()
+            
             if (isNewStreak()){
                 self.sceneState = 3
             }else{
@@ -97,6 +127,7 @@ class TimerViewModel: ObservableObject {
         startTimer(sec: 10)
         self.restStep += 1
         self.sceneState = 2
+        self.isContinueFocus = false
         self.isTimer = true
     }
     
@@ -224,8 +255,8 @@ class TimerViewModel: ObservableObject {
     }
     
     func isNewStreak() -> Bool{
-        var lastStreak = UserDefaults.standard.object(forKey: "lastStreak") as? Date ?? Calendar.current.startOfDay(for: .distantPast)
-        var streak = UserDefaults.standard.integer(forKey: "streak")
+        let lastStreak = UserDefaults.standard.object(forKey: "lastStreak") as? Date ?? Calendar.current.startOfDay(for: .distantPast)
+        let streak = UserDefaults.standard.integer(forKey: "streak")
         if (getTotalFocusDay() >= minStreakMinutes*60){
             if (lastStreak <= Calendar.current.startOfDay(for: .now)){
                 
@@ -245,7 +276,7 @@ class TimerViewModel: ObservableObject {
         var taskCoin = 0
         var streakCoin = 0
         
-        var totalFocusTime = getTotalFocusSession()
+        let totalFocusTime = getTotalFocusSession()
         if totalFocusTime >= 25*60{
             totalCoin = 25
             taskCoin = 25
@@ -267,7 +298,7 @@ class TimerViewModel: ObservableObject {
             totalCoin += 25
             streakCoin = 25
         }
-        var oldCoin = UserDefaults.standard.integer(forKey: "coins")
+        let oldCoin = UserDefaults.standard.integer(forKey: "coins")
         UserDefaults.standard.setValue((oldCoin+totalCoin), forKey: "coins")
         
         session!.coin = Int32(totalCoin)
@@ -291,6 +322,20 @@ class TimerViewModel: ObservableObject {
         }
     }
     
+    func startConfirmationTimer(sec : Int) {
+        self.totalSeconds = sec
+        self.timerIsRunning = true
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [self] timer in
+            if self.totalSeconds > 0 {
+                self.totalSeconds -= 1
+            } else {
+                self.timerIsRunning = false
+                self.stopTimer()
+                self.stopFocus()
+            }
+        }
+    }
+    
     func stopTimer() {
         timer?.invalidate()
         timerIsRunning = false
@@ -298,9 +343,6 @@ class TimerViewModel: ObservableObject {
     
     func resetTimer() {
         timer?.invalidate()
-        hours = 0
-        minutes = 0
-        seconds = 0
         timerIsRunning = false
     }
     
@@ -316,6 +358,10 @@ class TimerViewModel: ObservableObject {
         return "\(formattedMinutes):\(formattedSeconds)"
     }
     
+    func countdownFormattedTime(totalSecond: Int) -> String {
+        let formattedSeconds = String(format: "%02d", ((totalSeconds % 3600) % 60))
+        return "\(formattedSeconds)"
+    }
     
     // MARK: SoundController Func
     func playSound(fileName: String) {

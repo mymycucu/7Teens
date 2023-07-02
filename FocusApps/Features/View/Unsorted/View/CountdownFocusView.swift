@@ -59,8 +59,6 @@ struct CountdownFocusView: View {
                             .cornerRadius(40)
                     }
                     .padding(.bottom, 30)
-
-
                 }
             }
     }

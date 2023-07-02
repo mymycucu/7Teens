@@ -10,16 +10,42 @@ import SwiftUI
 struct UncompleteView: View {
     @EnvironmentObject var appState: AppState
     @ObservedObject var viewModel = UncompleteViewModel()
-    @State var taskName: String = ""
+    @State var isContinueModalVisible = false
     
     var body: some View {
         NavigationView {
             VStack {
                 List{
                     ForEach(viewModel.getTaskUncompleteData()){ task in
-                        Text("\(task.name!) \n\(getDate(date:task.createdAt!))")
+                        Button(action: {
+                            // Handle button tap
+                            viewModel.taskSelected = task
+                            isContinueModalVisible = true
+                        }) {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(task.name!)
+                                        .font(.custom("PlusJakartaSans-Bold", size: 18))
+                                    Text(getDate(date:task.createdAt!))
+                                        .font(.custom("PlusJakartaSans-Regular", size: 10))
+                                }
+                                .padding(.vertical, 5)
+                            }
+                        }
+                        //Pop Up Modal
+                        .listRowSeparatorTint(Color(red: 0.25, green: 0.6, blue: 0.58))
+
                     }
                 }.listStyle(PlainListStyle())
+                //Pop Up Modal
+                    .sheet(isPresented: $isContinueModalVisible) {
+                        ContinueConfirmation(task: viewModel.taskSelected!)
+                            .environmentObject(appState)
+                        .padding(.top, 20)
+                        .presentationDetents([.height(277)])
+                        .presentationDragIndicator(.visible)
+                    }
+                
             }
             .navigationTitle("Uncomplete Task")
         }

@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var appState: AppState
     @State var activityName: String
-    @State var selectedTab = 1
     @StateObject var viewModel: TimerViewModel = TimerViewModel()
 
     init() {
@@ -21,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         //        TestView()
         //    }
-        TabView(selection: $selectedTab) {
+        TabView(selection: $appState.selectedTab) {
             
             // Focus Page
             FocusView()

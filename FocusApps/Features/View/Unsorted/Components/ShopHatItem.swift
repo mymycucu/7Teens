@@ -92,7 +92,7 @@ struct ShopHatItem: View {
                         .padding(.horizontal, 16)
                         .padding(.vertical, 0)
                         .frame(height: 32, alignment: .center)
-                        .background(item.price <= 600 /* COIN */ ? Color("SY-500") : Color("GreyL-4"))
+                        .background(item.price <= UserDefaults.standard.integer(forKey: "coins") ? Color("SY-500") : Color("GreyL-4"))
                         .cornerRadius(22)
                     }
                     .frame(width: 109, height: 149, alignment: .center)

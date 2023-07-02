@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct CustomAlertView: View {
+struct RestConfirmationModule: View {
+    @StateObject var viewModel : TimerViewModel
     var body: some View {
         VStack(spacing:18) {
             // MARK: Title
@@ -21,14 +22,15 @@ struct CustomAlertView: View {
                 .frame(width: 264)
             
             // MARK: Warning
-            Text("Automatically end task in 20 secs")
+            Text("Automatically end task in \(viewModel.countdownFormattedTime(totalSecond: viewModel.totalSeconds)) secs")
                 .font(.system(size: 12))
                 .foregroundColor(.red)
             
             HStack {
                 // MARK: End Focus Button
                 Button(action: {
-                    // Handle "End Focus" button action here
+                    viewModel.stopSession()
+                    viewModel.cycleController()
                 }) {
                     Text("End Focus")
                         .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
@@ -42,7 +44,7 @@ struct CustomAlertView: View {
                 }
                 // MARK: Continue Focus Button
                 Button(action: {
-                    // Handle "Continue Focus" button action here
+                    viewModel.continueFocus()
                 }) {
                     Text("Continue Focus")
                         .foregroundColor(.white)
@@ -59,9 +61,9 @@ struct CustomAlertView: View {
     }
 }
 
-struct CustomAlertView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomAlertView()
-    }
-}
+//struct CustomAlertView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CustomAlertView()
+//    }
+//}
 

@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class AppState: ObservableObject {
+    @Published var selectedTab = 1
     
     @Published var background: String = UserDefaults.standard.string(forKey: "background") ??  "bg-forest"
     @Published var song: String = UserDefaults.standard.string(forKey: "song") ??  "forest-wind"

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContinueConfirmation: View {
+    @EnvironmentObject var appState : AppState
+    @State var task : TaskMO
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -15,14 +17,16 @@ struct ContinueConfirmation: View {
             Text("Do you want to continue on")
                 .font(.custom("PlusJakartaSans-Regular", size: 18))
                 .padding(.top, 10)
-            Text("Practice Algebra")
+            Text("\(task.name!)")
                 .font(.custom("PlusJakartaSans-Bold", size: 20))
                 .padding(.top, 3)
                 .padding(.bottom, 30)
             
             //Yes Button
             Button(action: {
-
+                appState.task = task
+                appState.selectedTab = 1
+                dismiss()
             }) {
                 Text("Yes")
                     .font(.custom("PlusJakartaSans-SemiBold", size: 16))
@@ -53,8 +57,8 @@ struct ContinueConfirmation: View {
     }
 }
 
-struct ContinueConfirmation_Previews: PreviewProvider {
-    static var previews: some View {
-        ContinueConfirmation()
-    }
-}
+//struct ContinueConfirmation_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContinueConfirmation()
+//    }
+//}

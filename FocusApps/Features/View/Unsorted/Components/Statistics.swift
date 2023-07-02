@@ -16,8 +16,9 @@ struct Statistics: View {
         VStack(alignment: .leading, spacing: 15) {
             Picker(selection: $viewModel.selectedTimeSegment, label: Text("Select a segment")) {
                 Text("Daily").tag(0)
-                Text("Weekly").tag(1)
-                Text("Monthly").tag(2)
+//                Text("Weekly").tag(1)
+//                Text("Monthly").tag(2)
+                Text("All").tag(3)
             }
             .pickerStyle(SegmentedPickerStyle())
             .frame(width: 326)
