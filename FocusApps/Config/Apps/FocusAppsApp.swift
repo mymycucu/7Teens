@@ -21,7 +21,7 @@ struct FocusAppsApp: App {
 //                             persistenceController.container.viewContext)
             ContentView()
                 .environmentObject(appState)
-//                .preferredColorScheme(.light)
+                .preferredColorScheme(.light)
 //                .environment(\.managedObjectContext,
 //                              persistenceController.container.viewContext)
         }

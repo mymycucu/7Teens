@@ -37,6 +37,8 @@ struct UncompleteView: View {
 
                     }
                 }.listStyle(PlainListStyle())
+                    .offset(x: -10)
+                    .frame(width: 370)
                 //Pop Up Modal
                     .sheet(isPresented: $isContinueModalVisible) {
                         ContinueConfirmation(task: viewModel.taskSelected!)
@@ -47,6 +49,7 @@ struct UncompleteView: View {
                     }
                 
             }
+            .padding(.top, 30)
             .navigationTitle("Uncomplete Task")
         }
     }
