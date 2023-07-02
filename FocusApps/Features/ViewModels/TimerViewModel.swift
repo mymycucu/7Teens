@@ -179,10 +179,14 @@ class TimerViewModel: ObservableObject {
         }
     }
     
+    func getTotalTimeSet() -> Int{
+        return hours * 3600 + minutes * 60 + seconds
+    }
+    
     // MARK: Reward
     func getTotalFocusDay() -> Int {
         var totalFocusTime = 0
-        var today = Calendar.current.startOfDay(for: .now)
+        let today = Calendar.current.startOfDay(for: .now)
         
         let fetchRequest: NSFetchRequest<ActivityMO> = ActivityMO.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "createdAt >= %@ AND type == 0", today as NSDate)

@@ -194,19 +194,39 @@ struct FocusSettingView: View {
                     .padding()
 
                     
-                    TextField("Write your activity", text: $viewModel.taskName)
-                        .overlay(
-                            VStack {
-                                Rectangle()
-                                    .fill(Color(red: 0.07, green: 0.34, blue: 0.35))
-                                    .frame(width: 200, height: 2) // Adjust the line width here
-                                    .offset(x: 0, y: 25)
-                            }
-                        )
-                        .font(.custom("PlusJakartaSans-Regular", size: 22))
-                        .multilineTextAlignment(.center)
+                    HStack {
+                        Spacer()
+                        TextField("Write your activity", text: $viewModel.taskName)
+                            .overlay(
+                                VStack {
+                                    if viewModel.task == nil {
+                                        Rectangle()
+                                            .fill(Color(red: 0.07, green: 0.34, blue: 0.35))
+                                            .frame(width: 200, height: 2) // Adjust the line width here
+                                            .offset(x: 0, y: 25)
+                                    }
+                                }
+                                
+                            )
+                            .disabled(viewModel.task != nil)
+                            .font(.custom("PlusJakartaSans-Regular", size: 22))
+                            .multilineTextAlignment(.center)
                         .padding(.top, 20)
-
+                        if viewModel.task != nil {
+                            Button(action: {
+                                viewModel.task = nil
+                                viewModel.taskName = ""
+                                viewModel.isNewTask = true
+                                print("clicked")
+                            }) {
+                                Text("clear task")
+                                    .font(.custom("PlusJakartaSans-SemiBold", size: 12))
+                            }
+                        }
+                        Spacer()
+                    }
+                    
+                    
                     
                     //Timer
         //            if !viewModel.timerIsRunning {
@@ -239,9 +259,10 @@ struct FocusSettingView: View {
                                 .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                                 .foregroundColor(.white)
                                 .frame(width: 119, height: 50)
-                                .background(Color(red: 0.97, green: 0.7, blue: 0.1))
+                                .background(viewModel.taskName.isEmpty ? Constant.colorDisabled : Constant.cororEnabled )
                                 .cornerRadius(40)
                         }
+                        .disabled(viewModel.taskName.isEmpty)
                         .padding()
                     
                     Spacer()
