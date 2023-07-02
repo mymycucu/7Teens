@@ -208,10 +208,16 @@ struct FocusSettingView: View {
                                 }
                                 
                             )
+                            .frame(width: 200)
                             .disabled(viewModel.task != nil)
                             .font(.custom("PlusJakartaSans-Regular", size: 22))
                             .multilineTextAlignment(.center)
-                        .padding(.top, 20)
+                            .padding(.top, 20)
+                            .padding(.leading, viewModel.task != nil ? 35 : 0)
+
+                        
+                        
+
                         if viewModel.task != nil {
                             Button(action: {
                                 viewModel.task = nil
@@ -219,10 +225,14 @@ struct FocusSettingView: View {
                                 viewModel.isNewTask = true
                                 print("clicked")
                             }) {
-                                Text("clear task")
-                                    .font(.custom("PlusJakartaSans-SemiBold", size: 12))
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.secondary)
+                                    .font(.system(size: 20))
                             }
+                            .offset(x: -CGFloat(viewModel.taskName.count * 7), y: -20)
                         }
+
+
                         Spacer()
                     }
                     
