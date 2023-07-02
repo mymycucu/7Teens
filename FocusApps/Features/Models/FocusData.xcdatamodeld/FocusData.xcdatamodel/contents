@@ -13,6 +13,7 @@
         <attribute name="itemName" optional="YES" attributeType="String"/>
     </entity>
     <entity name="SessionMO" representedClassName="SessionMO" syncable="YES" codeGenerationType="class">
+        <attribute name="coin" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityMO" inverseName="session" inverseEntity="ActivityMO"/>
@@ -27,6 +28,7 @@
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isPinned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SessionMO" inverseName="task" inverseEntity="SessionMO"/>
     </entity>

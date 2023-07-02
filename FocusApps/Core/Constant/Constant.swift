@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Constant {
     static let shouldShowOnboarding = "shouldShowOnboarding"
@@ -35,6 +36,8 @@ struct Constant {
     static let streakMaster = BadgeItem(badgeImage: "streak-master", badgeTitle: "Streak Master")
     static let zenMaster = BadgeItem(badgeImage: "zen-master", badgeTitle: "Zen Master")
 
+    static let colorDisabled = Color(red: 1, green: 0.92, blue: 0.64)
+    static let cororEnabled = Color(red: 0.97, green: 0.7, blue: 0.1)
 }
 
 class ShopItem {

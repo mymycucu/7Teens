@@ -10,6 +10,7 @@ import SwiftUI
 struct RewardView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var viewModel: TimerViewModel
+    @State var isDone = 2
     
     var body: some View {
         ZStack {
@@ -97,27 +98,41 @@ struct RewardView: View {
                     HStack{
                         
                         Button(action: {
-                            
+                            isDone = 0
+                            viewModel.task!.isDone = false
+                            viewModel.save()
                         }) {
                             Text("No, Uncompleted")
                                 .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                                 .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
+                                .padding(EdgeInsets(top: 5, leading: 8, bottom: 5, trailing: 8))
+                                .overlay(
+                                    isDone == 0 ?
+                                        RoundedRectangle(cornerRadius: 40)
+                                        .stroke(Color(red: 0.97, green: 0.7, blue: 0.1), lineWidth: 2) : nil
+                                )
                         }
                         
                         Spacer()
                         
-                        
                         Button(action: {
+                            isDone = 1
                             viewModel.task!.isDone = true
                             viewModel.save()
                         }) {
                             Text("Yes, Completed")
                                 .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                                 .foregroundColor(Color(red: 0.97, green: 0.7, blue: 0.1))
+                                .padding(EdgeInsets(top: 5, leading: 8, bottom: 5, trailing: 8))
+                                .overlay(
+                                    isDone == 1 ?
+                                        RoundedRectangle(cornerRadius: 40)
+                                        .stroke(Color(red: 0.97, green: 0.7, blue: 0.1), lineWidth: 2) : nil
+                                )
                         }
                     }
-                    .padding(.horizontal, 30)
-                    .padding(.vertical, 20)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
                     .padding(.bottom, 10)
                 }
                 .frame(width: 358, height: 122)
@@ -135,9 +150,11 @@ struct RewardView: View {
                         .font(.custom("PlusJakartaSans-SemiBold", size: 16))
                         .foregroundColor(.white)
                         .frame(width: 358, height: 50)
-                        .background(Color(red: 0.97, green: 0.7, blue: 0.1))
+                        .background(isDone == 2 ? Color(red: 1, green: 0.92, blue: 0.64) : Color(red: 0.97, green: 0.7, blue: 0.1))
                         .cornerRadius(40)
+                        
                 }
+                .disabled(isDone == 2)
                 .padding(.top, 100)
             }
             .padding(.horizontal)
