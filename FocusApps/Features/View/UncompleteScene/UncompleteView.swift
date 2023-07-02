@@ -9,24 +9,15 @@ import SwiftUI
 
 struct UncompleteView: View {
     @EnvironmentObject var appState: AppState
-    @ObservedObject var viewModel: UncompleteViewModel
+    @ObservedObject var viewModel = UncompleteViewModel()
     @State var taskName: String = ""
-    
-    init() {
-        viewModel = UncompleteViewModel()
-    }
     
     var body: some View {
         NavigationView {
             VStack {
                 List{
-                    ForEach(viewModel.taskMOList){ task in
-                        NavigationLink {
-                            SessionView(taskMO: task)
-                                .navigationTitle("\(task.name!) Session")
-                        } label: {
-                            Text("\(task.name!) \n\(getDate(date:task.createdAt!))")
-                        }
+                    ForEach(viewModel.getTaskUncompleteData()){ task in
+                        Text("\(task.name!) \n\(getDate(date:task.createdAt!))")
                     }
                 }.listStyle(PlainListStyle())
             }
@@ -35,11 +26,17 @@ struct UncompleteView: View {
     }
 }
 
-//struct UncompleteView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UncompleteView()
-//    }
-//}
+// MARK: Struktur object TASKMO
+// var id : UUID
+// var createdAt : Date
+// var name : String
+// var isDone : Bool
+// var isPinned : Bool
+
+// Buat ngambilnya pake function di UncompleteViewModel getTaskUncompleteData
+// kalo ada yang diubah jangan lupa di save pake di UncompleteViewModel
+// panggil ulang function di UncompleteViewModel getTaskUncompleteData
+
 
 extension UncompleteView{
     func getDate(date: Date) -> String{

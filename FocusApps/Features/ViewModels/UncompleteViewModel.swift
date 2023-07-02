@@ -12,13 +12,22 @@ import CoreData
 class UncompleteViewModel: ObservableObject {
     @Published var taskMOList: [TaskMO] = []
     
-    func getTaskData() ->[TaskMO]  {
+    func getTaskUncompleteData() ->[TaskMO]  {
+        var taskList: [TaskMO] = []
         let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "isDone == 0")
         
-        if let taskMOs = try? PersistenceController.shared.viewContext.fetch(fetchRequest) {
-            self.taskMOList = taskMOs
+        if let taskMOs = try? PersistenceController.shared.viewContext.fetch(fetchRequest){
+            taskList = taskMOs
         }
-        return taskMOList
+        return taskList
+    }
+    
+    func save(){
+        do {
+            try PersistenceController.shared.save()
+        } catch {
+            print("Error saving")
+        }
     }
 }
