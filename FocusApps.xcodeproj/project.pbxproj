@@ -47,6 +47,8 @@
 		AD25B56D2A4893A600C56931 /* UncompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B56C2A4893A600C56931 /* UncompleteViewModel.swift */; };
 		AD25B5712A4A916000C56931 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B5702A4A916000C56931 /* TimerViewModel.swift */; };
 		AD25B5AF2A4DF55800C56931 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25B5AE2A4DF55800C56931 /* ShopView.swift */; };
+		AD28D0452A519BFF000ED6D9 /* InsightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28D0442A519BFF000ED6D9 /* InsightModel.swift */; };
+		AD28D0472A51B087000ED6D9 /* InsightSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28D0462A51B087000ED6D9 /* InsightSessionModel.swift */; };
 		AD4ACDA32A45828900E7691E /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4ACDA12A45828900E7691E /* Items.swift */; };
 		AD66531A2A4DF84C007A1C3E /* FocusSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6653192A4DF84C007A1C3E /* FocusSettingView.swift */; };
 		AD66531C2A4E0046007A1C3E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66531B2A4E0046007A1C3E /* TestView.swift */; };
@@ -127,6 +129,8 @@
 		AD25B56C2A4893A600C56931 /* UncompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncompleteViewModel.swift; sourceTree = "<group>"; };
 		AD25B5702A4A916000C56931 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		AD25B5AE2A4DF55800C56931 /* ShopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		AD28D0442A519BFF000ED6D9 /* InsightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightModel.swift; sourceTree = "<group>"; };
+		AD28D0462A51B087000ED6D9 /* InsightSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightSessionModel.swift; sourceTree = "<group>"; };
 		AD4ACDA12A45828900E7691E /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		AD6653192A4DF84C007A1C3E /* FocusSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSettingView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		AD66531B2A4E0046007A1C3E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -429,6 +433,8 @@
 				ADD5E4EB2A42E9AE00624B0F /* TaskMO+Extention.swift */,
 				ADD5E4ED2A42ECC500624B0F /* SessionMO+Extention.swift */,
 				ADF688DA2A508F2200F61A79 /* RewardModel.swift */,
+				AD28D0442A519BFF000ED6D9 /* InsightModel.swift */,
+				AD28D0462A51B087000ED6D9 /* InsightSessionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -563,7 +569,9 @@
 				056A1D112A458A770029B5B9 /* CountdownFocusView.swift in Sources */,
 				D4545F3E2A4A90A100887B9C /* RoundedCorner.swift in Sources */,
 				D4D804862A4C7B4B00CC9894 /* ShopCharacterItem.swift in Sources */,
+				AD28D0472A51B087000ED6D9 /* InsightSessionModel.swift in Sources */,
 				D4D804882A4C801D00CC9894 /* ShopPreview.swift in Sources */,
+				AD28D0452A519BFF000ED6D9 /* InsightModel.swift in Sources */,
 				05162B8E2A4C09A10079A1DD /* UncompleteTaskView.swift in Sources */,
 				053589022A4BD77D0064185D /* RewardView.swift in Sources */,
 				AD25B5682A487E3600C56931 /* InsightViewModel.swift in Sources */,
