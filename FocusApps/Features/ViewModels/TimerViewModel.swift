@@ -124,7 +124,7 @@ class TimerViewModel: ObservableObject {
     
     func startRest(){
         self.createRest()
-        startTimer(sec: 10)
+        startTimer(sec: 5*60)
         self.restStep += 1
         self.sceneState = 2
         self.isContinueFocus = false
