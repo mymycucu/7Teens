@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct FocusAppsApp: App {
     @StateObject var appState = AppState()
+    
+    
     let persistenceController = PersistenceController.shared
     
     var body: some Scene {
@@ -17,8 +19,9 @@ struct FocusAppsApp: App {
 //            ContentView(activityName: "")
 //                .environment(\.managedObjectContext,
 //                             persistenceController.container.viewContext)
-            ContentView(activityName: "")
+            ContentView()
                 .environmentObject(appState)
+//                .preferredColorScheme(.light)
 //                .environment(\.managedObjectContext,
 //                              persistenceController.container.viewContext)
         }

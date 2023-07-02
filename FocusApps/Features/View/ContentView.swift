@@ -9,41 +9,71 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var appState: AppState
-    @StateObject private var timerManager = TimerManager()
     @State var activityName: String
     @State var selectedTab = 1
+    @StateObject var viewModel: TimerViewModel = TimerViewModel()
+
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.white
+        activityName = ""
+    }
     
     var body: some View {
-        NavigationView{
-            TabView(selection: $selectedTab) {
-                
-                // Focus Page
-                FocusView(activityName: $activityName, timerManager: timerManager)
-                    .tabItem {
-                        Label("Focus", systemImage: "clock")
-                    }
-                
-                
-                TaskMOsView()
-                    .environmentObject(AppState())
-                    .tabItem {
-                        Image(systemName: "chart.xyaxis.line")
-                        Text("Insight")
-                    }
-                    .tag(0)
-                
-                // Uncompleted Task
-                ShopView()
-                    .tabItem {
-                        Label("Shop", systemImage: "clock")
-                    }
-            }
+        //        TestView()
+        //    }
+        TabView(selection: $selectedTab) {
+            
+            // Focus Page
+            FocusView()
+                .environmentObject(appState)
+                .tabItem {
+                    Label("Focus", systemImage: "target")
+                }
+                .tag(1)
+            
+            UncompleteTaskView()
+                .environmentObject(appState)
+                .tabItem {
+                    Image(systemName: "note.text")
+                    Text("Uncomplete")
+                }.tag(2)
+            
+            UncompleteView()
+                .environmentObject(appState)
+                .tabItem {
+                    Image(systemName: "note.text")
+                    Text("Hilmy Uncomplete")
+                }.tag(5)
+            
+            // Uncompleted Task
+            SummaryView()
+                .environmentObject(appState)
+                .tabItem {
+                    Image(systemName: "chart.bar.xaxis")
+                    Text("Insight")
+                }
+                .tag(3)
+            
+            // Shop
+            ShopView()
+                .environmentObject(appState)
+                .tabItem {
+                    Label("Shop", systemImage: "basket.fill")
+                }.tag(4)
         }
+        .background(.white)
+        .accentColor(Color("PG-400"))
     }
-}
+//    .preferredColorScheme(.light)
+    
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(activityName: "")
-    }
+
 }
+//}
+
+ struct ContentView_Previews: PreviewProvider {
+     static var previews: some View {
+         ContentView()
+             .environmentObject(AppState())
+     }
+ }
