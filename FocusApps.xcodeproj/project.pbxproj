@@ -27,7 +27,7 @@
 		053589002A4BD76F0064185D /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053588FF2A4BD76F0064185D /* StreakView.swift */; };
 		053589022A4BD77D0064185D /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589012A4BD77D0064185D /* RewardView.swift */; };
 		053589082A4BD8860064185D /* StreakStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589052A4BD8860064185D /* StreakStamp.swift */; };
-		0535890A2A4BD88D0064185D /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589092A4BD88D0064185D /* CustomAlert.swift */; };
+		0535890A2A4BD88D0064185D /* RestConfirmationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053589092A4BD88D0064185D /* RestConfirmationModule.swift */; };
 		0535890C2A4BDEEF0064185D /* BadgesGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535890B2A4BDEEF0064185D /* BadgesGrid.swift */; };
 		0535890E2A4BE80F0064185D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535890D2A4BE80F0064185D /* Task.swift */; };
 		053589102A4BEAB80064185D /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535890F2A4BEAB80064185D /* Statistics.swift */; };
@@ -109,7 +109,7 @@
 		053588FF2A4BD76F0064185D /* StreakView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
 		053589012A4BD77D0064185D /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
 		053589052A4BD8860064185D /* StreakStamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreakStamp.swift; sourceTree = "<group>"; };
-		053589092A4BD88D0064185D /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		053589092A4BD88D0064185D /* RestConfirmationModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestConfirmationModule.swift; sourceTree = "<group>"; };
 		0535890B2A4BDEEF0064185D /* BadgesGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesGrid.swift; sourceTree = "<group>"; };
 		0535890D2A4BE80F0064185D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		0535890F2A4BEAB80064185D /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 				D4D8047B2A4C350D00CC9894 /* ShopHatItem.swift */,
 				D4545F412A4A9AEF00887B9C /* SegmentedShopEnum.swift */,
 				05A211412A498F9700A3F9D0 /* FaqAccordion.swift */,
-				053589092A4BD88D0064185D /* CustomAlert.swift */,
+				053589092A4BD88D0064185D /* RestConfirmationModule.swift */,
 				D4B0F9B22A4ED7D600B45ED6 /* StopFocusConfirmation.swift */,
 				053589052A4BD8860064185D /* StreakStamp.swift */,
 				0535890B2A4BDEEF0064185D /* BadgesGrid.swift */,
@@ -608,7 +608,7 @@
 				ADECB3062A3DB566005BA03F /* FocusAppsApp.swift in Sources */,
 				D4545F422A4A9AEF00887B9C /* SegmentedShopEnum.swift in Sources */,
 				ADF688D92A504E0E00F61A79 /* CycleBarView.swift in Sources */,
-				0535890A2A4BD88D0064185D /* CustomAlert.swift in Sources */,
+				0535890A2A4BD88D0064185D /* RestConfirmationModule.swift in Sources */,
 				05162B902A4C373D0079A1DD /* ContinueConfirmation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,10 +742,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FocusApps/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Timee;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -772,10 +775,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FocusApps/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Timee;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
