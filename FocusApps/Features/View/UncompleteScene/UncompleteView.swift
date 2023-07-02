@@ -51,6 +51,8 @@ struct UncompleteView: View {
                     .refreshable {
                         viewModel.refreshData()
                     }
+                    .offset(x: -10)
+                    .frame(width: 370)
                 //Pop Up Modal
                     .sheet(isPresented: $isContinueModalVisible) {
                         ContinueConfirmation(task: viewModel.taskSelected!)
@@ -61,6 +63,7 @@ struct UncompleteView: View {
                     }
                     
             }
+            .padding(.top, 30)
             .navigationTitle("Uncomplete Task")
             .onAppear(perform: viewModel.initData)
             .onChange(of: appState.allTaskChange){
